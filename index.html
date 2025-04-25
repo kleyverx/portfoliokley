@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kleyver Urbina - Desarrollador Full Stack</title>
+  <meta name="description" content="Portfolio profesional de Kleyver Urbina, Desarrollador Full Stack con experiencia en PHP, Laravel, JavaScript y más">
+  <!-- Importar Tailwind desde CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Configuración de Tailwind -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            background: '#10111a',
+            foreground: '#f1f5f9',
+            card: '#141627',
+            primary: '#ff3399',
+            secondary: '#4d94ff',
+            muted: '#1e2032',
+            mutedForeground: '#a1a1b5',
+            accent: '#9333ea',
+            border: '#2e304a'
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-background text-foreground min-h-screen">
+  <!-- Navegación -->
+  <header class="sticky top-0 z-40 w-full border-b border-border/50 bg-background/80 backdrop-blur">
+    <div class="container mx-auto px-4 flex h-16 items-center justify-between">
+      <a href="#" class="font-bold text-3xl text-primary neon-text">
+        クレイバー<span class="text-xl ml-1">Portfolio</span>
+      </a>
+      <nav id="desktop-nav" class="hidden md:flex md:flex-row md:gap-6">
+        <button data-section="inicio" class="text-sm font-medium hover:text-primary transition-colors py-2 md:py-0 text-left nav-link">
+          Inicio
+        </button>
+        <button data-section="videos" class="text-sm font-medium hover:text-primary transition-colors py-2 md:py-0 text-left nav-link">
+          Videos
+        </button>
+        <button data-section="proyectos" class="text-sm font-medium hover:text-primary transition-colors py-2 md:py-0 text-left nav-link">
+          Proyectos
+        </button>
+        <button data-section="habilidades" class="text-sm font-medium hover:text-primary transition-colors py-2 md:py-0 text-left nav-link">
+          Habilidades
+        </button>
+        <button data-section="contacto" class="text-sm font-medium hover:text-primary transition-colors py-2 md:py-0 text-left nav-link">
+          Contacto
+        </button>
+      </nav>
+      <button id="download-cv" class="hidden md:flex bg-primary hover:bg-primary/80 text-white px-4 py-2 rounded-md text-sm">
+        Descargar CV
+      </button>
+      <button id="mobile-menu-button" class="md:hidden border border-primary/50 p-2 rounded-md">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+          <line x1="4" x2="20" y1="12" y2="12"></line>
+          <line x1="4" x2="20" y1="6" y2="6"></line>
+          <line x1="4" x2="20" y1="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <nav id="mobile-nav" class="hidden flex-col absolute top-16 left-0 w-full bg-background/95 p-4 border-b border-border/50 z-50">
+      <button data-section="inicio" class="text-sm font-medium hover:text-primary transition-colors py-2 text-left nav-link">
+        Inicio
+      </button>
+      <button data-section="videos" class="text-sm font-medium hover:text-primary transition-colors py-2 text-left nav-link">
+        Videos
+      </button>
+      <button data-section="proyectos" class="text-sm font-medium hover:text-primary transition-colors py-2 text-left nav-link">
+        Proyectos
+      </button>
+      <button data-section="habilidades" class="text-sm font-medium hover:text-primary transition-colors py-2 text-left nav-link">
+        Habilidades
+      </button>
+      <button data-section="contacto" class="text-sm font-medium hover:text-primary transition-colors py-2 text-left nav-link">
+        Contacto
+      </button>
+    </nav>
+  </header>
+
+  <main class="flex flex-col items-center">
+    <!-- Sección Hero -->
+    <section id="inicio" class="w-full py-12 md:py-24 lg:py-32 xl:py-48 animate-section opacity-0 transition-all duration-1000 translate-y-10 relative overflow-hidden">
+      <div class="cyberpunk-grid absolute inset-0 opacity-20"></div>
+      <div class="container mx-auto px-4 md:px-6 relative z-10">
+        <div class="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+          <div class="flex flex-col justify-center space-y-4">
+            <div class="space-y-2">
+              <span class="animate-element opacity-0 transition-all duration-700 delay-300 inline-flex bg-primary/20 text-primary text-base hover:bg-primary/30 px-3 py-1 rounded-full">
+                デベロッパー • <span class="lang-text" data-key="desarrollador">Desarrollador Full Stack</span>
+              </span>
+              <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none animate-element opacity-0 transition-all duration-700 delay-500 neon-text">
+                <span class="lang-text" data-key="hola">Hola, soy</span> <span class="text-primary">Kleyver Urbina</span>
+              </h1>
+              <p class="max-w-[600px] text-mutedForeground md:text-xl animate-element opacity-0 transition-all duration-700 delay-700 lang-text" data-key="descripcion">
+                Estudiante de Ingeniería en Informática (TSU) con 3 años de experiencia académica y práctica en desarrollo de software.
+              </p>
+            </div>
+            <div class="flex flex-col gap-2 min-[400px]:flex-row animate-element opacity-0 transition-all duration-700 delay-900">
+              <button class="bg-primary hover:bg-primary/80 text-white px-6 py-3 rounded-md glow-effect projects-btn">
+                <span class="lang-text" data-key="verProyectos">Ver proyectos</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-4 w-4 inline">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </button>
+              <button class="border border-primary/50 hover:border-primary px-6 py-3 rounded-md glow-effect contact-btn">
+                <span class="lang-text" data-key="contactar">Contactar</span>
+              </button>
+            </div>
+          </div>
+          <div class="flex items-center justify-center">
+            <div class="relative aspect-square overflow-hidden rounded-full border-2 border-primary/50 animate-element opacity-0 transition-all duration-1000 delay-1000 neon-border">
+              <img src="public/perfil.jpeg" alt="Foto de perfil" class="object-cover w-full h-full">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Videos -->
+    <section id="videos" class="w-full py-12 md:py-24 lg:py-32 bg-muted/30 animate-section opacity-0 transition-all duration-1000 translate-y-10 relative">
+      <div class="cyberpunk-grid absolute inset-0 opacity-10"></div>
+      <div class="container mx-auto px-4 md:px-6 relative z-10">
+        <div class="flex flex-col items-center justify-center space-y-4 text-center">
+          <div class="space-y-2">
+            <span class="animate-element opacity-0 transition-all duration-700 inline-flex border border-primary/50 text-primary px-3 py-1 rounded-full">
+              <span class="lang-text" data-key="misVideos">ビデオ • Mis Videos</span>
+            </span>
+            <h2 class="text-3xl font-bold tracking-tighter md:text-4xl/tight animate-element opacity-0 transition-all duration-700 delay-200 neon-text lang-text" data-key="proyectosVideo">
+              Proyectos en Video
+            </h2>
+            <p class="mx-auto max-w-[700px] text-mutedForeground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed animate-element opacity-0 transition-all duration-700 delay-300 lang-text" data-key="exploraVideos">
+              Explora mis proyectos y tutoriales en formato video
+            </p>
+          </div>
+        </div>
+        <div class="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2">
+          <!-- Video de YouTube -->
+          <div class="group relative overflow-hidden rounded-lg border border-primary/20 animate-element opacity-0 transition-all duration-700 delay-400 hover:border-primary/50 transition-all duration-300">
+            <div class="aspect-video relative">
+              <!-- Reemplaza VIDEO_ID con el ID de tu video de YouTube -->
+              <iframe 
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/gjarCA-Vwz4" 
+                title="YouTube video" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div class="p-4">
+              <h3 class="font-semibold text-primary lang-text" data-key="video1Titulo">Tutorial de desarrollo web</h3>
+              <p class="text-sm text-mutedForeground lang-text" data-key="video1Desc">Aprende desarrollo web moderno</p>
+            </div>
+          </div>
+
+          <!-- Video de TikTok -->
+          <div class="group relative overflow-hidden rounded-lg border border-primary/20 animate-element opacity-0 transition-all duration-700 delay-500 hover:border-primary/50 transition-all duration-300">
+            <div class="aspect-video relative flex items-center justify-center">
+              <!-- Reemplaza USERNAME/VIDEO_ID con el enlace de tu TikTok -->
+              <blockquote 
+                class="tiktok-embed w-full" 
+                cite="https://www.tiktok.com/@kleyver.x/7403102510350748933"
+                data-video-id="7403102510350748933">
+              </blockquote>
+              <script async src="https://www.tiktok.com/embed.js"></script>
+            </div>
+            <div class="p-4">
+              <h3 class="font-semibold text-primary lang-text" data-key="video2Titulo">Tutorial rápido</h3>
+              <p class="text-sm text-mutedForeground lang-text" data-key="video2Desc">Tips y trucos de programación</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <a href="https://www.youtube.com/@TuCanal" target="_blank" class="border border-primary/50 hover:border-primary px-4 py-2 rounded-md animate-element opacity-0 transition-all duration-700 delay-800 inline-flex items-center">
+            <span class="lang-text" data-key="verMasVideos">Ver más videos</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-4 w-4">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Proyectos -->
+    <section id="proyectos" class="w-full py-12 md:py-24 lg:py-32 animate-section opacity-0 transition-all duration-1000 translate-y-10 relative">
+      <div class="cyberpunk-grid absolute inset-0 opacity-10"></div>
+      <div class="container mx-auto px-4 md:px-6 relative z-10">
+        <div class="flex flex-col items-center justify-center space-y-4 text-center">
+          <div class="space-y-2">
+            <span class="animate-element opacity-0 transition-all duration-700 inline-flex border border-primary/50 text-primary px-3 py-1 rounded-full">
+              <span class="lang-text" data-key="portfolioTitulo">プロジェクト • Portfolio</span>
+            </span>
+            <h2 class="text-3xl font-bold tracking-tighter md:text-4xl/tight animate-element opacity-0 transition-all duration-700 delay-200 neon-text lang-text" data-key="misProyectos">
+              Mis Proyectos
+            </h2>
+            <p class="mx-auto max-w-[700px] text-mutedForeground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed animate-element opacity-0 transition-all duration-700 delay-300 lang-text" data-key="seleccionTrabajos">
+              Una selección de mis trabajos más recientes y destacados
+            </p>
+          </div>
+        </div>
+        <div class="mx-auto grid max-w-5xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-12">
+          <!-- Proyecto 1 -->
+          <div class="overflow-hidden animate-element opacity-0 transition-all duration-700 delay-400 bg-card border border-primary/20 hover:border-primary/50 transition-all duration-300 rounded-lg">
+            <div class="aspect-video relative">
+              <img src="public/proyecto1/2.png" alt="Imagen del proyecto" class="object-cover w-full h-full">
+            </div>
+            <div class="p-4">
+              <div class="space-y-2">
+                <h3 class="font-semibold text-primary lang-text" data-key="proyecto1Titulo">E-commerce de Moda</h3>
+                <p class="text-sm text-mutedForeground lang-text" data-key="proyecto1Desc">
+                  Tienda online completa con carrito de compras, pagos y gestión de pedidos.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">Laravel</span>
+                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">Livewire</span>
+                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">MySQL</span>
+                </div>
+                <div class="flex gap-2 pt-2">
+                  <a href="https://github.com" target="_blank" class="border border-primary/50 hover:border-primary px-3 py-1 rounded-md text-sm inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                      <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                    </svg>
+                    <span class="lang-text" data-key="codigo">Código</span>
+                  </a>
+                  <a href="#" class="bg-primary hover:bg-primary/80 text-white px-3 py-1 rounded-md text-sm inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    <span class="lang-text" data-key="demo">Demo</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Proyecto 2 -->
+          <div class="overflow-hidden animate-element opacity-0 transition-all duration-700 delay-500 bg-card border border-primary/20 hover:border-primary/50 transition-all duration-300 rounded-lg">
+            <div class="aspect-video relative">
+              <img src="https://via.placeholder.com/1280x720" alt="Imagen del proyecto" class="object-cover w-full h-full">
+            </div>
+            <div class="p-4">
+              <div class="space-y-2">
+                <h3 class="font-semibold text-primary lang-text" data-key="proyecto2Titulo">Dashboard Analítico</h3>
+                <p class="text-sm text-mutedForeground lang-text" data-key="proyecto2Desc">
+                  Panel de control con visualización de datos y estadísticas en tiempo real.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">Vue.js</span>
+                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">D3.js</span>
+                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">Firebase</span>
+                </div>
+                <div class="flex gap-2 pt-2">
+                  <a href="https://github.com" target="_blank" class="border border-primary/50 hover:border-primary px-3 py-1 rounded-md text-sm inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                      <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                    </svg>
+                    <span class="lang-text" data-key="codigo">Código</span>
+                  </a>
+                  <a href="#" class="bg-primary hover:bg-primary/80 text-white px-3 py-1 rounded-md text-sm inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    <span class="lang-text" data-key="demo">Demo</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Proyecto 3 -->
+          <div class="overflow-hidden animate-element opacity-0 transition-all duration-700 delay-600 bg-card border border-primary/20 hover:border-primary/50 transition-all duration-300 rounded-lg">
+            <div class="aspect-video relative">
+              <img src="https://via.placeholder.com/1280x720" alt="Imagen del proyecto" class="object-cover w-full h-full">
+            </div>
+            <div class="p-4">
+              <div class="space-y-2">
+                <h3 class="font-semibold text-primary lang-text" data-key="proyecto3Titulo">App de Gestión de Tareas</h3>
+                <p class="text-sm text-mutedForeground lang-text" data-key="proyecto3Desc">
+                  Aplicación para organizar proyectos y tareas con funcionalidades colaborativas.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">React Native</span>
+                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">GraphQL</span>
+                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">PostgreSQL</span>
+                </div>
+                <div class="flex gap-2 pt-2">
+                  <a href="https://github.com" target="_blank" class="border border-primary/50 hover:border-primary px-3 py-1 rounded-md text-sm inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                      <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                    </svg>
+                    <span class="lang-text" data-key="codigo">Código</span>
+                  </a>
+                  <a href="#" class="bg-primary hover:bg-primary/80 text-white px-3 py-1 rounded-md text-sm inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    <span class="lang-text" data-key="demo">Demo</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Proyecto 4 -->
+          <!-- <div class="overflow-hidden animate-element opacity-0 transition-all duration-700 delay-700 bg-card border border-primary/20 hover:border-primary/50 transition-all duration-300 rounded-lg">
+            <div class="aspect-video relative">
+              <img src="https://via.placeholder.com/1280x720" alt="Imagen del proyecto" class="object-cover w-full h-full">
+            </div>
+            <div class="p-4">
+              <div class="space-y-2">
+                <h3 class="font-semibold text-primary lang-text" data-key="proyecto4Titulo">Plataforma Educativa</h3>
+                <p class="text-sm text-mutedForeground lang-text" data-key="proyecto4Desc">
+                  Sistema de gestión de cursos online con videos, evaluaciones y certificados.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">Next.js</span>
+                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">Tailwind CSS</span>
+                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">Supabase</span>
+                </div>
+                <div class="flex gap-2 pt-2">
+                  <a href="https://github.com" target="_blank" class="border border-primary/50 hover:border-primary px-3 py-1 rounded-md text-sm inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                      <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                    </svg>
+                    <span class="lang-text" data-key="codigo">Código</span>
+                  </a>
+                  <a href="#" class="bg-primary hover:bg-primary/80 text-white px-3 py-1 rounded-md text-sm inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    <span class="lang-text" data-key="demo">Demo</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- Proyecto 5 -->
+          <!-- <div class="overflow-hidden animate-element opacity-0 transition-all duration-700 delay-800 bg-card border border-primary/20 hover:border-primary/50 transition-all duration-300 rounded-lg">
+            <div class="aspect-video relative">
+              <img src="https://via.placeholder.com/1280x720" alt="Imagen del proyecto" class="object-cover w-full h-full">
+            </div>
+            <div class="p-4">
+              <div class="space-y-2">
+                <h3 class="font-semibold text-primary lang-text" data-key="proyecto5Titulo">Aplicación de Finanzas Personales</h3>
+                <p class="text-sm text-mutedForeground lang-text" data-key="proyecto5Desc">
+                  Herramienta para seguimiento de gastos, presupuestos y análisis financiero.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">Angular</span>
+                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">TypeScript</span>
+                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">Express</span>
+                </div>
+                <div class="flex gap-2 pt-2">
+                  <a href="https://github.com" target="_blank" class="border border-primary/50 hover:border-primary px-3 py-1 rounded-md text-sm inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                      <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                    </svg>
+                    <span class="lang-text" data-key="codigo">Código</span>
+                  </a>
+                  <a href="#" class="bg-primary hover:bg-primary/80 text-white px-3 py-1 rounded-md text-sm inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    <span class="lang-text" data-key="demo">Demo</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- Proyecto 6 -->
+          <!-- <div class="overflow-hidden animate-element opacity-0 transition-all duration-700 delay-900 bg-card border border-primary/20 hover:border-primary/50 transition-all duration-300 rounded-lg">
+            <div class="aspect-video relative">
+              <img src="https://via.placeholder.com/1280x720" alt="Imagen del proyecto" class="object-cover w-full h-full">
+            </div>
+            <div class="p-4">
+              <div class="space-y-2">
+                <h3 class="font-semibold text-primary lang-text" data-key="proyecto6Titulo">Sitio Web Corporativo</h3>
+                <p class="text-sm text-mutedForeground lang-text" data-key="proyecto6Desc">
+                  Página web empresarial con múltiples secciones y formulario de contacto.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">HTML5</span>
+                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">SASS</span>
+                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">JavaScript</span>
+                </div>
+                <div class="flex gap-2 pt-2">
+                  <a href="https://github.com" target="_blank" class="border border-primary/50 hover:border-primary px-3 py-1 rounded-md text-sm inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                      <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                    </svg>
+                    <span class="lang-text" data-key="codigo">Código</span>
+                  </a>
+                  <a href="#" class="bg-primary hover:bg-primary/80 text-white px-3 py-1 rounded-md text-sm inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    <span class="lang-text" data-key="demo">Demo</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+        <div class="flex justify-center">
+          <button class="border border-primary/50 hover:border-primary px-4 py-2 rounded-md animate-element opacity-0 transition-all duration-700 delay-1000 inline-flex items-center">
+            <span class="lang-text" data-key="verMasProyectos">Ver más proyectos</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-4 w-4">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Habilidades -->
+    <section id="habilidades" class="w-full py-12 md:py-24 lg:py-32 bg-muted/30 animate-section opacity-0 transition-all duration-1000 translate-y-10 relative">
+      <div class="cyberpunk-grid absolute inset-0 opacity-10"></div>
+      <div class="container mx-auto px-4 md:px-6 relative z-10">
+        <div class="flex flex-col items-center justify-center space-y-4 text-center">
+          <div class="space-y-2">
+            <span class="animate-element opacity-0 transition-all duration-700 inline-flex border border-primary/50 text-primary px-3 py-1 rounded-full">
+              <span class="lang-text" data-key="habilidadesTitulo">スキル • Expertise</span>
+            </span>
+            <h2 class="text-3xl font-bold tracking-tighter md:text-4xl/tight animate-element opacity-0 transition-all duration-700 delay-200 neon-text lang-text" data-key="misHabilidades">
+              Mis Habilidades
+            </h2>
+            <p class="mx-auto max-w-[700px] text-mutedForeground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed animate-element opacity-0 transition-all duration-700 delay-300 lang-text" data-key="tecnologias">
+              Tecnologías y herramientas que domino para crear soluciones digitales
+            </p>
+          </div>
+        </div>
+        <div class="mx-auto grid max-w-5xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-12">
+          <!-- Categoría: Frontend -->
+          <div class="space-y-4 animate-element opacity-0 transition-all duration-700 delay-400 p-6 rounded-lg bg-card border border-primary/20 hover:border-primary/50 transition-all duration-300">
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-primary">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              <h3 class="text-xl font-semibold text-primary lang-text" data-key="frontend">Frontend</h3>
+            </div>
+            <div class="space-y-2">
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">HTML</span>
+                  <span class="text-sm text-mutedForeground">95%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-muted">
+                  <div class="h-full w-[95%] rounded-full bg-gradient-to-r from-primary to-accent"></div>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">CSS</span>
+                  <span class="text-sm text-mutedForeground">90%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-muted">
+                  <div class="h-full w-[90%] rounded-full bg-gradient-to-r from-primary to-accent"></div>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">JavaScript</span>
+                  <span class="text-sm text-mutedForeground">70%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-muted">
+                  <div class="h-full w-[70%] rounded-full bg-gradient-to-r from-primary to-accent"></div>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">Tailwind CSS</span>
+                  <span class="text-sm text-mutedForeground">85%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-muted">
+                  <div class="h-full w-[85%] rounded-full bg-gradient-to-r from-primary to-accent"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Categoría: Backend -->
+          <div class="space-y-4 animate-element opacity-0 transition-all duration-700 delay-500 p-6 rounded-lg bg-card border border-primary/20 hover:border-primary/50 transition-all duration-300">
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-primary">
+                <path d="M16 18l6-6-6-6"></path>
+                <path d="M8 6l-6 6 6 6"></path>
+              </svg>
+              <h3 class="text-xl font-semibold text-primary lang-text" data-key="backend">Backend</h3>
+            </div>
+            <div class="space-y-2">
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">PHP</span>
+                  <span class="text-sm text-mutedForeground">75%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-muted">
+                  <div class="h-full w-[75%] rounded-full bg-gradient-to-r from-primary to-accent"></div>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">Node.js</span>
+                  <span class="text-sm text-mutedForeground">50%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-muted">
+                  <div class="h-full w-[50%] rounded-full bg-gradient-to-r from-primary to-accent"></div>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">Laravel</span>
+                  <span class="text-sm text-mutedForeground">80%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-muted">
+                  <div class="h-full w-[80%] rounded-full bg-gradient-to-r from-primary to-accent"></div>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">Python</span>
+                  <span class="text-sm text-mutedForeground">45%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-muted">
+                  <div class="h-full w-[45%] rounded-full bg-gradient-to-r from-primary to-accent"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Categoría: Bases de Datos -->
+          <div class="space-y-4 animate-element opacity-0 transition-all duration-700 delay-600 p-6 rounded-lg bg-card border border-primary/20 hover:border-primary/50 transition-all duration-300">
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-primary">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+              <h3 class="text-xl font-semibold text-primary lang-text" data-key="basesDatos">Bases de Datos</h3>
+            </div>
+            <div class="space-y-2">
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">MySQL</span>
+                  <span class="text-sm text-mutedForeground">75%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-muted">
+                  <div class="h-full w-[75%] rounded-full bg-gradient-to-r from-primary to-accent"></div>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">MongoDB</span>
+                  <span class="text-sm text-mutedForeground">50%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-muted">
+                  <div class="h-full w-[50%] rounded-full bg-gradient-to-r from-primary to-accent"></div>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">PostgreSQL</span>
+                  <span class="text-sm text-mutedForeground">60%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-muted">
+                  <div class="h-full w-[60%] rounded-full bg-gradient-to-r from-primary to-accent"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Categoría: Frameworks -->
+          <div class="space-y-4 animate-element opacity-0 transition-all duration-700 delay-700 p-6 rounded-lg bg-card border border-primary/20 hover:border-primary/50 transition-all duration-300">
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-primary">
+                <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                <path d="M18.375 2.625a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4Z"></path>
+              </svg>
+              <h3 class="text-xl font-semibold text-primary lang-text" data-key="frameworks">Frameworks</h3>
+            </div>
+            <div class="space-y-2">
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">Angular</span>
+                  <span class="text-sm text-mutedForeground">50%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-muted">
+                  <div class="h-full w-[50%] rounded-full bg-gradient-to-r from-primary to-accent"></div>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">Laravel</span>
+                  <span class="text-sm text-mutedForeground">80%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-muted">
+                  <div class="h-full w-[80%] rounded-full bg-gradient-to-r from-primary to-accent"></div>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">React</span>
+                  <span class="text-sm text-mutedForeground">65%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-muted">
+                  <div class="h-full w-[65%] rounded-full bg-gradient-to-r from-primary to-accent"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Categoría: Lenguajes -->
+          <div class="space-y-4 animate-element opacity-0 transition-all duration-700 delay-800 p-6 rounded-lg bg-card border border-primary/20 hover:border-primary/50 transition-all duration-300">
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-primary">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                <path d="M2 12h20"></path>
+              </svg>
+              <h3 class="text-xl font-semibold text-primary lang-text" data-key="lenguajes">Lenguajes</h3>
+            </div>
+            <div class="space-y-2">
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">JavaScript</span>
+                  <span class="text-sm text-mutedForeground">70%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-muted">
+                  <div class="h-full w-[70%] rounded-full bg-gradient-to-r from-primary to-accent"></div>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">TypeScript</span>
+                  <span class="text-sm text-mutedForeground">50%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-muted">
+                  <div class="h-full w-[50%] rounded-full bg-gradient-to-r from-primary to-accent"></div>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">PHP</span>
+                  <span class="text-sm text-mutedForeground">75%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-muted">
+                  <div class="h-full w-[75%] rounded-full bg-gradient-to-r from-primary to-accent"></div>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">Python</span>
+                  <span class="text-sm text-mutedForeground">45%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-muted">
+                  <div class="h-full w-[45%] rounded-full bg-gradient-to-r from-primary to-accent"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Categoría: Herramientas -->
+          <div class="space-y-4 animate-element opacity-0 transition-all duration-700 delay-900 p-6 rounded-lg bg-card border border-primary/20 hover:border-primary/50 transition-all duration-300">
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-primary">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+              </svg>
+              <h3 class="text-xl font-semibold text-primary lang-text" data-key="herramientas">Herramientas</h3>
+            </div>
+            <div class="space-y-2">
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">Git</span>
+                  <span class="text-sm text-mutedForeground">70%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-muted">
+                  <div class="h-full w-[70%] rounded-full bg-gradient-to-r from-primary to-accent"></div>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">Figma</span>
+                  <span class="text-sm text-mutedForeground">60%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-muted">
+                  <div class="h-full w-[60%] rounded-full bg-gradient-to-r from-primary to-accent"></div>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">VS Code</span>
+                  <span class="text-sm text-mutedForeground">85%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-muted">
+                  <div class="h-full w-[85%] rounded-full bg-gradient-to-r from-primary to-accent"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="w-full py-12 md:py-24 lg:py-32 animate-section opacity-0 transition-all duration-1000 translate-y-10 relative">
+      <div class="cyberpunk-grid absolute inset-0 opacity-10"></div>
+      <div class="container mx-auto px-4 md:px-6 relative z-10">
+        <div class="flex flex-col items-center justify-center space-y-4 text-center">
+          <div class="space-y-2">
+            <span class="animate-element opacity-0 transition-all duration-700 inline-flex border border-primary/50 text-primary px-3 py-1 rounded-full">
+              <span class="lang-text" data-key="contactoTitulo">コンタクト • Contacto</span>
+            </span>
+            <h2 class="text-3xl font-bold tracking-tighter md:text-4xl/tight animate-element opacity-0 transition-all duration-700 delay-200 neon-text lang-text" data-key="proyectoMente">
+              ¿Tienes un proyecto en mente?
+            </h2>
+            <p class="mx-auto max-w-[700px] text-mutedForeground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed animate-element opacity-0 transition-all duration-700 delay-300 lang-text" data-key="disponible">
+              Estoy disponible para trabajar en proyectos freelance y colaboraciones
+            </p>
+          </div>
+        </div>
+        <div class="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2">
+          <div class="space-y-4 animate-element opacity-0 transition-all duration-700 delay-400 p-6 rounded-lg bg-card border border-primary/20">
+            <div class="inline-block rounded-lg bg-primary/20 px-3 py-1 text-sm text-primary lang-text" data-key="infoContacto">
+              Información de contacto
+            </div>
+            <div class="space-y-2">
+              <h3 class="text-xl font-bold text-primary lang-text" data-key="hablemos">Hablemos sobre tu proyecto</h3>
+              <p class="text-mutedForeground lang-text" data-key="completaFormulario">
+                Completa el formulario o contáctame directamente a través de los siguientes medios:
+              </p>
+            </div>
+            <div class="space-y-4 pt-4">
+              <div class="flex items-start gap-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-5 w-5 text-primary">
+                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+                <div>
+                  <h4 class="font-medium lang-text" data-key="email">Email</h4>
+                  <p class="text-sm text-mutedForeground">kleyvercell2@gmail.com</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-5 w-5 text-primary">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <div>
+                  <h4 class="font-medium lang-text" data-key="telefono">Teléfono</h4>
+                  <p class="text-sm text-mutedForeground">+58 (424) 110-3017</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-5 w-5 text-primary">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <div>
+                  <h4 class="font-medium lang-text" data-key="ubicacion">Ubicación</h4>
+                  <p class="text-sm text-mutedForeground">Caracas, Venezuela</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex gap-4 pt-4">
+              <a href="https://www.linkedin.com/in/kleyver-cadrazco-655578327/" target="_blank" class="border border-primary/50 hover:border-primary p-2 rounded-md">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect width="4" height="12" x="2" y="9"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+                <span class="sr-only">LinkedIn</span>
+              </a>
+              <a href="https://github.com/kleyverx" target="_blank" class="border border-primary/50 hover:border-primary p-2 rounded-md">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                  <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                </svg>
+                <span class="sr-only">GitHub</span>
+              </a>
+              <a href="https://www.tiktok.com/@kleyver.x?is_from_webapp=1&sender_device=pc" target="_blank" class="border border-primary/50 hover:border-primary p-2 rounded-md flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9 0H10V1C10 3.20914 11.7909 5 14 5V6C12.3644 6 10.9122 5.21466 10 4.00049V11C10 13.2091 8.20914 15 6 15C3.79086 15 2 13.2091 2 11C2 8.79086 3.79086 7 6 7V8C4.34315 8 3 9.34315 3 11C3 12.6569 4.34315 14 6 14C7.65685 14 9 12.6569 9 11V0Z"></path>
+                </svg>
+                <span class="sr-only">TikTok</span>
+              </a>
+              <a href="https://www.instagram.com/kleyver.x?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="border border-primary/50 hover:border-primary p-2 rounded-md">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                </svg>
+                <span class="sr-only">Instagram</span>
+              </a>
+            </div>
+          </div>
+          <div class="space-y-4 animate-element opacity-0 transition-all duration-700 delay-500 p-6 rounded-lg bg-card border border-primary/20">
+            <form id="contact-form" class="grid gap-4">
+              <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-2">
+                  <label for="first-name" class="text-sm font-medium leading-none">
+                    <span class="lang-text" data-key="nombre">Nombre</span>
+                  </label>
+                  <input id="first-name" name="first-name" class="flex h-10 w-full rounded-md border border-primary/20 bg-card/50 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" placeholder="Nombre" required>
+                </div>
+                <div class="space-y-2">
+                  <label for="last-name" class="text-sm font-medium leading-none">
+                    <span class="lang-text" data-key="apellido">Apellido</span>
+                  </label>
+                  <input id="last-name" name="last-name" class="flex h-10 w-full rounded-md border border-primary/20 bg-card/50 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" placeholder="Apellido" required>
+                </div>
+              </div>
+              <div class="space-y-2">
+                <label for="email" class="text-sm font-medium leading-none">
+                  <span class="lang-text" data-key="email">Email</span>
+                </label>
+                <input id="email" name="email" type="email" class="flex h-10 w-full rounded-md border border-primary/20 bg-card/50 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" placeholder="ejemplo@email.com" required>
+              </div>
+              <div class="space-y-2">
+                <label for="subject" class="text-sm font-medium leading-none">
+                  <span class="lang-text" data-key="asunto">Asunto</span>
+                </label>
+                <input id="subject" name="subject" class="flex h-10 w-full rounded-md border border-primary/20 bg-card/50 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" placeholder="Asunto" required>
+              </div>
+              <div class="space-y-2">
+                <label for="message" class="text-sm font-medium leading-none">
+                  <span class="lang-text" data-key="mensaje">Mensaje</span>
+                </label>
+                <textarea id="message" name="message" class="flex min-h-[120px] w-full rounded-md border border-primary/20 bg-card/50 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" placeholder="Escribe tu mensaje aquí..." required></textarea>
+              </div>
+              <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-primary/80 text-white px-4 py-2 rounded-md glow-effect mt-4">
+                <span class="lang-text" data-key="enviarMensaje">Enviar mensaje</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full border-t border-border/50 bg-background py-6">
+    <div class="container mx-auto flex flex-col items-center justify-center gap-4 md:flex-row md:justify-between px-4">
+      <p class="text-center text-sm leading-loose text-mutedForeground md:text-left lang-text" data-key="derechos">
+        © 2024 クレイバー • Kleyver Urbina. Todos los derechos reservados.
+      </p>
+      <div class="flex gap-4 items-center">
+        <button class="text-sm font-medium hover:text-primary transition-colors">
+          <span class="lang-text" data-key="terminos">Términos</span>
+        </button>
+        <button class="text-sm font-medium hover:text-primary transition-colors">
+          <span class="lang-text" data-key="privacidad">Privacidad</span>
+        </button>
+        <button data-section="contacto" class="text-sm font-medium hover:text-primary transition-colors nav-link">
+          <span class="lang-text" data-key="contacto">Contacto</span>
+        </button>
+
+        <!-- Selector de idioma -->
+        <div class="flex items-center ml-4 border-l border-border/50 pl-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 mr-2 text-mutedForeground">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            <path d="M2 12h20"></path>
+          </svg>
+          <select id="language-selector" class="bg-transparent border border-primary/20 rounded-md text-sm h-8 px-2 focus:outline-none focus:ring-2 focus:ring-primary">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
