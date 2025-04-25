@@ -42,8 +42,8 @@ const translations = {
       demo: "Demo",
   
       // Títulos de proyectos
-      proyecto1Titulo: "E-commerce de Moda",
-      proyecto1Desc: "Tienda online completa con carrito de compras, pagos y gestión de pedidos.",
+      proyecto1Titulo: "E-commerce de Perfumería BMV",
+      proyecto1Desc: "Tienda online completa con carrito de compras, pagos y gestión de pedidos y Panel ADMIN.",
       proyecto2Titulo: "Dashboard Analítico",
       proyecto2Desc: "Panel de control con visualización de datos y estadísticas en tiempo real.",
       proyecto3Titulo: "App de Gestión de Tareas",
@@ -138,8 +138,8 @@ const translations = {
       demo: "Demo",
   
       // Project titles
-      proyecto1Titulo: "Fashion E-commerce",
-      proyecto1Desc: "Complete online store with shopping cart, payments, and order management.",
+      proyecto1Titulo: "BMV Perfume E-commerce",
+      proyecto1Desc: "Complete online store with shopping cart, payments, and order management and ADMIN Panel.",
       proyecto2Titulo: "Analytical Dashboard",
       proyecto2Desc: "Control panel with data visualization and real-time statistics.",
       proyecto3Titulo: "Task Management App",
@@ -234,8 +234,8 @@ const translations = {
       demo: "Démo",
   
       // Project titles
-      proyecto1Titulo: "E-commerce de Mode",
-      proyecto1Desc: "Boutique en ligne complète avec panier d'achat, paiements et gestion des commandes.",
+      proyecto1Titulo: "E-commerce de Parfumerie BMV",
+      proyecto1Desc: "Boutique en ligne complète avec panier d'achats, paiements et gestion des commandes et panneau ADMIN.",
       proyecto2Titulo: "Tableau de Bord Analytique",
       proyecto2Desc: "Panneau de contrôle avec visualisation de données et statistiques en temps réel.",
       proyecto3Titulo: "Application de Gestion de Tâches",
@@ -508,53 +508,25 @@ const translations = {
   
   // Función para inicializar el formulario de contacto
   function initContactForm() {
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-      contactForm.addEventListener('submit', handleFormSubmit);
-    }
-  }
-  
-  // Función para manejar el envío del formulario
-  function handleFormSubmit(e) {
-    e.preventDefault();
-    
-    const submitBtn = document.getElementById('submit-btn');
-    const currentLanguage = localStorage.getItem('language') || 'es';
-    const trans = translations[currentLanguage];
-    
-    // Cambiar el texto del botón a "Enviando..."
-    if (submitBtn) {
-      submitBtn.textContent = trans.enviando;
-      submitBtn.disabled = true;
-    }
-    
-    // Simulación de envío (reemplazar con tu lógica real)
-    setTimeout(() => {
-      // Obtener los datos del formulario
-      const formData = {
-        firstName: document.getElementById('first-name').value,
-        lastName: document.getElementById('last-name').value,
-        email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
-      };
-      
-      console.log('Datos del formulario:', formData);
-      
-      // Cambiar el texto del botón a "¡Enviado con éxito!"
-      if (submitBtn) {
-        submitBtn.textContent = trans.enviado;
-      }
-      
-      // Resetear el formulario después de 3 segundos
-      setTimeout(() => {
-        document.getElementById('contact-form').reset();
-        
-        // Restaurar el texto del botón
-        if (submitBtn) {
-          submitBtn.textContent = trans.enviarMensaje;
-          submitBtn.disabled = false;
-        }
-      }, 3000);
-    }, 1500);
+    // Adaptación del código del playground para enviar correos con EmailJS
+    document.getElementById('contact-form')
+      .addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const btn = document.getElementById('submit-btn');
+        btn.textContent = 'Enviando...';
+
+        const serviceID = 'default_service';
+        const templateID = 'template_b3lq30k';
+
+        emailjs.sendForm(serviceID, templateID, this)
+          .then(() => {
+            btn.textContent = 'Enviar mensaje';
+            alert('¡Mensaje enviado con éxito!');
+            this.reset(); // Limpia el formulario después de enviarlo
+          }, (err) => {
+            btn.textContent = 'Enviar mensaje';
+            alert('Error al enviar el mensaje: ' + JSON.stringify(err));
+          });
+      });
   }
