@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kleyver Urbina - Desarrollador Full Stack</title>
   <meta name="description" content="Portfolio profesional de Kleyver Urbina, Desarrollador Full Stack con experiencia en PHP, Laravel, JavaScript y más">
+  <link rel="icon" type="image/svg+xml" href="favicon.ico">
   <!-- Importar Tailwind desde CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Configuración de Tailwind -->
@@ -17,7 +18,7 @@
             background: '#10111a',
             foreground: '#f1f5f9',
             card: '#141627',
-            primary: '#ff3399',
+            primary: '#bf00ff',
             secondary: '#4d94ff',
             muted: '#1e2032',
             mutedForeground: '#a1a1b5',
@@ -28,9 +29,19 @@
       }
     }
   </script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/cursor.css">
+  <link rel="stylesheet" href="assets/css/grid.css">
+  <link rel="stylesheet" href="assets/css/spline-3d.css">
+  <link rel="stylesheet" href="assets/css/dropdown-fix.css">
+  <link rel="stylesheet" href="assets/css/video-focus.css">
+  <link rel="stylesheet" href="assets/css/video-theater.css">
+  <link rel="stylesheet" href="assets/css/video-performance.css">
 </head>
 <body class="bg-background text-foreground min-h-screen">
+  <!-- Fondo global de cuadrados -->
+  <div id="global-squares-bg" data-squares-bg data-squares-direction="diagonal" data-squares-speed="10" data-squares-ignore-reduced="true" class="fixed inset-0 z-0"></div>
+  
   <!-- Navegación -->
   <header class="sticky top-0 z-40 w-full border-b border-border/50 bg-background/80 backdrop-blur">
     <div class="container mx-auto px-4 flex h-16 items-center justify-between">
@@ -39,19 +50,19 @@
       </a>
       <nav id="desktop-nav" class="hidden md:flex md:flex-row md:gap-6">
         <button data-section="inicio" class="text-sm font-medium hover:text-primary transition-colors py-2 md:py-0 text-left nav-link">
-          Inicio
-        </button>
-        <button data-section="videos" class="text-sm font-medium hover:text-primary transition-colors py-2 md:py-0 text-left nav-link">
-          Videos
+          <span class="lang-text" data-key="inicio">Inicio</span>
         </button>
         <button data-section="proyectos" class="text-sm font-medium hover:text-primary transition-colors py-2 md:py-0 text-left nav-link">
-          Proyectos
+          <span class="lang-text" data-key="proyectos">Proyectos</span>
+        </button>
+        <button data-section="videos" class="text-sm font-medium hover:text-primary transition-colors py-2 md:py-0 text-left nav-link">
+          <span class="lang-text" data-key="videos">Videos</span>
         </button>
         <button data-section="habilidades" class="text-sm font-medium hover:text-primary transition-colors py-2 md:py-0 text-left nav-link">
-          Habilidades
+          <span class="lang-text" data-key="habilidades">Habilidades</span>
         </button>
         <button data-section="contacto" class="text-sm font-medium hover:text-primary transition-colors py-2 md:py-0 text-left nav-link">
-          Contacto
+          <span class="lang-text" data-key="contacto">Contacto</span>
         </button>
       </nav>
       <button id="download-cv" class="hidden md:flex bg-primary hover:bg-primary/80 text-white px-4 py-2 rounded-md text-sm">
@@ -67,26 +78,28 @@
     </div>
     <nav id="mobile-nav" class="hidden flex-col absolute top-16 left-0 w-full bg-background/95 p-4 border-b border-border/50 z-50">
       <button data-section="inicio" class="text-sm font-medium hover:text-primary transition-colors py-2 text-left nav-link">
-        Inicio
-      </button>
-      <button data-section="videos" class="text-sm font-medium hover:text-primary transition-colors py-2 text-left nav-link">
-        Videos
+        <span class="lang-text" data-key="inicio">Inicio</span>
       </button>
       <button data-section="proyectos" class="text-sm font-medium hover:text-primary transition-colors py-2 text-left nav-link">
-        Proyectos
+        <span class="lang-text" data-key="proyectos">Proyectos</span>
+      </button>
+      <button data-section="videos" class="text-sm font-medium hover:text-primary transition-colors py-2 text-left nav-link">
+        <span class="lang-text" data-key="videos">Videos</span>
       </button>
       <button data-section="habilidades" class="text-sm font-medium hover:text-primary transition-colors py-2 text-left nav-link">
-        Habilidades
+        <span class="lang-text" data-key="habilidades">Habilidades</span>
       </button>
       <button data-section="contacto" class="text-sm font-medium hover:text-primary transition-colors py-2 text-left nav-link">
-        Contacto
+        <span class="lang-text" data-key="contacto">Contacto</span>
       </button>
     </nav>
   </header>
 
-  <main class="flex flex-col items-center">
+  <main class="flex flex-col items-center relative z-10">
+    <!-- Área invisible para permitir interacción con el fondo entre secciones -->
+    <div class="absolute inset-0 pointer-events-auto" style="z-index: -1;"></div>
     <!-- Sección Hero -->
-    <section id="inicio" class="w-full py-12 md:py-24 lg:py-32 xl:py-48 animate-section opacity-0 transition-all duration-1000 translate-y-10 relative overflow-hidden">
+    <section id="inicio" class="w-full py-12 md:py-24 lg:py-32 xl:py-48 animate-section opacity-0 transition-all duration-1000 translate-y-10 relative overflow-hidden pointer-events-auto">
       <div class="cyberpunk-grid absolute inset-0 opacity-20"></div>
       <div class="container mx-auto px-4 md:px-6 relative z-10">
         <div class="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
@@ -99,7 +112,7 @@
                 <span class="lang-text" data-key="hola">Hola, soy</span> <span class="text-primary">Kleyver Urbina</span>
               </h1>
               <p class="max-w-[600px] text-mutedForeground md:text-xl animate-element opacity-0 transition-all duration-700 delay-700 lang-text" data-key="descripcion">
-                Estudiante de Ingeniería en Informática (TSU) con 3 años de experiencia académica y práctica en desarrollo de software.
+                Estudiante de Ingeniería en Informática con 4 años de experiencia académica y práctica en desarrollo de software.
               </p>
             </div>
             <div class="flex flex-col gap-2 min-[400px]:flex-row animate-element opacity-0 transition-all duration-700 delay-900">
@@ -117,16 +130,63 @@
           </div>
           <div class="flex items-center justify-center">
             <div class="relative aspect-square overflow-hidden rounded-full border-2 border-primary/50 animate-element opacity-0 transition-all duration-1000 delay-1000 neon-border">
-              <img src="public/perfil.jpeg" alt="Foto de perfil" class="object-cover w-full h-full">
+              <img src="assets/images/public/perfil.png" alt="Foto de perfil" class="object-cover w-full h-full">
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Sección de Videos -->
-    <section id="videos" class="w-full py-12 md:py-24 lg:py-32 bg-muted/30 animate-section opacity-0 transition-all duration-1000 translate-y-10 relative">
-      <div class="cyberpunk-grid absolute inset-0 opacity-10"></div>
+    <!-- Sección Proyectos -->
+    <section id="proyectos" class="w-full py-12 md:py-24 lg:py-32 bg-muted/30 animate-section opacity-0 transition-all duration-1000 translate-y-10 relative overflow-hidden pointer-events-auto">
+      <div class="cyberpunk-grid absolute inset-0 opacity-20"></div>
+      <div class="container mx-auto px-4 md:px-6 relative z-10">
+        <div class="flex flex-col items-center justify-center space-y-4 text-center">
+          <div class="space-y-2">
+            <span class="animate-element opacity-0 transition-all duration-700 inline-flex border border-primary/50 text-primary px-3 py-1 rounded-full">
+              <span class="lang-text" data-key="proyectosTitulo">プロジェクト • Proyectos</span>
+            </span>
+            <h2 class="text-3xl font-bold tracking-tighter md:text-4xl/tight animate-element opacity-0 transition-all duration-700 delay-200 neon-text" data-translate="projects.title">
+              Proyectos Destacados
+            </h2>
+            <p class="mx-auto max-w-[700px] text-mutedForeground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed animate-element opacity-0 transition-all duration-700 delay-300" data-translate="projects.subtitle">
+              Una selección de mis trabajos más recientes y destacados
+            </p>
+          </div>
+        </div>
+        
+        <!-- Modelo 3D Integrado -->
+        <div class="mx-auto max-w-4xl pb-2 animate-element opacity-0 transition-all duration-700 delay-400">
+          <!-- Contenedor del modelo 3D -->
+          <div class="relative w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-lg overflow-hidden bg-transparent">
+            <div id="spline-container" class="w-full h-full">
+              <!-- Modelo 3D de Spline -->
+              <iframe src="https://my.spline.design/nexbotrobotcharacterconcept-UfETkdQciGqKQFyjGephG42H/" frameborder="0" width="100%" height="100%"></iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid simple de proyectos -->
+        <div id="projects-grid" class="mx-auto grid max-w-5xl items-center gap-6 pt-2 pb-12 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
+          <!-- Los proyectos se cargan dinámicamente -->
+        </div>
+        
+        <div class="flex justify-center">
+          <a href="#contacto" class="border border-primary/50 hover:border-primary px-4 py-2 rounded-md animate-element opacity-0 transition-all duration-700 delay-800 inline-flex items-center" data-translate="projects.cta">
+            <span>Ver Todos los Proyectos</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-4 w-4">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Videos -->
+    <section id="videos" class="w-full py-12 md:py-24 lg:py-32 bg-muted/30 animate-section opacity-0 transition-all duration-1000 translate-y-10 relative overflow-hidden pointer-events-auto">
+      <div class="cyberpunk-grid absolute inset-0 opacity-20"></div>
       <div class="container mx-auto px-4 md:px-6 relative z-10">
         <div class="flex flex-col items-center justify-center space-y-4 text-center">
           <div class="space-y-2">
@@ -141,42 +201,8 @@
             </p>
           </div>
         </div>
-        <div class="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2">
-          <!-- Video de YouTube -->
-          <div class="group relative overflow-hidden rounded-lg border border-primary/20 animate-element opacity-0 transition-all duration-700 delay-400 hover:border-primary/50 transition-all duration-300">
-            <div class="aspect-video relative">
-              <!-- Reemplaza VIDEO_ID con el ID de tu video de YouTube -->
-              <iframe 
-                class="w-full h-full"
-                src="https://www.youtube.com/embed/gjarCA-Vwz4" 
-                title="YouTube video" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-              </iframe>
-            </div>
-            <div class="p-4">
-              <h3 class="font-semibold text-primary lang-text" data-key="video1Titulo">Tutorial de desarrollo web</h3>
-              <p class="text-sm text-mutedForeground lang-text" data-key="video1Desc">Aprende desarrollo web moderno</p>
-            </div>
-          </div>
-
-          <!-- Video de TikTok -->
-          <div class="group relative overflow-hidden rounded-lg border border-primary/20 animate-element opacity-0 transition-all duration-700 delay-500 hover:border-primary/50 transition-all duration-300">
-            <div class="aspect-video relative flex items-center justify-center">
-              <!-- Reemplaza USERNAME/VIDEO_ID con el enlace de tu TikTok -->
-              <blockquote 
-                class="tiktok-embed w-full" 
-                cite="https://www.tiktok.com/@kleyver.x/7403102510350748933"
-                data-video-id="7403102510350748933">
-              </blockquote>
-              <script async src="https://www.tiktok.com/embed.js"></script>
-            </div>
-            <div class="p-4">
-              <h3 class="font-semibold text-primary lang-text" data-key="video2Titulo">Tutorial rápido</h3>
-              <p class="text-sm text-mutedForeground lang-text" data-key="video2Desc">Tips y trucos de programación</p>
-            </div>
-          </div>
+        <div id="videos-grid" class="videos-container mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2">
+          <!-- Los videos se cargan dinámicamente desde videos.json -->
         </div>
         <div class="flex justify-center">
           <a href="https://www.youtube.com/@kleyver.x" target="_blank" class="border border-primary/50 hover:border-primary px-4 py-2 rounded-md animate-element opacity-0 transition-all duration-700 delay-800 inline-flex items-center">
@@ -192,260 +218,11 @@
     </section>
 
     <!-- Sección de Proyectos -->
-    <section id="proyectos" class="w-full py-12 md:py-24 lg:py-32 animate-section opacity-0 transition-all duration-1000 translate-y-10 relative">
-      <div class="cyberpunk-grid absolute inset-0 opacity-10"></div>
-      <div class="container mx-auto px-4 md:px-6 relative z-10">
-        <div class="flex flex-col items-center justify-center space-y-4 text-center">
-          <div class="space-y-2">
-            <span class="animate-element opacity-0 transition-all duration-700 inline-flex border border-primary/50 text-primary px-3 py-1 rounded-full">
-              <span class="lang-text" data-key="portfolioTitulo">プロジェクト • Portfolio</span>
-            </span>
-            <h2 class="text-3xl font-bold tracking-tighter md:text-4xl/tight animate-element opacity-0 transition-all duration-700 delay-200 neon-text lang-text" data-key="misProyectos">
-              Mis Proyectos
-            </h2>
-            <p class="mx-auto max-w-[700px] text-mutedForeground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed animate-element opacity-0 transition-all duration-700 delay-300 lang-text" data-key="seleccionTrabajos">
-              Una selección de mis trabajos más recientes y destacados
-            </p>
-          </div>
-        </div>
-        <div class="mx-auto grid max-w-5xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-12">
-          <!-- Proyecto 1 -->
-          <div class="overflow-hidden animate-element opacity-0 transition-all duration-700 delay-400 bg-card border border-primary/20 hover:border-primary/50 transition-all duration-300 rounded-lg">
-            <div class="aspect-video relative">
-              <img src="public/proyecto1/2.png" alt="Imagen del proyecto" class="object-cover w-full h-full">
-            </div>
-            <div class="p-4">
-              <div class="space-y-2">
-                <h3 class="font-semibold text-primary lang-text" data-key="proyecto1Titulo">E-commerce de Moda</h3>
-                <p class="text-sm text-mutedForeground lang-text" data-key="proyecto1Desc">
-                  Tienda online completa con carrito de compras, pagos y gestión de pedidos.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">Laravel</span>
-                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">Livewire</span>
-                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">MySQL</span>
-                </div>
-                <div class="flex gap-2 pt-2">
-                  <a href="https://github.com" target="_blank" class="border border-primary/50 hover:border-primary px-3 py-1 rounded-md text-sm inline-flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
-                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-                      <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                    </svg>
-                    <span class="lang-text" data-key="codigo">Código</span>
-                  </a>
-                  <a href="https://bmv-store.com/" class="bg-primary hover:bg-primary/80 text-white px-3 py-1 rounded-md text-sm inline-flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                    <span class="lang-text" data-key="demo">Demo</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+   
 
-          <!-- Proyecto 2 -->
-          <div class="overflow-hidden animate-element opacity-0 transition-all duration-700 delay-500 bg-card border border-primary/20 hover:border-primary/50 transition-all duration-300 rounded-lg">
-            <div class="aspect-video relative">
-              <img src="https://via.placeholder.com/1280x720" alt="Imagen del proyecto" class="object-cover w-full h-full">
-            </div>
-            <div class="p-4">
-              <div class="space-y-2">
-                <h3 class="font-semibold text-primary lang-text" data-key="proyecto2Titulo">Dashboard Analítico</h3>
-                <p class="text-sm text-mutedForeground lang-text" data-key="proyecto2Desc">
-                  Panel de control con visualización de datos y estadísticas en tiempo real.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">Vue.js</span>
-                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">D3.js</span>
-                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">Firebase</span>
-                </div>
-                <div class="flex gap-2 pt-2">
-                  <a href="https://github.com" target="_blank" class="border border-primary/50 hover:border-primary px-3 py-1 rounded-md text-sm inline-flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
-                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-                      <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                    </svg>
-                    <span class="lang-text" data-key="codigo">Código</span>
-                  </a>
-                  <a href="#" class="bg-primary hover:bg-primary/80 text-white px-3 py-1 rounded-md text-sm inline-flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                    <span class="lang-text" data-key="demo">Demo</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Proyecto 3 -->
-          <div class="overflow-hidden animate-element opacity-0 transition-all duration-700 delay-600 bg-card border border-primary/20 hover:border-primary/50 transition-all duration-300 rounded-lg">
-            <div class="aspect-video relative">
-              <img src="https://via.placeholder.com/1280x720" alt="Imagen del proyecto" class="object-cover w-full h-full">
-            </div>
-            <div class="p-4">
-              <div class="space-y-2">
-                <h3 class="font-semibold text-primary lang-text" data-key="proyecto3Titulo">App de Gestión de Tareas</h3>
-                <p class="text-sm text-mutedForeground lang-text" data-key="proyecto3Desc">
-                  Aplicación para organizar proyectos y tareas con funcionalidades colaborativas.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">React Native</span>
-                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">GraphQL</span>
-                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">PostgreSQL</span>
-                </div>
-                <div class="flex gap-2 pt-2">
-                  <a href="https://github.com" target="_blank" class="border border-primary/50 hover:border-primary px-3 py-1 rounded-md text-sm inline-flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
-                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-                      <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                    </svg>
-                    <span class="lang-text" data-key="codigo">Código</span>
-                  </a>
-                  <a href="#" class="bg-primary hover:bg-primary/80 text-white px-3 py-1 rounded-md text-sm inline-flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                    <span class="lang-text" data-key="demo">Demo</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Proyecto 4 -->
-          <!-- <div class="overflow-hidden animate-element opacity-0 transition-all duration-700 delay-700 bg-card border border-primary/20 hover:border-primary/50 transition-all duration-300 rounded-lg">
-            <div class="aspect-video relative">
-              <img src="https://via.placeholder.com/1280x720" alt="Imagen del proyecto" class="object-cover w-full h-full">
-            </div>
-            <div class="p-4">
-              <div class="space-y-2">
-                <h3 class="font-semibold text-primary lang-text" data-key="proyecto4Titulo">Plataforma Educativa</h3>
-                <p class="text-sm text-mutedForeground lang-text" data-key="proyecto4Desc">
-                  Sistema de gestión de cursos online con videos, evaluaciones y certificados.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">Next.js</span>
-                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">Tailwind CSS</span>
-                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">Supabase</span>
-                </div>
-                <div class="flex gap-2 pt-2">
-                  <a href="https://github.com" target="_blank" class="border border-primary/50 hover:border-primary px-3 py-1 rounded-md text-sm inline-flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
-                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0 -3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-                      <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                    </svg>
-                    <span class="lang-text" data-key="codigo">Código</span>
-                  </a>
-                  <a href="#" class="bg-primary hover:bg-primary/80 text-white px-3 py-1 rounded-md text-sm inline-flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                    <span class="lang-text" data-key="demo">Demo</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
-          <!-- Proyecto 5 -->
-          <!-- <div class="overflow-hidden animate-element opacity-0 transition-all duration-700 delay-800 bg-card border border-primary/20 hover:border-primary/50 transition-all duration-300 rounded-lg">
-            <div class="aspect-video relative">
-              <img src="https://via.placeholder.com/1280x720" alt="Imagen del proyecto" class="object-cover w-full h-full">
-            </div>
-            <div class="p-4">
-              <div class="space-y-2">
-                <h3 class="font-semibold text-primary lang-text" data-key="proyecto5Titulo">Aplicación de Finanzas Personales</h3>
-                <p class="text-sm text-mutedForeground lang-text" data-key="proyecto5Desc">
-                  Herramienta para seguimiento de gastos, presupuestos y análisis financiero.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">Angular</span>
-                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">TypeScript</span>
-                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">Express</span>
-                </div>
-                <div class="flex gap-2 pt-2">
-                  <a href="https://github.com" target="_blank" class="border border-primary/50 hover:border-primary px-3 py-1 rounded-md text-sm inline-flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
-                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-                      <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                    </svg>
-                    <span class="lang-text" data-key="codigo">Código</span>
-                  </a>
-                  <a href="#" class="bg-primary hover:bg-primary/80 text-white px-3 py-1 rounded-md text-sm inline-flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                    <span class="lang-text" data-key="demo">Demo</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
-          <!-- Proyecto 6 -->
-          <!-- <div class="overflow-hidden animate-element opacity-0 transition-all duration-700 delay-900 bg-card border border-primary/20 hover:border-primary/50 transition-all duration-300 rounded-lg">
-            <div class="aspect-video relative">
-              <img src="https://via.placeholder.com/1280x720" alt="Imagen del proyecto" class="object-cover w-full h-full">
-            </div>
-            <div class="p-4">
-              <div class="space-y-2">
-                <h3 class="font-semibold text-primary lang-text" data-key="proyecto6Titulo">Sitio Web Corporativo</h3>
-                <p class="text-sm text-mutedForeground lang-text" data-key="proyecto6Desc">
-                  Página web empresarial con múltiples secciones y formulario de contacto.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">HTML5</span>
-                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">SASS</span>
-                  <span class="bg-secondary/20 text-secondary hover:bg-secondary/30 px-2 py-1 rounded-md text-xs">JavaScript</span>
-                </div>
-                <div class="flex gap-2 pt-2">
-                  <a href="https://github.com" target="_blank" class="border border-primary/50 hover:border-primary px-3 py-1 rounded-md text-sm inline-flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
-                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-                      <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                    </svg>
-                    <span class="lang-text" data-key="codigo">Código</span>
-                  </a>
-                  <a href="#" class="bg-primary hover:bg-primary/80 text-white px-3 py-1 rounded-md text-sm inline-flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                    <span class="lang-text" data-key="demo">Demo</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div> -->
-        </div>
-        <div class="flex justify-center">
-          <button class="border border-primary/50 hover:border-primary px-4 py-2 rounded-md animate-element opacity-0 transition-all duration-700 delay-1000 inline-flex items-center">
-            <span class="lang-text" data-key="verMasProyectos">Ver más proyectos</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-4 w-4">
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sección de Habilidades -->
-    <section id="habilidades" class="w-full py-12 md:py-24 lg:py-32 bg-muted/30 animate-section opacity-0 transition-all duration-1000 translate-y-10 relative">
-      <div class="cyberpunk-grid absolute inset-0 opacity-10"></div>
+    <!-- Sección Habilidades -->
+    <section id="habilidades" class="w-full py-12 md:py-24 lg:py-32 bg-muted/30 animate-section opacity-0 transition-all duration-1000 translate-y-10 relative overflow-hidden pointer-events-auto">
+      <div class="cyberpunk-grid absolute inset-0 opacity-20"></div>
       <div class="container mx-auto px-4 md:px-6 relative z-10">
         <div class="flex flex-col items-center justify-center space-y-4 text-center">
           <div class="space-y-2">
@@ -460,7 +237,7 @@
             </p>
           </div>
         </div>
-        <div class="mx-auto grid max-w-5xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-12">
+        <div id="skills-grid" class="mx-auto grid max-w-5xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-12">
           <!-- Categoría: Frontend -->
           <div class="space-y-4 animate-element opacity-0 transition-all duration-700 delay-400 p-6 rounded-lg bg-card border border-primary/20 hover:border-primary/50 transition-all duration-300">
             <div class="flex items-center gap-2">
@@ -734,8 +511,8 @@
     </section>
 
     <!-- Sección de Contacto -->
-    <section id="contacto" class="w-full py-12 md:py-24 lg:py-32 animate-section opacity-0 transition-all duration-1000 translate-y-10 relative">
-      <div class="cyberpunk-grid absolute inset-0 opacity-10"></div>
+    <section id="contacto" class="w-full py-12 md:py-24 lg:py-32 animate-section opacity-0 transition-all duration-1000 translate-y-10 relative overflow-hidden pointer-events-auto">
+      <div class="cyberpunk-grid absolute inset-0 opacity-20"></div>
       <div class="container mx-auto px-4 md:px-6 relative z-10">
         <div class="flex flex-col items-center justify-center space-y-4 text-center">
           <div class="space-y-2">
@@ -850,8 +627,7 @@
                 <label for="subject" class="text-sm font-medium leading-none">
                   <span class="lang-text" data-key="asunto">Asunto</span>
                 </label>
-                <input id="subject" name="subject" class="flex h-10 w-full rounded-md border border-primary/20 bg-card/50 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2```html
-" placeholder="Asunto" required>
+                <input id="subject" name="subject" class="flex h-10 w-full rounded-md border border-primary/20 bg-card/50 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" placeholder="Asunto" required>
               </div>
               <div class="space-y-2">
                 <label for="message" class="text-sm font-medium leading-none">
@@ -870,7 +646,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="w-full border-t border-border/50 bg-background py-6">
+  <footer class="w-full border-t border-border/50 bg-background py-6 relative z-10">
     <div class="container mx-auto flex flex-col items-center justify-center gap-4 md:flex-row md:justify-between px-4">
       <p class="text-center text-sm leading-loose text-mutedForeground md:text-left lang-text" data-key="derechos">
         © 2024 クレイバー • Kleyver Urbina. Todos los derechos reservados.
@@ -893,21 +669,57 @@
             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
             <path d="M2 12h20"></path>
           </svg>
-          <select id="language-selector" class="bg-transparent border border-primary/20 rounded-md text-sm h-8 px-2 focus:outline-none focus:ring-2 focus:ring-primary">
-            <option value="es">Español</option>
-            <option value="en">English</option>
-            <option value="fr">Français</option>
+          <select id="language-selector" class="bg-background border border-primary/20 rounded-md text-sm h-8 px-2 focus:outline-none focus:ring-2 focus:ring-primary text-foreground">
+            <option value="es" class="bg-background text-foreground">Español</option>
+            <option value="en" class="bg-background text-foreground">English</option>
+            <option value="fr" class="bg-background text-foreground">Français</option>
           </select>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Lenis for smooth scrolling -->
+  <script src="https://unpkg.com/@studio-freight/lenis@latest/dist/lenis.min.js"></script>
 
-<script type="text/javascript">
-  emailjs.init('dGuJ18LLlywexr6Wl');
-</script>
+  <!-- Preloader overlay -->
+  <div id="preloader" class="preloader" aria-label="Cargando">
+    <div class="preloader-spinner" aria-hidden="true"></div>
+    <div id="preloader-animation" class="preloader-animation" role="img" aria-hidden="true"></div>
+    <noscript>
+      <div class="preloader-fallback">Cargando...</div>
+    </noscript>
+  </div>
+
+  <!-- Librería Lottie para animación del preloader (jsDelivr CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/build/player/lottie.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/skills-module.js"></script>
+  <script src="assets/js/cursor.js"></script>
+  <script src="assets/js/squares-bg.js" defer></script>
+  <script src="assets/js/preloader.js" defer></script>
+
+  <!-- Spline 3D Viewer Script -->
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.28/build/spline-viewer.js"></script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">emailjs.init('dGuJ18LLlywexr6Wl');</script>
+
+  <!-- Teatro de Video Modal -->
+  <div id="video-theater-overlay" class="video-theater-overlay">
+    <div class="video-theater-blur-bg"></div>
+    <div class="video-theater-container">
+      <button class="video-theater-close" onclick="closeVideoTheater()">×</button>
+      <div class="video-theater-loading">Cargando video...</div>
+      <iframe id="video-theater-iframe" class="video-theater-iframe" src="" allowfullscreen></iframe>
+      <div class="video-theater-info">
+        <div class="video-theater-title" id="video-theater-title"></div>
+        <div class="video-theater-description" id="video-theater-description"></div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

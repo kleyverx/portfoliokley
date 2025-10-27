@@ -1,0 +1,209 @@
+/* Efectos de enfoque para videos */
+
+/* Contenedor principal de videos */
+.videos-container {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Tarjeta de video individual */
+.video-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  background: rgba(16, 17, 26, 0.8);
+  border: 1px solid rgba(191, 0, 255, 0.2); /* Púrpura principal */
+}
+
+/* Estado normal de la tarjeta */
+.video-card:not(.focused) {
+  transform: scale(1);
+  filter: brightness(1);
+}
+
+/* Estado enfocado de la tarjeta */
+.video-card.focused {
+  transform: scale(1.05);
+  z-index: 10;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 2px rgba(191, 0, 255, 0.6), /* Púrpura principal */
+    0 0 30px rgba(191, 0, 255, 0.4),
+    inset 0 0 20px rgba(191, 0, 255, 0.1);
+  filter: brightness(1.1);
+}
+
+/* Efecto de desenfoque para videos no enfocados */
+.videos-container.has-focus .video-card:not(.focused) {
+  filter: blur(2px) brightness(0.6);
+  transform: scale(0.95);
+  opacity: 0.7;
+}
+
+/* Iframe dentro de la tarjeta */
+.video-card iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+/* Indicador de enfoque */
+.focus-indicator {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    rgba(191, 0, 255, 0.6), /* Púrpura principal */
+    rgba(138, 43, 226, 0.4), /* Púrpura secundario */
+    rgba(255, 51, 153, 0.3), /* Rosa de marca */
+    rgba(191, 0, 255, 0.6)
+  );
+  border-radius: 14px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  animation: focus-pulse 2s ease-in-out infinite;
+}
+
+.video-card.focused .focus-indicator {
+  opacity: 1;
+}
+
+@keyframes focus-pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Contenido del video */
+.video-content {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Overlay de gradiente */
+.video-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(191, 0, 255, 0.1) 0%, /* Púrpura principal */
+    transparent 30%,
+    transparent 70%,
+    rgba(255, 51, 153, 0.1) 100% /* Rosa de marca */
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: 12px;
+}
+
+.video-card.focused::after {
+  opacity: 1;
+}
+
+/* Efectos hover */
+.video-card:hover {
+  transform: scale(1.02);
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(191, 0, 255, 0.4),
+    0 0 20px rgba(191, 0, 255, 0.2);
+}
+
+.video-card:hover .focus-indicator {
+  opacity: 0.5;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .video-card.focused {
+    transform: scale(1.03);
+  }
+  
+  .videos-container.has-focus .video-card:not(.focused) {
+    transform: scale(0.97);
+  }
+  
+  .video-content {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-card.focused {
+    transform: scale(1.02);
+  }
+  
+  .video-content {
+    height: 160px;
+  }
+}
+
+/* Animación de entrada */
+.video-card {
+  animation: video-fade-in 0.6s ease-out;
+}
+
+@keyframes video-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Efecto de brillo sutil */
+.video-card.focused {
+  position: relative;
+}
+
+.video-card.focused::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(191, 0, 255, 0.2), /* Púrpura principal */
+    transparent
+  );
+  animation: shine 2s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}

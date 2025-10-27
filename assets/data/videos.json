@@ -1,0 +1,19 @@
+[
+  {
+    "id": "vid-1",
+    "type": "youtube",
+    "title": "Tutorial de desarrollo web",
+    "description": "Aprende desarrollo web moderno",
+    "embedUrl": "https://www.youtube.com/embed/gjarCA-Vwz4",
+    "date": "2024-08-05"
+  },
+  {
+    "id": "vid-2",
+    "type": "youtube",
+    "title": "App del Agua — Desarrollo (video proporcionado)",
+    "description": "Demostración y desarrollo de la App del Agua, desarrollada por Kleyver. Contiene explicación técnica y demo de la aplicación.",
+    "embedUrl": "https://www.youtube.com/embed/dOAoPR271XY",
+    "videoId": "dOAoPR271XY",
+    "date": "2024-08-02"
+  }
+]

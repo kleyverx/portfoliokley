@@ -1,0 +1,94 @@
+/**
+ * Estilos para corregir el dropdown del selector de idiomas
+ * Asegura que el fondo y texto sean visibles correctamente
+ */
+
+/* Estilos específicos para el selector de idiomas */
+#language-selector {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  border-color: hsl(var(--primary) / 0.2);
+}
+
+#language-selector:focus {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+}
+
+/* Estilos para las opciones del dropdown */
+#language-selector option {
+  background-color: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+  padding: 8px 12px;
+}
+
+/* Hover state para las opciones (funciona en algunos navegadores) */
+#language-selector option:hover {
+  background-color: hsl(var(--primary) / 0.1) !important;
+}
+
+/* Estilos específicos para el dropdown abierto */
+#language-selector:focus option,
+#language-selector option:checked {
+  background-color: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Estilos adicionales más específicos para el dropdown */
+select#language-selector {
+  background-color: #10111a !important;
+  color: #f1f5f9 !important;
+}
+
+/* Forzar estilos en el dropdown cuando está abierto */
+select#language-selector option,
+select#language-selector optgroup option {
+  background: #10111a !important;
+  background-color: #10111a !important;
+  color: #f1f5f9 !important;
+}
+
+/* Para navegadores que soportan color-scheme */
+select#language-selector {
+  color-scheme: dark;
+}
+
+/* Estilos específicos para diferentes estados */
+select#language-selector option:hover,
+select#language-selector option:focus,
+select#language-selector option:active {
+  background-color: #1e2032 !important;
+  color: #f1f5f9 !important;
+}
+
+/* Asegurar que el dropdown mantenga el tema oscuro */
+@media (prefers-color-scheme: dark) {
+  select#language-selector option {
+    background-color: #10111a !important;
+    color: #f1f5f9 !important;
+  }
+}
+
+/* Estilos adicionales para navegadores webkit */
+select option:not(:checked) {
+  background-color: #10111a !important;
+  color: #f1f5f9 !important;
+}
+
+/* Estilos adicionales para mejor compatibilidad */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  padding-right: 32px;
+}
+
+/* Asegurar que el dropdown esté por encima de otros elementos */
+#language-selector {
+  position: relative;
+  z-index: 50;
+}

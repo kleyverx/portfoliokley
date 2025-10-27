@@ -1,0 +1,59 @@
+[
+  {
+    "category": "Frontend",
+    "key": "frontend",
+    "items": [
+      { "name": "HTML", "level": 95 },
+      { "name": "CSS", "level": 90 },
+      { "name": "JavaScript", "level": 70 },
+      { "name": "Tailwind CSS", "level": 85 }
+    ]
+  },
+  {
+    "category": "Backend",
+    "key": "backend",
+    "items": [
+      { "name": "PHP", "level": 75 },
+      { "name": "Node.js", "level": 50 },
+      { "name": "Laravel", "level": 80 },
+      { "name": "Python", "level": 45 }
+    ]
+  },
+  {
+    "category": "Bases de Datos",
+    "key": "basesDatos",
+    "items": [
+      { "name": "MySQL", "level": 75 },
+      { "name": "MongoDB", "level": 50 },
+      { "name": "PostgreSQL", "level": 60 }
+    ]
+  },
+  {
+    "category": "Frameworks",
+    "key": "frameworks",
+    "items": [
+      { "name": "Angular", "level": 50 },
+      { "name": "Laravel", "level": 80 },
+      { "name": "React", "level": 65 }
+    ]
+  },
+  {
+    "category": "Lenguajes",
+    "key": "lenguajes",
+    "items": [
+      { "name": "JavaScript", "level": 70 },
+      { "name": "TypeScript", "level": 50 },
+      { "name": "PHP", "level": 75 },
+      { "name": "Python", "level": 45 }
+    ]
+  },
+  {
+    "category": "Herramientas",
+    "key": "herramientas",
+    "items": [
+      { "name": "Git", "level": 70 },
+      { "name": "Figma", "level": 60 },
+      { "name": "VS Code", "level": 85 }
+    ]
+  }
+]

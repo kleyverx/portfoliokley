@@ -1,0 +1,57 @@
+/* Fondo de cuadrados (Squares) con misma paleta del grid existente */
+
+.cyberpunk-grid {
+  /* No bloquear interacciones del contenido */
+  pointer-events: none;
+
+  /* Variables para coherencia visual y densidad */
+  --square-size: 20px; /* misma densidad que el grid original */
+  --border-color: rgba(15, 31, 58, 0.18); /* azul muy oscuro, en la línea del fondo (#10111a) para las líneas */
+  --fill-color: rgba(191, 0, 255, 0.06); /* relleno púrpura */
+
+  /* Patrón de cuadrados: bordes + leve relleno en cada tile */
+  background-image:
+    conic-gradient(from 90deg, transparent 0 25%, var(--fill-color) 0 75%, transparent 0 100%),
+    linear-gradient(var(--border-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+
+  /* Tamaño y repetición coherente con la cuadrícula */
+  background-size: var(--square-size) var(--square-size), var(--square-size) var(--square-size), var(--square-size) var(--square-size);
+  background-position: 0 0, 0 0, 0 0;
+
+  /* Animación suave y similar a la anterior */
+  animation: squares-flow 20s linear infinite;
+
+  /* Optimizaciones de rendimiento */
+  will-change: background-position;
+  contain: layout style paint;
+}
+
+@keyframes squares-flow {
+  0% { 
+    background-position: 0 0, 0 0, 0 0; 
+  }
+  100% { 
+    background-position: 20px 20px, 20px 20px, 20px 20px; 
+  }
+}
+
+/* Coherencia en móviles: menor intensidad y animación más suave */
+@media (max-width: 768px) {
+  .cyberpunk-grid {
+    --fill-color: rgba(191, 0, 255, 0.04); /* relleno púrpura más tenue en móviles */
+    animation-duration: 25s;
+  }
+}
+
+/* Respeta preferencias del usuario */
+@media (prefers-reduced-motion: reduce) {
+  .cyberpunk-grid {
+    animation: none;
+  }
+}
+
+/* Ocultar la capa CSS de grid cuando se use el canvas de squares en esa sección */
+[data-squares-bg] .cyberpunk-grid {
+  display: none !important;
+}

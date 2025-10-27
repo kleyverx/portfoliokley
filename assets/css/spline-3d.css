@@ -1,0 +1,118 @@
+/* Estilos específicos para el modelo 3D de Spline */
+
+/* Contenedor principal del modelo 3D */
+#spline-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+/* Estilos para el componente spline-viewer */
+spline-viewer {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 0.5rem;
+  background: transparent;
+}
+
+/* Efectos de hover para el contenedor 3D */
+.spline-3d-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(191, 0, 255, 0.15);
+  border-color: rgba(191, 0, 255, 0.5);
+}
+
+/* Animación de carga personalizada */
+.spline-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.spline-loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(191, 0, 255, 0.2);
+  border-top: 4px solid #bf00ff;
+  border-radius: 50%;
+  animation: spline-spin 1s linear infinite;
+}
+
+@keyframes spline-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  #spline-container {
+    height: 300px;
+  }
+  
+  .spline-3d-container {
+    margin: 1rem 0;
+  }
+}
+
+/* Optimización de rendimiento */
+spline-viewer {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Efectos de neon para el contenedor */
+.spline-neon-border {
+  position: relative;
+}
+
+.spline-neon-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    transparent, 
+    rgba(191, 0, 255, 0.3), 
+    transparent, 
+    rgba(0, 255, 255, 0.3), 
+    transparent
+  );
+  border-radius: 0.5rem;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.spline-neon-border:hover::before {
+  opacity: 1;
+  animation: spline-neon-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes spline-neon-glow {
+  from {
+    box-shadow: 0 0 10px rgba(191, 0, 255, 0.3);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(191, 0, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.3);
+  }
+}
+
+/* Indicador de carga mejorado */
+.spline-loading-text {
+  color: #bf00ff;
+  font-weight: 500;
+  margin-top: 1rem;
+  animation: spline-pulse 2s ease-in-out infinite;
+}
+
+@keyframes spline-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

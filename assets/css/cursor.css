@@ -1,0 +1,157 @@
+/**
+ * Estilos del Cursor Personalizado
+ * Contiene todos los estilos relacionados con el cursor personalizado
+ * y sus estados interactivos
+ */
+
+/* Elementos base del cursor */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(135deg, #00f5ff, #ff00ff);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  box-shadow: 
+    0 0 10px rgba(0, 245, 255, 0.5),
+    0 0 20px rgba(255, 0, 255, 0.3);
+  transition: all 0.15s ease-out;
+  backdrop-filter: blur(1px);
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border: 2px solid transparent;
+  background: linear-gradient(135deg, rgba(0, 245, 255, 0.2), rgba(255, 0, 255, 0.2));
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  transition: all 0.2s ease-out;
+  backdrop-filter: blur(2px);
+  box-shadow: 
+    0 0 15px rgba(0, 245, 255, 0.3),
+    0 0 30px rgba(255, 0, 255, 0.2),
+    inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Estados del cursor */
+.cursor-hover .cursor-dot {
+  transform: translate(-50%, -50%) scale(1.5);
+  background: linear-gradient(135deg, #ff00ff, #00f5ff);
+  box-shadow: 
+    0 0 15px rgba(255, 0, 255, 0.7),
+    0 0 25px rgba(0, 245, 255, 0.5);
+}
+
+.cursor-hover .cursor-ring {
+  transform: translate(-50%, -50%) scale(1.3);
+  background: linear-gradient(135deg, rgba(255, 0, 255, 0.3), rgba(0, 245, 255, 0.3));
+  box-shadow: 
+    0 0 20px rgba(255, 0, 255, 0.4),
+    0 0 35px rgba(0, 245, 255, 0.3),
+    inset 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.cursor-click .cursor-dot {
+  transform: translate(-50%, -50%) scale(0.8);
+  background: linear-gradient(135deg, #ff4444, #ff00ff);
+  box-shadow: 
+    0 0 20px rgba(255, 68, 68, 0.8),
+    0 0 30px rgba(255, 0, 255, 0.6);
+}
+
+.cursor-click .cursor-ring {
+  transform: translate(-50%, -50%) scale(0.7);
+  background: linear-gradient(135deg, rgba(255, 68, 68, 0.4), rgba(255, 0, 255, 0.4));
+  box-shadow: 
+    0 0 25px rgba(255, 68, 68, 0.5),
+    0 0 40px rgba(255, 0, 255, 0.4),
+    inset 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.cursor-interactive .cursor-dot {
+  transform: translate(-50%, -50%) scale(1.2);
+  background: linear-gradient(135deg, #4d94ff, #9333ea);
+  box-shadow: 
+    0 0 12px rgba(77, 148, 255, 0.6),
+    0 0 22px rgba(147, 51, 234, 0.4);
+}
+
+.cursor-interactive .cursor-ring {
+  transform: translate(-50%, -50%) scale(1.4);
+  border-color: rgba(77, 148, 255, 0.5);
+  background: linear-gradient(135deg, rgba(77, 148, 255, 0.25), rgba(147, 51, 234, 0.25));
+  box-shadow: 
+    0 0 18px rgba(77, 148, 255, 0.4),
+    0 0 32px rgba(147, 51, 234, 0.3),
+    inset 0 0 12px rgba(255, 255, 255, 0.15);
+}
+
+/* Animaciones adicionales */
+@keyframes cursor-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+.cursor-interactive .cursor-ring {
+  animation: cursor-pulse 2s ease-in-out infinite;
+}
+
+/* Efectos especiales para elementos específicos */
+/* Usar doble acento púrpura en el cursor interactivo */
+.cursor-hover.cursor-interactive .cursor-dot {
+  transform: translate(-50%, -50%) scale(1.3);
+  background: linear-gradient(135deg, #4d94ff, #8A2BE2, #bf00ff);
+  background-size: 200% 200%;
+  animation: gradient-shift 1.5s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Responsive: Ocultar en pantallas pequeñas */
+@media (max-width: 768px) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}
+
+/* Ocultar en dispositivos táctiles */
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}
+
+/* Mejoras de rendimiento */
+.cursor-dot,
+.cursor-ring {
+  will-change: transform, opacity;
+  contain: layout style paint;
+}
+
+/* Gradiente del cursor reactivo: sustituir rosa por púrpura neón */
+.reactive-cursor-gradient {
+  background: linear-gradient(135deg, #4d94ff, #8A2BE2, #bf00ff);
+}

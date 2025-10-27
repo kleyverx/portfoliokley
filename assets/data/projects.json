@@ -1,0 +1,68 @@
+[
+  {
+    "id": "proj-1",
+    "title": "BMV Shop — E-commerce de Perfumería (Actualmente en Renovacion)",
+    "description": "Tienda online completa desarrollada con Laravel y Livewire. Incluye carrito de compras, gestión de usuarios, control de stock y sistema de pagos integrados con PagoFlash.",
+    "technologies": ["Laravel", "Livewire", "MySQL", "TailwindCSS"],
+    "image": "assets/images/public/proyectos/2.png",
+    "codeUrl": "https://github.com",
+    "demoUrl": "https://bmv-store.com/",
+    "date": "2024-08-01",
+    "featured": true
+  },
+  {
+    "id": "proj-2",
+    "title": "Levni Care — Tienda de Cuidado Personal",
+    "description": "Tienda Shopify enfocada en afeitadoras y dispositivos de cuidado personal (productos como RUNA y NEXO). Contenido en español, secciones de productos, envíos y testimonios visibles en el sitio.",
+    "technologies": ["Shopify Ella - Multipurpose (Modificado)", "Liquid", "JavaScript", "CSS"],
+    "image": "assets/images/public/proyectos/levnicare.png",
+    "codeUrl": "https://github.com",
+    "demoUrl": "https://www.levnicare.com/",
+    "date": "2024-09-10",
+    "featured": true
+  },
+  {
+    "id": "proj-3",
+    "title": "Casa Pictory — Cuadros y Pictorys Personalizados",
+    "description": "Tienda de cuadros/pictorys personalizados: catálogo de productos (fotos imantadas, cuadros), contacto visible (teléfono y email), y envío nacional. Web orientada a la venta de productos personalizados y recuerdos.",
+    "technologies": ["Shopify Tema Personalizado", "Liquid", "CSS", "JavaScript"],
+    "image": "assets/images/public/proyectos/pictory.png",
+    "codeUrl": "https://github.com",
+    "demoUrl": "https://www.casapictory.com/",
+    "date": "2024-09-05",
+    "featured": false
+  },
+  {
+    "id": "proj-4",
+    "title": "Grupo Oxford — Portal Corporativo y Catálogo de Marcas",
+    "description": "Portal corporativo de Grupo Oxford (importación, distribución y comercialización). Contenido institucional, catálogo de marcas y secciones para inversores y noticias; no aparece como tienda tipo catálogo simple sino como web corporativa con catálogo y marcas.",
+    "technologies": ["Shopify Tema Personalizado", "HTML", "CSS", "JavaScript"],
+    "image": "assets/images/public/proyectos/oxford.png",
+    "codeUrl": "https://github.com",
+    "demoUrl": "https://oxfordve.com/",
+    "date": "2024-10-01",
+    "featured": false
+  },
+  {
+    "id": "proj-5",
+    "title": "NQLN Store — Multi-categoría (Hogar, Gadgets y Más)",
+    "description": "Tienda Shopify multi-categoría con amplio catálogo (hogar, cocina, gadgets, decoración, cuidado personal). Estructura de categorías, fichas de producto y mensajes de envío (MRW/ZOOM) visibles en el sitio.",
+    "technologies": ["Shopify Ella - Multipurpose (Modificado)", "Liquid", "JavaScript", "CSS"],
+    "image": "assets/images/public/proyectos/nq.png",
+    "codeUrl": "https://github.com",
+    "demoUrl": "https://www.nqlnstore.com/",
+    "date": "2024-09-20",
+    "featured": false
+  },
+  {
+    "id": "proj-6",
+    "title": "Vauli — Productos Esenciales para el Hogar",
+    "description": "Marca y tienda (Vauli) con catálogo de productos para el hogar: categorías (limpieza, organización, durabilidad), información de contacto y enfoque en diseño práctico y materiales eco-friendly. El sitio muestra disponibilidad en tiendas NQLN y datos de contacto.",
+    "technologies": ["Shopify / Kalles Theme (sitio tipo catálogo)","Liquid","CSS","JavaScript"],
+    "image": "assets/images/public/proyectos/vauli.png",
+    "codeUrl": "https://github.com",
+    "demoUrl": "https://www.casavauli.com/",
+    "date": "2024-09-25",
+    "featured": false
+  }
+]

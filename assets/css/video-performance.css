@@ -1,0 +1,74 @@
+/* Estilos para optimización de rendimiento durante reproducción de video */
+
+/* Cuando está activo el modo de rendimiento de video */
+.video-performance-mode {
+  /* Pausar animaciones CSS costosas */
+}
+
+.video-performance-mode [data-squares-bg] {
+  /* Pausar animaciones de fondo de cuadrados */
+  animation-play-state: paused !important;
+}
+
+.video-performance-mode .spline-3d-container {
+  /* Pausar animaciones del modelo 3D */
+  animation-play-state: paused !important;
+}
+
+.video-performance-mode .cursor-dot,
+.video-performance-mode .cursor-ring {
+  /* Pausar animaciones del cursor personalizado */
+  animation-play-state: paused !important;
+  transition: none !important;
+}
+
+/* Pausar efectos de hover costosos durante video */
+.video-performance-mode .project-card:hover,
+.video-performance-mode .video-card:hover {
+  transform: none !important;
+  filter: none !important;
+  transition: none !important;
+}
+
+/* Pausar efectos de parallax y scroll */
+.video-performance-mode .parallax-element {
+  transform: none !important;
+}
+
+/* Reducir efectos visuales en elementos de navegación */
+.video-performance-mode .nav-link:hover {
+  transform: none !important;
+  filter: none !important;
+}
+
+/* Pausar animaciones de loading y spinners no esenciales */
+.video-performance-mode .loading-spinner:not(.video-theater-loading *) {
+  animation-play-state: paused !important;
+}
+
+/* Optimizar elementos con gradientes animados */
+.video-performance-mode .gradient-animated {
+  animation-play-state: paused !important;
+}
+
+/* Pausar efectos de glow y neon */
+.video-performance-mode .glow-effect,
+.video-performance-mode .neon-effect {
+  animation-play-state: paused !important;
+  box-shadow: none !important;
+}
+
+/* Clase para elementos específicamente pausados */
+.performance-paused {
+  animation-play-state: paused !important;
+  transition: none !important;
+}
+
+/* Mantener solo las animaciones esenciales del video theater */
+.video-theater-overlay.active .video-theater-container,
+.video-theater-overlay.active .video-theater-close,
+.video-theater-overlay.active .video-theater-loading {
+  /* Estas animaciones se mantienen activas */
+  animation-play-state: running !important;
+  transition: all 0.3s ease !important;
+}
