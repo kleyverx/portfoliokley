@@ -82,6 +82,15 @@
   box-shadow: 0 0 25px rgba(191, 0, 255, 0.6);
 }
 
+/* Desactivar hover effects cuando el video está reproduciéndose */
+.video-theater-active .video-theater-close:hover {
+  background: rgba(191, 0, 255, 0.9);
+  border-color: rgba(191, 0, 255, 1);
+  transform: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: none;
+}
+
 .video-theater-close:active {
   transform: scale(0.95);
 }
@@ -150,6 +159,8 @@
   text-align: center;
   color: white;
   opacity: 0.8;
+  /* Ocultar por defecto para evitar interferencia con videos */
+  display: none;
 }
 
 .video-theater-title {
@@ -170,33 +181,96 @@
     width: 95vw;
     max-width: 95vw;
     aspect-ratio: 16/9; /* Mantener proporción 16:9 en móviles */
+    margin: 20px auto;
   }
   
   .video-theater-close {
     top: -45px;
-    width: 35px;
-    height: 35px;
-    font-size: 18px;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    /* Mejorar área táctil */
+    padding: 8px;
+    min-width: 44px;
+    min-height: 44px;
   }
   
   .video-theater-info {
-    bottom: -50px;
+    bottom: -60px;
+    padding: 16px;
+    background: rgba(16, 17, 26, 0.95);
+    border-radius: 12px;
+    backdrop-filter: blur(20px);
+    /* Mantener oculto en responsive también */
+    display: none !important;
   }
   
   .video-theater-title {
-    font-size: 16px;
+    font-size: 18px;
+    margin-bottom: 8px;
   }
   
   .video-theater-description {
-    font-size: 12px;
+    font-size: 14px;
+    line-height: 1.5;
   }
 }
 
 @media (max-width: 480px) {
+  .video-theater-overlay {
+    padding: 20px 10px;
+  }
+  
   .video-theater-container {
     width: 98vw;
     max-width: 98vw;
     aspect-ratio: 16/9; /* Mantener proporción 16:9 en pantallas pequeñas */
+    margin: 10px auto;
+  }
+  
+  .video-theater-close {
+    top: -50px;
+    right: 5px;
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+    /* Área táctil optimizada para móvil */
+    min-width: 48px;
+    min-height: 48px;
+    border-width: 2px;
+  }
+  
+  .video-theater-info {
+    bottom: -80px;
+    left: 5px;
+    right: 5px;
+    padding: 20px;
+    text-align: center;
+    /* Mantener oculto en mobile también */
+    display: none !important;
+  }
+  
+  .video-theater-title {
+    font-size: 16px;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  
+  .video-theater-description {
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  /* Mejorar loading en móvil */
+  .video-theater-loading {
+    font-size: 16px;
+  }
+  
+  .video-theater-loading .spinner {
+    width: 40px;
+    height: 40px;
   }
 }
 

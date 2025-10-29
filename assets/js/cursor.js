@@ -125,6 +125,17 @@ class CustomCursor {
   }
 
   onMove = (e) => {
+    // Evitar trabajo durante modo teatro o rendimiento reducido
+    if (document.body.classList.contains('video-theater-active') || document.body.classList.contains('video-performance-mode') || window.performanceOptimizationActive) {
+      return;
+    }
+
+    // Throttle simple (~30fps) para reducir carga
+    const now = performance.now();
+    if (!this._lastMoveTs) this._lastMoveTs = 0;
+    if (now - this._lastMoveTs < 33) return;
+    this._lastMoveTs = now;
+
     const x = e.clientX;
     const y = e.clientY;
     this.setDotX(x);

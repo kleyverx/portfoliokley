@@ -365,3 +365,24 @@ body {
 .subtitle-glow {
   text-shadow: 0 0 3px var(--brand-purple), 0 0 6px rgba(var(--brand-purple-rgb), 0.5);
 }
+/* Fondo global de cuadrados (equivalente a Tailwind: fixed inset-0 z-0) */
+#global-squares-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* no bloquea interacciones */
+  z-index: 0; /* detrás del contenido con z-index mayor */
+}
+
+/* Asegurar que el canvas interno ocupe todo el contenedor */
+#global-squares-bg canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}

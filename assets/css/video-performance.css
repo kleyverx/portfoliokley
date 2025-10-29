@@ -1,74 +1,146 @@
-/* Estilos para optimización de rendimiento durante reproducción de video */
-
-/* Cuando está activo el modo de rendimiento de video */
-.video-performance-mode {
-  /* Pausar animaciones CSS costosas */
-}
-
-.video-performance-mode [data-squares-bg] {
-  /* Pausar animaciones de fondo de cuadrados */
-  animation-play-state: paused !important;
-}
-
-.video-performance-mode .spline-3d-container {
-  /* Pausar animaciones del modelo 3D */
-  animation-play-state: paused !important;
-}
-
-.video-performance-mode .cursor-dot,
-.video-performance-mode .cursor-ring {
-  /* Pausar animaciones del cursor personalizado */
+/* Optimizaciones de rendimiento para videos */
+/* Pausar animaciones cuando el modo de rendimiento está activo */
+.video-performance-mode * {
   animation-play-state: paused !important;
   transition: none !important;
 }
 
-/* Pausar efectos de hover costosos durante video */
+/* Pausar animaciones específicas de fondo */
+.video-performance-mode .squares-bg,
+.video-performance-mode .squares-bg * {
+  animation-play-state: paused !important;
+  transform: none !important;
+}
+
+/* Pausar modelos 3D de Spline */
+.video-performance-mode spline-viewer,
+.video-performance-mode .spline-3d {
+  pointer-events: none !important;
+  animation-play-state: paused !important;
+}
+
+/* Pausar cursor personalizado */
+.video-performance-mode .cursor,
+.video-performance-mode .cursor-follower {
+  display: none !important;
+}
+
+/* Pausar efectos hover en tarjetas de proyectos y videos */
 .video-performance-mode .project-card:hover,
 .video-performance-mode .video-card:hover {
   transform: none !important;
-  filter: none !important;
+  box-shadow: none !important;
   transition: none !important;
 }
 
-/* Pausar efectos de parallax y scroll */
-.video-performance-mode .parallax-element {
+/* Pausar efectos parallax */
+.video-performance-mode .parallax,
+.video-performance-mode [data-parallax] {
   transform: none !important;
 }
 
-/* Reducir efectos visuales en elementos de navegación */
-.video-performance-mode .nav-link:hover {
+/* Pausar efectos hover en navegación */
+.video-performance-mode .nav-link:hover,
+.video-performance-mode .menu-item:hover {
   transform: none !important;
-  filter: none !important;
+  color: inherit !important;
+  background: none !important;
 }
 
-/* Pausar animaciones de loading y spinners no esenciales */
+/* Pausar spinners de carga no esenciales */
 .video-performance-mode .loading-spinner:not(.video-theater-loading *) {
   animation-play-state: paused !important;
 }
 
-/* Optimizar elementos con gradientes animados */
-.video-performance-mode .gradient-animated {
+/* Pausar gradientes animados */
+.video-performance-mode .animated-gradient,
+.video-performance-mode .gradient-animation {
   animation-play-state: paused !important;
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%) !important;
 }
 
-/* Pausar efectos de glow y neon */
+/* Pausar efectos de glow/neon */
 .video-performance-mode .glow-effect,
 .video-performance-mode .neon-effect {
-  animation-play-state: paused !important;
   box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
 }
 
-/* Clase para elementos específicamente pausados */
-.performance-paused {
+/* Pausar animaciones de texto */
+.video-performance-mode .text-animation,
+.video-performance-mode .typewriter,
+.video-performance-mode .fade-in-text {
   animation-play-state: paused !important;
-  transition: none !important;
 }
 
-/* Mantener solo las animaciones esenciales del video theater */
-.video-theater-overlay.active .video-theater-container,
-.video-theater-overlay.active .video-theater-close,
-.video-theater-overlay.active .video-theater-loading {
-  /* Estas animaciones se mantienen activas */
+/* Pausar efectos de partículas */
+.video-performance-mode .particles,
+.video-performance-mode .particle-system {
+  display: none !important;
+}
+
+/* Pausar transformaciones CSS complejas */
+.video-performance-mode .complex-transform,
+.video-performance-mode .rotating-element {
+  transform: none !important;
+  animation-play-state: paused !important;
+}
+
+/* Pausar filtros CSS */
+.video-performance-mode .css-filter {
+  filter: none !important;
+}
+
+/* Pausar animaciones de scroll */
+.video-performance-mode .scroll-animation,
+.video-performance-mode .reveal-on-scroll {
+  animation-play-state: paused !important;
+  transform: none !important;
+}
+
+/* Mantener activas las animaciones esenciales del teatro de videos */
+.video-performance-mode .video-theater-overlay,
+.video-performance-mode .video-theater-container,
+.video-performance-mode .video-theater-close,
+.video-performance-mode .video-theater-loading {
   animation-play-state: running !important;
   transition: all 0.3s ease !important;
+}
+
+/* Optimizar rendering del teatro de videos */
+.video-theater-overlay {
+  will-change: opacity, visibility;
+}
+
+.video-theater-container {
+  will-change: transform, opacity;
+}
+
+.video-theater-iframe {
+  will-change: opacity;
+}
+
+/* Desactivar hover effects durante reproducción de video */
+.video-theater-active .video-card:hover,
+.video-theater-active .project-card:hover,
+.video-theater-active .nav-link:hover,
+.video-theater-active .menu-item:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  transition: none !important;
+  background: none !important;
+  color: inherit !important;
+}
+
+/* Pausar animaciones de fondo durante reproducción */
+.video-theater-active .squares-bg,
+.video-theater-active .squares-bg * {
+  animation-play-state: paused !important;
+}
+
+/* Pausar cursor personalizado durante reproducción */
+.video-theater-active .cursor,
+.video-theater-active .cursor-follower {
+  display: none !important;
 }

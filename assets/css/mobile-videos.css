@@ -1,0 +1,160 @@
+/* Optimizaciones específicas para videos en mobile */
+
+/* Grid responsive mejorado */
+@media (max-width: 768px) {
+  .videos-container {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    max-width: 100% !important;
+    padding: 0 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .videos-container {
+    gap: 16px !important;
+    padding: 0 16px !important;
+  }
+  
+  /* Mejorar el grid de videos para móviles */
+  .videos-container.grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Asegurar que las clases de Tailwind no interfieran */
+  .videos-container.lg\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Interacciones táctiles mejoradas */
+@media (hover: none) and (pointer: coarse) {
+  /* Dispositivos táctiles */
+  .video-card {
+    /* Eliminar hover effects en dispositivos táctiles */
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  }
+  
+  .video-card:hover {
+    transform: none !important;
+  }
+  
+  /* Focus más visible en táctil */
+  .video-card.focused {
+    transform: scale(1.02) !important;
+    box-shadow: 
+      0 8px 25px rgba(0, 0, 0, 0.3),
+      0 0 0 3px rgba(191, 0, 255, 0.6),
+      0 0 20px rgba(191, 0, 255, 0.3) !important;
+  }
+  
+  /* Botón de play más prominente - OCULTO para evitar duplicación */
+  .video-card::after {
+    opacity: 0 !important;
+    display: none !important;
+    background: rgba(191, 0, 255, 0.9) !important;
+  }
+}
+
+/* Mejoras para pantallas pequeñas */
+@media (max-width: 360px) {
+  .videos-container {
+    padding: 0 12px !important;
+    gap: 12px !important;
+  }
+  
+  .video-card {
+    min-height: 180px !important;
+    padding: 8px !important;
+  }
+  
+  .video-card::after {
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 24px !important;
+  }
+}
+
+/* Optimización para orientación landscape en móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+  .video-theater-container {
+    width: 90vw !important;
+    height: 80vh !important;
+    max-height: 80vh !important;
+  }
+  
+  .video-theater-close {
+    top: -35px !important;
+    right: 0 !important;
+  }
+  
+  .video-theater-info {
+    display: none !important; /* Ya está oculto por defecto */
+  }
+}
+
+/* Mejoras específicas para el botón de cierre en mobile */
+@media (max-width: 768px) {
+  .video-theater-close {
+    /* Botón más grande y fácil de tocar */
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 28px !important;
+    top: 10px !important;
+    right: 10px !important;
+    
+    /* Área de toque más grande */
+    padding: 0 !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+    
+    /* Mejor contraste visual */
+    background: rgba(0, 0, 0, 0.8) !important;
+    color: white !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    
+    /* Efectos táctiles */
+    touch-action: manipulation !important;
+    user-select: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  
+  .video-theater-close:active {
+    transform: scale(0.95) !important;
+    background: rgba(191, 0, 255, 0.8) !important;
+    border-color: rgba(191, 0, 255, 0.6) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-theater-close {
+    width: 45px !important;
+    height: 45px !important;
+    font-size: 24px !important;
+    top: 15px !important;
+    right: 15px !important;
+  }
+}
+
+/* Mejorar el overlay para mobile */
+@media (max-width: 768px) {
+  .video-theater-overlay {
+    /* Asegurar que el overlay cubra toda la pantalla */
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 9999 !important;
+  }
+  
+  .video-theater-container {
+    /* Centrar mejor en mobile */
+    position: relative !important;
+    width: 95vw !important;
+    max-width: 95vw !important;
+    height: auto !important;
+    margin: 5vh auto !important;
+  }
+}

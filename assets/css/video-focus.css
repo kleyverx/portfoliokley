@@ -15,6 +15,7 @@
   cursor: pointer;
   background: rgba(16, 17, 26, 0.8);
   border: 1px solid rgba(191, 0, 255, 0.2); /* Púrpura principal */
+  min-height: 200px; /* Altura mínima para mobile */
 }
 
 /* Estado normal de la tarjeta */
@@ -134,26 +135,93 @@
 
 /* Responsive design */
 @media (max-width: 768px) {
+  /* Simplificar efectos de focus en tablets */
   .video-card.focused {
-    transform: scale(1.03);
+    transform: scale(1.02);
+    box-shadow: 
+      0 10px 20px rgba(0, 0, 0, 0.3),
+      0 0 0 2px rgba(191, 0, 255, 0.6),
+      0 0 15px rgba(191, 0, 255, 0.3);
   }
   
   .videos-container.has-focus .video-card:not(.focused) {
-    transform: scale(0.97);
+    transform: scale(0.98);
+    filter: brightness(0.8);
+    opacity: 0.8;
   }
   
   .video-content {
     height: 180px;
   }
+  
+  /* Mejorar área de toque */
+  .video-card {
+    min-height: 180px;
+    padding: 8px;
+  }
 }
 
 @media (max-width: 480px) {
+  /* Optimización para móviles */
+  .videos-container {
+    gap: 16px !important;
+    padding: 0 16px;
+  }
+  
+  .video-card {
+    min-height: 200px;
+    padding: 12px;
+    border-radius: 16px;
+    /* Mejorar área táctil */
+    touch-action: manipulation;
+  }
+  
+  /* Efectos más sutiles en móvil */
   .video-card.focused {
-    transform: scale(1.02);
+    transform: scale(1.01);
+    box-shadow: 
+      0 8px 16px rgba(0, 0, 0, 0.25),
+      0 0 0 2px rgba(191, 0, 255, 0.5),
+      0 0 12px rgba(191, 0, 255, 0.2);
+  }
+  
+  .videos-container.has-focus .video-card:not(.focused) {
+    transform: scale(0.99);
+    filter: brightness(0.85);
+    opacity: 0.9;
   }
   
   .video-content {
-    height: 160px;
+    height: 200px;
+    border-radius: 12px;
+  }
+  
+  /* Botón de reproducción más grande - OCULTO para evitar duplicación con YouTube */
+  .video-card::after {
+    content: '▶';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: none; /* Ocultar para evitar duplicación con controles de YouTube */
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(191, 0, 255, 0.6);
+    z-index: 5;
+    transition: all 0.3s ease;
+  }
+  
+  .video-card:hover::after,
+  .video-card.focused::after {
+    background: rgba(191, 0, 255, 0.8);
+    transform: translate(-50%, -50%) scale(1.1);
   }
 }
 

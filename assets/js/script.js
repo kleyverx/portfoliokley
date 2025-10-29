@@ -421,19 +421,32 @@ function initLenis() {
     console.warn('⚠️ Lenis no está disponible');
     return;
   }
-  
-  const lenis = new Lenis({
+
+  // Si ya existe una instancia activa, evitar re-inicializar
+  if (window.lenis) {
+    // Reiniciar su bucle RAF si estuviera detenido
+    if (!window.lenisRafId) {
+      const raf = (time) => {
+        window.lenis.raf(time);
+        window.lenisRafId = requestAnimationFrame(raf);
+      };
+      window.lenisRafId = requestAnimationFrame(raf);
+    }
+    return;
+  }
+
+  // Crear instancia global y bucle RAF controlable
+  window.lenis = new Lenis({
     smooth: true,
     lerp: 0.1,
     duration: 1.2
   });
-  
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-  
-  requestAnimationFrame(raf);
+
+  const raf = (time) => {
+    window.lenis.raf(time);
+    window.lenisRafId = requestAnimationFrame(raf);
+  };
+  window.lenisRafId = requestAnimationFrame(raf);
 }
 
 // ============================================================================
@@ -1003,10 +1016,24 @@ function renderVideos(videos, grid) {
       <div class="focus-indicator"></div>
     `;
 
-    // Agregar eventos de focus
+    // Agregar eventos de focus y táctiles
     card.addEventListener('mouseenter', () => handleVideoFocus(card, grid));
     card.addEventListener('mouseleave', () => handleVideoBlur(card, grid));
     card.addEventListener('click', () => handleVideoClick(card, grid));
+    
+    // Mejorar interacciones táctiles para mobile
+    card.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      handleVideoFocus(card, grid);
+    }, { passive: false });
+    
+    card.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      // Delay para permitir que se vea el efecto de focus antes del click
+      setTimeout(() => {
+        handleVideoClick(card, grid);
+      }, 150);
+    }, { passive: false });
 
     frag.appendChild(card);
   }
@@ -1036,6 +1063,11 @@ function refreshTikTokEmbeds() {
 
 // Funciones para manejar efectos de focus en videos
 function handleVideoFocus(card, grid) {
+  // No procesar hover si el teatro de videos está activo
+  if (document.body.classList.contains('video-theater-active') || window.performanceOptimizationActive) {
+    return;
+  }
+  
   // Remover focus de otros videos
   const allCards = grid.querySelectorAll('.video-card');
   allCards.forEach(c => c.classList.remove('focused'));
@@ -1046,8 +1078,18 @@ function handleVideoFocus(card, grid) {
 }
 
 function handleVideoBlur(card, grid) {
+  // No procesar hover si el teatro de videos está activo
+  if (document.body.classList.contains('video-theater-active') || window.performanceOptimizationActive) {
+    return;
+  }
+  
   // Usar un pequeño delay para evitar parpadeos
   setTimeout(() => {
+    // Verificar nuevamente si el teatro sigue inactivo
+    if (document.body.classList.contains('video-theater-active') || window.performanceOptimizationActive) {
+      return;
+    }
+    
     const focusedCards = grid.querySelectorAll('.video-card.focused');
     if (focusedCards.length === 0 || !grid.matches(':hover')) {
       card.classList.remove('focused');
@@ -1057,107 +1099,132 @@ function handleVideoBlur(card, grid) {
 }
 
 function handleVideoClick(card, grid) {
-  // Toggle focus en dispositivos táctiles
-  const isFocused = card.classList.contains('focused');
+  // Detectar si es dispositivo móvil
+  const isMobile = window.innerWidth <= 768 || 'ontouchstart' in window;
   
-  if (isFocused) {
-    card.classList.remove('focused');
-    grid.classList.remove('has-focus');
-  } else {
-    // Remover focus de otros videos
-    const allCards = grid.querySelectorAll('.video-card');
-    allCards.forEach(c => c.classList.remove('focused'));
+  if (isMobile) {
+    // En mobile, abrir directamente el video sin toggle de focus
+    const videoUrl = card.dataset.videoUrl;
+    const title = card.querySelector('h3')?.textContent || '';
+    const description = card.querySelector('p')?.textContent || '';
     
-    // Agregar focus al video actual
-    card.classList.add('focused');
-    grid.classList.add('has-focus');
+    if (videoUrl) {
+      openVideoTheater(videoUrl, title, description);
+    }
+  } else {
+    // En desktop, mantener el comportamiento de toggle focus
+    const isFocused = card.classList.contains('focused');
+    
+    if (isFocused) {
+      // Si ya está enfocado, abrir el video
+      const videoUrl = card.dataset.videoUrl;
+      const title = card.querySelector('h3')?.textContent || '';
+      const description = card.querySelector('p')?.textContent || '';
+      
+      if (videoUrl) {
+        openVideoTheater(videoUrl, title, description);
+      }
+    } else {
+      // Remover focus de otros videos
+      const allCards = grid.querySelectorAll('.video-card');
+      allCards.forEach(c => c.classList.remove('focused'));
+      
+      // Agregar focus al video actual
+      card.classList.add('focused');
+      grid.classList.add('has-focus');
+    }
   }
 }
 
 // Funciones del Teatro de Video
-// Variables globales para control de rendimiento
-let performanceOptimizationActive = false;
-let pausedAnimations = [];
+// Variables globales para control de rendimiento (usamos window.* para consistencia entre archivos)
+window.performanceOptimizationActive = false;
+window.pausedAnimations = [];
 
-function openVideoTheater(videoUrl, title, description) {
+// Función optimizada para abrir el teatro de videos
+function openVideoTheater(videoUrl, title = '', description = '') {
+  console.log('🎬 Abriendo teatro de video:', { videoUrl, title });
+  
+  // Pausar elementos intensivos ANTES de mostrar el video
+  pausePerformanceIntensiveElements();
+  
   const overlay = document.getElementById('video-theater-overlay');
   const iframe = document.getElementById('video-theater-iframe');
   const titleEl = document.getElementById('video-theater-title');
   const descEl = document.getElementById('video-theater-description');
   const loading = overlay.querySelector('.video-theater-loading');
   
-  // OPTIMIZACIÓN DE RENDIMIENTO: Pausar elementos que consumen recursos
-  pausePerformanceIntensiveElements();
-  
-  // Configurar información del video
-  titleEl.textContent = title;
-  descEl.textContent = description;
-  
-  // Mostrar loading
-  loading.style.display = 'flex';
-  iframe.classList.remove('loaded');
-  
-  // Configurar URL del video para autoplay
-  let theaterUrl = videoUrl;
-  if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
-    // Agregar autoplay y API para YouTube
-    const params = videoUrl.includes('?') ? '&autoplay=1&enablejsapi=1&origin=' + window.location.origin : '?autoplay=1&enablejsapi=1&origin=' + window.location.origin;
-    theaterUrl = videoUrl + params;
+  if (!overlay || !iframe) {
+    console.error('❌ Elementos del teatro de video no encontrados');
+    return;
   }
   
-  // Cargar video
-  iframe.src = theaterUrl;
+  // Configurar información del video
+  if (titleEl) titleEl.textContent = title;
+  if (descEl) descEl.textContent = description;
   
-  // Mostrar overlay
+  // Mostrar loading
+  if (loading) {
+    loading.style.display = 'flex';
+  }
+  iframe.classList.remove('loaded');
+  
+  // Mostrar overlay inmediatamente
   overlay.classList.add('active');
   document.body.classList.add('video-theater-active');
   
-  // Ocultar loading cuando el iframe cargue
-  iframe.onload = function() {
-    setTimeout(() => {
-      loading.style.display = 'none';
-      iframe.classList.add('loaded');
-    }, 500);
-  };
+  // Configurar URL del video con parámetros optimizados
+  let optimizedUrl = videoUrl;
+  
+  // Para YouTube, agregar parámetros de optimización
+  if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+    const separator = videoUrl.includes('?') ? '&' : '?';
+    optimizedUrl = `${videoUrl}${separator}autoplay=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&origin=${window.location.origin}&controls=1&showinfo=0&fs=1&cc_load_policy=0&iv_load_policy=3&autohide=1`;
+  }
+  
+  // Cargar video con un pequeño delay para suavizar la transición
+  setTimeout(() => {
+    iframe.src = optimizedUrl;
+    
+    // Ocultar loading cuando el iframe cargue
+    iframe.onload = function() {
+      setTimeout(() => {
+        if (loading) loading.style.display = 'none';
+        iframe.classList.add('loaded');
+      }, 500);
+    };
+  }, 100);
+  
+  console.log('✅ Teatro de video abierto correctamente');
 }
 
+// Función optimizada para cerrar el teatro de videos
 function closeVideoTheater() {
+  console.log('🎬 Cerrando teatro de video...');
+  
   const overlay = document.getElementById('video-theater-overlay');
   const iframe = document.getElementById('video-theater-iframe');
   
   // Verificar que el overlay existe y está activo
   if (!overlay || !overlay.classList.contains('active')) return;
   
-  // OPTIMIZACIÓN DE RENDIMIENTO: Reanudar elementos pausados
-  resumePerformanceIntensiveElements();
-  
-  // Detener el video antes de cerrar
-  if (iframe && iframe.src) {
-    // Para YouTube, detener el video cambiando la URL
-    if (iframe.src.includes('youtube.com') || iframe.src.includes('youtu.be')) {
-      const currentSrc = iframe.src;
-      iframe.src = currentSrc.replace('autoplay=1', 'autoplay=0');
-      // Forzar recarga para detener el video
-      setTimeout(() => {
-        iframe.src = '';
-      }, 100);
-    } else {
-      // Para otros videos, simplemente limpiar la fuente
-      iframe.src = '';
-    }
+  // Detener video inmediatamente
+  if (iframe) {
+    iframe.src = '';
+    iframe.classList.remove('loaded');
   }
   
   // Ocultar overlay
   overlay.classList.remove('active');
   document.body.classList.remove('video-theater-active');
   
-  // Limpiar iframe después de la animación
+  // Reanudar elementos pausados después de cerrar
   setTimeout(() => {
-    if (iframe) {
-      iframe.src = '';
-      iframe.classList.remove('loaded');
-    }
-  }, 400);
+    console.log('🔄 Reanudando elementos de performance después de cerrar video');
+    resumePerformanceIntensiveElements();
+  }, 300);
+  
+  console.log('✅ Teatro de video cerrado correctamente');
 }
 
 // Cerrar con tecla Escape
@@ -1184,81 +1251,178 @@ document.addEventListener('click', function(e) {
   }
 });
 
+// Mejorar cierre táctil para mobile
+document.addEventListener('touchend', function(e) {
+  const overlay = document.getElementById('video-theater-overlay');
+  
+  // Verificar si el overlay está activo
+  if (!overlay || !overlay.classList.contains('active')) return;
+  
+  // Cerrar si se toca el overlay (fondo) pero NO el contenedor del video
+  if (e.target === overlay) {
+    e.preventDefault();
+    closeVideoTheater();
+  }
+}, { passive: false });
+
 // Hacer las funciones globales para que sean accesibles desde el HTML
 window.closeVideoTheater = closeVideoTheater;
 
+// (Variables globales ya definidas arriba con window.performanceOptimizationActive y window.pausedAnimations)
+
 // FUNCIONES DE OPTIMIZACIÓN DE RENDIMIENTO
 function pausePerformanceIntensiveElements() {
-  if (performanceOptimizationActive) return;
+  if (window.performanceOptimizationActive) return;
   
   console.log('🔄 Pausando elementos que consumen recursos durante video...');
-  performanceOptimizationActive = true;
+  window.performanceOptimizationActive = true;
+  window.pausedAnimations = []; // Limpiar array
   
-  // 1. Pausar animaciones GSAP
+  // 1. Pausar animaciones GSAP de forma más agresiva
   if (typeof gsap !== 'undefined') {
     // Pausar todas las animaciones GSAP activas
     gsap.globalTimeline.pause();
-    pausedAnimations.push('gsap');
+    // También pausar cualquier ScrollTrigger activo
+    if (gsap.ScrollTrigger) {
+      gsap.ScrollTrigger.getAll().forEach(trigger => trigger.disable());
+    }
+    window.pausedAnimations.push('gsap');
   }
   
-  // 2. Pausar Lenis (scroll suave)
+  // 2. Pausar Lenis (scroll suave) sin destruir (evita reflows y jank)
   if (window.lenis) {
-    window.lenis.stop();
-    pausedAnimations.push('lenis');
+    try {
+      window.lenis.stop();
+      if (window.lenisRafId) {
+        cancelAnimationFrame(window.lenisRafId);
+        window.lenisRafId = null;
+      }
+      window.pausedAnimations.push('lenis');
+    } catch (e) {
+      console.warn('⚠️ Error al pausar Lenis:', e);
+    }
   }
   
-  // 3. Pausar animaciones CSS intensivas y de fondo
-  const intensiveElements = document.querySelectorAll('[data-squares-bg], .spline-3d-container, .cursor-dot, .cursor-ring');
+  // 3. Pausar animaciones CSS intensivas (excluir [data-squares-bg], que es canvas)
+  const intensiveElements = document.querySelectorAll('.spline-3d-container, .cursor-dot, .cursor-ring');
   intensiveElements.forEach(el => {
     el.style.animationPlayState = 'paused';
+    el.style.transform = 'none'; // Detener transformaciones CSS
     el.classList.add('performance-paused');
   });
   
-  // 4. Pausar animaciones de fondo de cuadrados
+  // 4. Pausar animaciones de fondo de cuadrados de forma más eficiente
   if (typeof window.pauseSquaresBg === 'function') {
+    console.log('🔄 Pausando fondo de cuadrados...');
     window.pauseSquaresBg();
-    pausedAnimations.push('squares-bg');
+    // Activar modo de rendimiento reducido
+    if (typeof window.setSquaresBgReducedMode === 'function') {
+      window.setSquaresBgReducedMode(true);
+    }
+    window.pausedAnimations.push('squares-bg');
   }
   
-  // 5. Pausar efectos de hover y motion
+  // 5. Desactivar efectos de hover y motion
   document.body.classList.add('video-performance-mode');
+  
+  // 6. Reducir la frecuencia de actualización del cursor personalizado
+  if (window.cursor) {
+    window.cursor.style.display = 'none';
+  }
+  
+  // 7. Pausar cualquier animación de partículas o efectos 3D
+  const splineViewers = document.querySelectorAll('spline-viewer');
+  splineViewers.forEach(viewer => {
+    if (viewer.pause) viewer.pause();
+  });
   
   console.log('✅ Elementos pausados para optimizar rendimiento');
 }
 
 function resumePerformanceIntensiveElements() {
-  if (!performanceOptimizationActive) return;
-  
-  console.log('🔄 Reanudando elementos pausados...');
-  performanceOptimizationActive = false;
-  
-  // 1. Reanudar animaciones GSAP
-  if (pausedAnimations.includes('gsap') && typeof gsap !== 'undefined') {
-    gsap.globalTimeline.resume();
+  const wasActive = window.performanceOptimizationActive;
+  if (!wasActive) {
+    console.log('⚠️ No hay elementos pausados para reanudar (intentando asegurar estado del fondo de todas formas)');
   }
   
-  // 2. Reanudar Lenis
-  if (pausedAnimations.includes('lenis') && window.lenis) {
-    window.lenis.start();
+  console.log('🔄 Reanudando elementos pausados...', window.pausedAnimations);
+  window.performanceOptimizationActive = false;
+  
+  // 1. Reanudar animaciones GSAP
+  if (wasActive && window.pausedAnimations.includes('gsap') && typeof gsap !== 'undefined') {
+    console.log('🔄 Reanudando GSAP...');
+    gsap.globalTimeline.resume();
+    // Reactivar ScrollTriggers
+    if (gsap.ScrollTrigger) {
+      gsap.ScrollTrigger.getAll().forEach(trigger => trigger.enable());
+    }
+  }
+  
+  // 2. Reanudar Lenis (scroll suave) sin recrear la instancia
+  if (wasActive && window.pausedAnimations.includes('lenis')) {
+    console.log('🔄 Reanudando Lenis...');
+    try {
+      if (window.lenis) {
+        window.lenis.start();
+        if (!window.lenisRafId) {
+          const raf = (time) => {
+            window.lenis.raf(time);
+            window.lenisRafId = requestAnimationFrame(raf);
+          };
+          window.lenisRafId = requestAnimationFrame(raf);
+        }
+      } else {
+        // Si no existe (por ejemplo, nunca se inicializó), inicializar suavemente
+        setTimeout(() => initLenis(), 300);
+      }
+    } catch (e) {
+      console.warn('⚠️ Error al reanudar Lenis:', e);
+      setTimeout(() => initLenis(), 500);
+    }
   }
   
   // 3. Reanudar animaciones de fondo de cuadrados
-  if (pausedAnimations.includes('squares-bg') && typeof window.resumeSquaresBg === 'function') {
+  // Reanudar SIEMPRE el fondo de cuadrados, aunque la bandera global no esté activa
+  console.log('🔄 Asegurando estado del fondo de cuadrados...');
+  if (typeof window.setSquaresBgReducedMode === 'function') {
+    window.setSquaresBgReducedMode(false);
+  }
+  if (typeof window.resumeSquaresBg === 'function') {
     window.resumeSquaresBg();
   }
+  setTimeout(() => {
+    console.log('🔄 Forzando reinicio completo del fondo (fallback)...');
+    if (typeof window.forceRestartSquaresBg === 'function') {
+      window.forceRestartSquaresBg();
+    }
+  }, 200);
   
   // 4. Reanudar animaciones CSS
   const pausedElements = document.querySelectorAll('.performance-paused');
   pausedElements.forEach(el => {
     el.style.animationPlayState = 'running';
+    el.style.transform = ''; // Restaurar transformaciones
     el.classList.remove('performance-paused');
   });
   
   // 5. Reanudar efectos normales
   document.body.classList.remove('video-performance-mode');
   
+  // 6. Reactivar cursor personalizado
+  if (window.cursor) {
+    window.cursor.style.display = '';
+  }
+  
+  // 7. Reanudar efectos 3D
+  const splineViewers = document.querySelectorAll('spline-viewer');
+  splineViewers.forEach(viewer => {
+    if (viewer.play) viewer.play();
+  });
+  
   // Limpiar array de animaciones pausadas
-  pausedAnimations = [];
+  if (wasActive) {
+    window.pausedAnimations = [];
+  }
   
   console.log('✅ Elementos reanudados correctamente');
 }
