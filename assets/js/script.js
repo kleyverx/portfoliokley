@@ -1016,24 +1016,52 @@ function renderVideos(videos, grid) {
       <div class="focus-indicator"></div>
     `;
 
-    // Agregar eventos de focus y táctiles
-    card.addEventListener('mouseenter', () => handleVideoFocus(card, grid));
-    card.addEventListener('mouseleave', () => handleVideoBlur(card, grid));
-    card.addEventListener('click', () => handleVideoClick(card, grid));
-    
-    // Mejorar interacciones táctiles para mobile
-    card.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      handleVideoFocus(card, grid);
-    }, { passive: false });
-    
-    card.addEventListener('touchend', (e) => {
-      e.preventDefault();
-      // Delay para permitir que se vea el efecto de focus antes del click
-      setTimeout(() => {
-        handleVideoClick(card, grid);
-      }, 150);
-    }, { passive: false });
+    // Agregar eventos de focus y táctiles (optimizado para mobile)
+    const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches || 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    if (!isTouchDevice) {
+      // Desktop: usar hover para focus y click para abrir
+      card.addEventListener('mouseenter', () => handleVideoFocus(card, grid));
+      card.addEventListener('mouseleave', () => handleVideoBlur(card, grid));
+      card.addEventListener('click', () => handleVideoClick(card, grid));
+    } else {
+      // Mobile/Touch: no bloquear scroll ni usar preventDefault
+      // Sólo abrir el teatro con tap; no activar focus al tocar para evitar fricción
+      let touchStartX = 0, touchStartY = 0, touchStartTime = 0, moved = false;
+
+      const onTouchStart = (e) => {
+        const t = e.changedTouches ? e.changedTouches[0] : e.touches[0];
+        touchStartX = t.clientX;
+        touchStartY = t.clientY;
+        touchStartTime = Date.now();
+        moved = false;
+        // No llamar a handleVideoFocus en mobile para evitar bloqueos de scroll
+      };
+
+      const onTouchMove = (e) => {
+        const t = e.changedTouches ? e.changedTouches[0] : e.touches[0];
+        const dx = Math.abs(t.clientX - touchStartX);
+        const dy = Math.abs(t.clientY - touchStartY);
+        if (dx > 6 || dy > 6) {
+          moved = true; // Considerar como scroll
+        }
+      };
+
+      const onTouchEnd = (e) => {
+        const duration = Date.now() - touchStartTime;
+        // Tap si no hubo desplazamiento significativo y la pulsación fue breve
+        if (!moved && duration < 300) {
+          handleVideoClick(card, grid);
+        }
+      };
+
+      // Añadir listeners pasivos para permitir el scroll nativo
+      card.addEventListener('touchstart', onTouchStart, { passive: true });
+      card.addEventListener('touchmove', onTouchMove, { passive: true });
+      card.addEventListener('touchend', onTouchEnd, { passive: true });
+      // También reaccionar al click (por si hay emulación de click en algunos navegadores móviles)
+      card.addEventListener('click', () => handleVideoClick(card, grid));
+    }
 
     frag.appendChild(card);
   }

@@ -166,14 +166,16 @@
   .videos-container {
     gap: 16px !important;
     padding: 0 16px;
+    /* Permitir scroll vertical nativo dentro del contenedor */
+    touch-action: pan-y;
   }
   
   .video-card {
     min-height: 200px;
     padding: 12px;
     border-radius: 16px;
-    /* Mejorar área táctil */
-    touch-action: manipulation;
+    /* Mejorar área táctil sin bloquear scroll */
+    touch-action: pan-y;
   }
   
   /* Efectos más sutiles en móvil */
