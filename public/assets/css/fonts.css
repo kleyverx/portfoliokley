@@ -1,0 +1,28 @@
+/* ============================================================
+   SATOSHI — Fuente de cuerpo
+   ============================================================ */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi/Satoshi-Variable.woff2') format('woff2');
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi/Satoshi-VariableItalic.woff2') format('woff2');
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: italic;
+}
+
+/* ============================================================
+   CABINET GROTESK — Fuente de títulos
+   ============================================================ */
+@font-face {
+  font-family: 'CabinetGrotesk';
+  src: url('/fonts/cabinet-grotesk/CabinetGrotesk-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}

@@ -1,0 +1,78 @@
+/* =============================================
+   Cyberpunk Grid — fondo de cuadrícula animada
+   ============================================= */
+
+.cyberpunk-grid {
+  pointer-events: none;
+  z-index: 0;
+
+  /* Color de las líneas neón (purple) */
+  --square-size: 30px;
+  --line-color: rgba(191, 0, 255, 0.45);
+
+  background-image:
+    linear-gradient(var(--line-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-color) 1px, transparent 1px);
+  background-size: var(--square-size) var(--square-size);
+  background-position: 0 0;
+
+  /* Máscara radial: la grid se ve fuerte en el centro y se difumina hacia los bordes */
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 70% at 50% 50%,
+    black 20%,
+    rgba(0, 0, 0, 0.6) 55%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 80% 70% at 50% 50%,
+    black 20%,
+    rgba(0, 0, 0, 0.6) 55%,
+    transparent 100%
+  );
+
+  /* Animación de flujo suave */
+  animation: squares-flow 25s linear infinite;
+  will-change: background-position;
+}
+
+/* Sobreescribir el opacity-20 de Tailwind que viene del HTML */
+.cyberpunk-grid.opacity-20 {
+  opacity: 0.55 !important;
+}
+
+@keyframes squares-flow {
+  from { background-position: 0 0; }
+  to   { background-position: 30px 30px; }
+}
+
+/* Móviles: líneas un poco más suaves */
+@media (max-width: 768px) {
+  .cyberpunk-grid {
+    --line-color: rgba(191, 0, 255, 0.25);
+    animation-duration: 35s;
+    -webkit-mask-image: radial-gradient(
+      ellipse 90% 80% at 50% 50%,
+      black 10%,
+      rgba(0, 0, 0, 0.4) 60%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 90% 80% at 50% 50%,
+      black 10%,
+      rgba(0, 0, 0, 0.4) 60%,
+      transparent 100%
+    );
+  }
+}
+
+/* Respeto a preferencias de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .cyberpunk-grid {
+    animation: none;
+  }
+}
+
+/* Ocultar cuando la sección usa canvas de squares en su lugar */
+[data-squares-bg] .cyberpunk-grid {
+  display: none !important;
+}

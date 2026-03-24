@@ -1,0 +1,82 @@
+/**
+ * Estilos del Cursor Personalizado
+ * Contiene todos los estilos relacionados con el cursor personalizado
+ * y sus estados interactivos
+ */
+
+/* Elementos base del cursor */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background: #4808AA;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 15px #4808AA, 0 0 30px rgba(72, 8, 170, 0.4);
+  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid rgba(191, 0, 255, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  background: rgba(191, 0, 255, 0.05);
+  backdrop-filter: blur(2px);
+}
+
+/* Estados del cursor */
+.cursor-hover .cursor-dot {
+  width: 12px;
+  height: 12px;
+  background: #00f5ff;
+  box-shadow: 0 0 20px #00f5ff;
+}
+
+.cursor-hover .cursor-ring {
+  width: 60px;
+  height: 60px;
+  border-color: rgba(0, 245, 255, 0.4);
+  background: rgba(0, 245, 255, 0.05);
+}
+
+.cursor-click .cursor-dot {
+  transform: translate(-50%, -50%) scale(0.7);
+}
+
+.cursor-click .cursor-ring {
+  transform: translate(-50%, -50%) scale(0.8);
+  border-color: #4808AA;
+}
+
+/* Eliminar el bloqueo del cursor nativo */
+* {
+  cursor: auto !important;
+}
+
+/* Desactivar elementos del cursor personalizado */
+.cursor-dot, .cursor-ring {
+  display: none !important;
+}
+
+/* Estilos de botones y enlaces para que muestren el puntero normal */
+a, button, [role="button"] {
+  cursor: pointer !important;
+}
+
+@media (max-width: 1024px) {
+  .cursor-dot, .cursor-ring {
+    display: none !important;
+  }
+}

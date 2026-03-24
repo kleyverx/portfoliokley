@@ -1,0 +1,93 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content="Portfolio profesional de Kleyver Urbina, Desarrollador Full Stack con experiencia en PHP, Laravel, JavaScript y más" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+  
+  <!-- Fuentes locales: Satoshi (cuerpo) + Cabinet Grotesk (títulos) -->
+  <link rel="stylesheet" href="/assets/css/fonts.css" />
+
+
+  
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <link rel="stylesheet" href="/assets/css/cursor.css" />
+  <link rel="stylesheet" href="/assets/css/grid.css" />
+  <link rel="stylesheet" href="/assets/css/spline-3d.css" />
+  <link rel="stylesheet" href="/assets/css/dropdown-fix.css" />
+  <link rel="stylesheet" href="/assets/css/video-focus.css" />
+  <link rel="stylesheet" href="/assets/css/video-theater.css" />
+  <link rel="stylesheet" href="/assets/css/mobile-videos.css" />
+  <link rel="stylesheet" href="/assets/css/video-performance.css" />
+</head>
+<body class="text-foreground min-h-screen font-satoshi overflow-x-hidden">
+  <!-- Fondo global de cuadrados -->
+  <div id="global-squares-bg" data-squares-bg data-squares-direction="diagonal" data-squares-speed="10" data-squares-ignore-reduced="true" class="fixed inset-0 z-0"></div>
+  <!-- Capa de gradiente y ruido que va ENCIMA de la grid -->
+  <div class="fixed inset-0 pointer-events-none z-0 gradient-noise-bg"></div>
+  
+  <slot />
+
+  <!-- Teatro de Video Modal -->
+  <div id="video-theater-overlay" class="video-theater-overlay">
+    <div class="video-theater-blur-bg"></div>
+    <div class="video-theater-container">
+      <button class="video-theater-close" onclick="closeVideoTheater()">×</button>
+      <div class="video-theater-loading">Cargando video...</div>
+      <iframe id="video-theater-iframe" class="video-theater-iframe" src="" allowfullscreen loading="lazy" title="Reproductor de Video"></iframe>
+      <div class="video-theater-info">
+        <div class="video-theater-title" id="video-theater-title"></div>
+        <div class="video-theater-description" id="video-theater-description"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GSAP for animations (v3.14.2 - Latest Stable) -->
+  <script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollTrigger.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Preloader overlay -->
+  <div id="preloader" class="preloader" aria-label="Cargando">
+    <div class="preloader-spinner" aria-hidden="true"></div>
+    <div id="preloader-animation" class="preloader-animation" role="img" aria-hidden="true"></div>
+    <noscript>
+      <div class="preloader-fallback">Cargando...</div>
+    </noscript>
+  </div>
+
+  <!-- Librería Lottie para animación del preloader (jsDelivr CDN) -->
+  <script is:inline src="https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/build/player/lottie.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Módulos JS independientes (orden importa por dependencias) -->
+  <script is:inline src="/assets/js/core.js"></script>
+  <script is:inline src="/assets/js/i18n.js"></script>
+  <script is:inline src="/assets/js/navigation.js"></script>
+  <script is:inline src="/assets/js/contact.js"></script>
+  <script is:inline src="/assets/js/skills.js"></script>
+  <script is:inline src="/assets/js/projects.js"></script>
+  <script is:inline src="/assets/js/videos.js"></script>
+  <script is:inline src="/assets/js/video-theater.js"></script>
+  <script is:inline src="/assets/js/services.js"></script>
+  <script is:inline src="/assets/js/cursor.js"></script>
+  <script is:inline src="/assets/js/squares-bg.js" defer></script>
+  <script is:inline src="/assets/js/preloader.js" defer></script>
+
+  <!-- Spline 3D Viewer Script -->
+  <script is:inline type="module" src="https://unpkg.com/@splinetool/viewer@1.9.28/build/spline-viewer.js"></script>
+
+  <script is:inline type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script is:inline type="text/javascript">emailjs.init('dGuJ18LLlywexr6Wl');</script>
+</body>
+</html>

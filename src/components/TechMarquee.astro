@@ -1,0 +1,87 @@
+---
+import MySQLLogo from './icons/MySQLLogo.astro';
+import TypeScriptLogo from './icons/TypeScriptLogo.astro';
+import TailwindLogo from './icons/TailwindLogo.astro';
+import AstroLogo from './icons/AstroLogo.astro';
+import NodeLogo from './icons/NodeLogo.astro';
+import PHPLogo from './icons/PHPLogo.astro';
+import LaravelLogo from './icons/LaravelLogo.astro';
+import GitLogo from './icons/GitLogo.astro';
+import GeminiLogo from './icons/GeminiLogo.astro';
+import ShopifyLogo from './icons/ShopifyLogo.astro';
+import DockerLogo from './icons/DockerLogo.astro';
+import MongoDBLogo from './icons/MongoDBLogo.astro';
+import PostgresLogo from './icons/PostgresLogo.astro';
+import N8NLogo from './icons/N8NLogo.astro';
+
+const techLogos = [
+  { name: 'MySQL', component: MySQLLogo },
+  { name: 'TypeScript', component: TypeScriptLogo },
+  { name: 'Tailwind CSS', component: TailwindLogo },
+  { name: 'Astro', component: AstroLogo },
+  { name: 'Node.js', component: NodeLogo },
+  { name: 'PHP', component: PHPLogo },
+  { name: 'Laravel', component: LaravelLogo },
+  { name: 'Git', component: GitLogo },
+  { name: 'Gemini AI', component: GeminiLogo },
+  { name: 'Shopify', component: ShopifyLogo },
+  { name: 'Docker', component: DockerLogo },
+  { name: 'MongoDB', component: MongoDBLogo },
+  { name: 'PostgreSQL', component: PostgresLogo },
+  { name: 'n8n', component: N8NLogo }
+];
+
+const doubledLogos = [...techLogos, ...techLogos, ...techLogos]; // Triple for smooth looping
+---
+
+<div class="marquee-container w-full pt-0 pb-10 overflow-hidden relative pointer-events-auto">
+  <div class="marquee-track flex items-center gap-12 whitespace-nowrap">
+    {doubledLogos.map((tech) => (
+      <div class="marquee-item flex items-center gap-3 px-6 py-3 rounded-xl glass-panel border border-white/10 hover:border-primary/50 transition-all duration-300 group cursor-default">
+        <div class="w-8 h-8 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+          <tech.component class="w-full h-full" />
+        </div>
+        <span class="text-lg font-medium text-foreground group-hover:text-primary transition-colors">{tech.name}</span>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .marquee-container {
+    /* Mask removed for full-width edge-to-edge look */
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  .marquee-item {
+    flex-shrink: 0;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-100% / 3));
+    }
+  }
+
+  @media (max-width: 768px) {
+    .marquee-track {
+      animation-duration: 30s;
+      gap: 2rem;
+    }
+    .marquee-item {
+      padding: 0.5rem 1rem;
+    }
+  }
+</style>

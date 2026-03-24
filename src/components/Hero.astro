@@ -1,0 +1,149 @@
+---
+import { Image } from 'astro:assets';
+import perfilImage from '../assets/images/perfil.png';
+---
+<section id="inicio" class="w-full pt-4 pb-10 md:pt-8 md:pb-16 lg:pt-12 lg:pb-24 xl:pt-16 xl:pb-32 animate-section opacity-0 transition-all duration-1000 relative pointer-events-auto overflow-hidden">
+
+  <div class="container mx-auto px-4 md:px-6 relative z-10">
+    <div class="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+      <div class="flex flex-col justify-center space-y-4 relative pt-6 md:pt-0">
+        <div class="space-y-4">
+          <span class="animate-element opacity-0 transition-all duration-700 delay-300 inline-flex bg-primary/25 text-secondary text-sm md:text-base hover:bg-primary/35 px-3 py-1 rounded-full border border-primary/40 w-fit font-medium">
+            デベロッパー • <span class="lang-text" data-key="desarrollador">Desarrollador Full Stack</span>
+          </span>
+          <h1 class="text-4xl font-extrabold sm:text-5xl xl:text-7xl/none animate-element opacity-0 transition-all duration-700 delay-500 flex flex-wrap items-center gap-x-3 gap-y-2 overflow-visible">
+            <span class="lang-text tracking-tighter text-white/90" data-key="hola">Hola, soy</span> 
+            <span class="relative inline-block font-bold tracking-normal py-2">
+              <!-- Ghost text para reservar espacio -->
+              <span class="opacity-0 select-none pointer-events-none whitespace-nowrap px-4">&nbsp;Kleyver Urbina&nbsp;</span>
+              <!-- Texto animado centrado -->
+              <span class="absolute inset-0 flex items-center justify-center">
+                <span class="typewriter-text animate-typing">Kleyver Urbina</span>
+              </span>
+            </span>
+          </h1>
+          <p class="max-w-[600px] text-mutedForeground md:text-xl animate-element opacity-0 transition-all duration-700 delay-700 lang-text" data-key="descripcion">
+            Estudiante de Ingeniería en Informática con +4 años de experiencia construyendo experiencias digitales de alto impacto.
+          </p>
+        </div>
+        
+
+        <div class="flex flex-col gap-3 min-[400px]:flex-row animate-element opacity-0 transition-all duration-700 delay-900 pt-4">
+          <button class="bg-primary hover:bg-primary/90 text-white px-8 py-3.5 rounded-xl glow-effect projects-btn transition-all active:scale-95 font-bold shadow-[0_4px_20px_rgba(72,8,170,0.3)]">
+            <span class="lang-text" data-key="verProyectos">Ver proyectos</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-4 w-4 inline clean-icon">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </button>
+          <button class="border-2 border-primary/40 bg-primary/10 hover:bg-primary/20 hover:border-primary px-8 py-3.5 rounded-xl backdrop-blur-xl transition-all active:scale-95 font-bold hover:shadow-[0_4px_15px_rgba(var(--color-primary),0.2)] contact-btn">
+            <span class="lang-text" data-key="contactar">Contactar</span>
+          </button>
+        </div>
+      </div>
+      
+      <div class="flex items-center justify-center relative mt-8 lg:mt-0">
+        <div class="relative group">
+          <div class="relative aspect-square overflow-hidden rounded-full border-4 border-primary/30 animate-element opacity-0 transition-all duration-1000 delay-1000 neon-border z-10 w-64 h-64 sm:w-80 sm:h-80 xl:w-96 xl:h-96">
+            <Image 
+              src={perfilImage} 
+              alt="Foto de perfil de Kleyver Urbina" 
+              class="object-cover w-full h-full brightness-110 contrast-105 saturate-[1.1] transition-transform duration-700"
+              loading="eager"
+            />
+          </div>
+
+          {/* Floating Badges - Ajustados para Responsividad */}
+          <div class="absolute -top-10 -left-6 sm:-top-4 sm:-left-4 md:-left-8 z-20 animate-float delay-300 scale-[0.75] sm:scale-90 md:scale-100">
+              <div class="glass-panel px-4 py-2 border border-primary/40 rounded-2xl flex items-center gap-2 bg-black/40 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                <div class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse shadow-[0_0_10px_#4808AA]"></div>
+                <span class="text-xs font-black text-white uppercase tracking-tighter lang-text" data-key="heroProyectos">+20 Proyectos</span>
+             </div>
+          </div>
+
+          <div class="absolute top-auto bottom-12 -right-4 sm:top-1/3 sm:bottom-auto sm:-right-4 md:-right-10 z-20 animate-float delay-700 scale-[0.65] sm:scale-90 md:scale-100">
+             <div class="glass-panel px-4 py-2 border border-white/10 bg-black/40 backdrop-blur-xl rounded-2xl flex items-center gap-3 shadow-2xl">
+               <span class="text-2xl">🚀</span>
+               <div class="flex flex-col text-left">
+                 <span class="text-[9px] text-primary font-black uppercase leading-none lang-text" data-key="heroExperiencia">Experiencia</span>
+                 <span class="text-sm text-white font-extrabold lang-text" data-key="heroAnos">+4 Años</span>
+               </div>
+             </div>
+          </div>
+
+          <div class="absolute -bottom-10 left-6 sm:-bottom-4 sm:left-4 md:-left-6 z-20 animate-float scale-[0.75] sm:scale-90 md:scale-100">
+             <div class="glass-panel px-5 py-2.5 border border-white/10 bg-black/40 backdrop-blur-xl rounded-2xl flex items-center gap-3 shadow-2xl">
+               <div class="relative flex h-3.5 w-3.5">
+                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                 <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
+               </div>
+               <span class="text-xs text-white font-bold tracking-tight lang-text" data-key="heroDisponible">Disponible para Proyectos</span>
+             </div>
+          </div>
+        </div>
+
+        {/* Background glow behind profile */}
+        <div class="absolute inset-x-0 top-0 h-full bg-primary/30 blur-[120px] rounded-full scale-110 animate-pulse-slow"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .typewriter-text {
+    font-style: normal !important;
+    display: block;
+    /* Gradiente blanco a violeta — brillante y legible */
+    background: linear-gradient(90deg, #ffffff 0%, #e8d5ff 60%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* Cursor lateral: usamos box-shadow simulando un borde ya que text-fill es transparente */
+    border-right: 3px solid #a855f7;
+    padding: 0 0.15em;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    line-height: normal;
+    /* Drop shadow extra para legibilidad sobre fondos oscuros */
+    filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.6));
+  }
+
+  /* Typewriter Animation - Added safety margin at the end */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% } /* Ya no necesitamos el calc si el padding interno es correcto */
+  }
+
+  @keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: #a855f7 }
+  }
+
+  .animate-typing {
+    animation: 
+      typing 2.2s steps(14, end) forwards,
+      blink 0.75s step-end 2.2s infinite;
+  }
+
+  /* Float Animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(1.5deg); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Pulse Slow */
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.15); }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 10s infinite ease-in-out;
+  }
+</style>
+

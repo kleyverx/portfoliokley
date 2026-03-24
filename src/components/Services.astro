@@ -1,0 +1,191 @@
+---
+---
+<!-- Outer tall scroll container: height reduced further on mobile for instant snapping -->
+<div id="services-scroll-spacer" class="relative h-[calc(100svh*2.5)] md:h-[calc(100svh*7)]">
+
+  <!-- Sticky inner: stays pinned while spacer scrolls -->
+  <section id="servicios" class="sticky top-0 h-svh w-full flex flex-col overflow-hidden animate-section opacity-0">
+    
+    <div class="container mx-auto px-4 sm:px-8 md:px-12 lg:px-16 relative z-10 h-svh flex flex-col justify-center py-8 md:py-12 lg:py-16">
+      
+      <!-- Header -->
+      <div class="flex flex-col items-center justify-center space-y-4 text-center mb-6 md:mb-10 lg:mb-12">
+        <span class="inline-flex bg-primary/20 text-secondary text-xs sm:text-sm px-6 py-2 rounded-full border border-primary/30 w-fit font-semibold tracking-widest uppercase">
+          <span class="lang-text" data-key="serviciosTitulo">Servicios</span>
+        </span>
+        <h2 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter neon-title lang-text leading-[0.9]" data-key="misServicios">
+          Mis Servicios
+        </h2>
+      </div>
+
+      <!-- Global Grid (Sticky & Responsive) -->
+      <div id="services-pin-container" class="grid grid-cols-1 md:grid-cols-12 gap-6 xl:gap-12 items-center max-w-[1400px] mx-auto w-full flex-1 min-h-0">
+
+        <!-- Columna Izquierda: Lista (Oculta en mobile puro, visible en md y lg) -->
+        <div class="hidden md:flex flex-col md:col-span-5 lg:col-span-4 space-y-2 xl:space-y-3 pr-4">
+          {[
+            { key: 'srvWeb',     num: '01', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072', stat: '15+ Proyectos' },
+            { key: 'srvApi',     num: '02', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072', stat: '10+ APIs' },
+            { key: 'srvEcom',    num: '03', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072', stat: '8+ Tiendas' },
+            { key: 'srvAuto',    num: '04', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072', stat: '25+ Bots' },
+            { key: 'srvConsult', num: '05', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072', stat: '60+ Clientes' }
+          ].map((item, index) => (
+            <div
+              class="service-item group p-3 lg:p-4 xl:p-5 rounded-2xl glass-panel border border-white/5 flex items-center justify-between cursor-pointer transition-all duration-500 hover:scale-[1.02]"
+              data-service={item.key}
+              data-img={item.img}
+              data-stat={item.stat}
+              data-index={index}
+            >
+              <div class="flex items-center space-x-4">
+                <span class="text-primary/40 font-mono text-base group-hover:text-primary transition-colors font-bold">{item.num}</span>
+                <h3 class="text-base md:text-lg font-bold text-white/50 group-hover:text-white transition-colors lang-text" data-key={item.key}>
+                  {item.key === 'srvWeb' && 'Desarrollo Web'}
+                  {item.key === 'srvApi' && 'Backend & APIs'}
+                  {item.key === 'srvEcom' && 'E-commerce'}
+                  {item.key === 'srvAuto' && 'Automatización'}
+                  {item.key === 'srvConsult' && 'Consultoría Técnica'}
+                </h3>
+              </div>
+              <div class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-white/30 group-hover:text-primary transform group-hover:translate-x-0.5 transition-all">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Columna Central: Imagen (Visible en todos) -->
+        <div id="service-visual-box" class="col-span-1 md:col-span-7 lg:col-span-4 relative rounded-[2.5rem] overflow-hidden glass-panel border border-white/10 shadow-2xl shadow-primary/10 h-[60vh] md:h-[50vh] lg:h-[60vh] max-h-[550px] min-h-[400px]">
+          <img
+            id="service-main-img"
+            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop"
+            alt="Servicio"
+            class="w-full h-full object-cover"
+          />
+          <!-- Capa de difuminado negra sobre la imagen -->
+          <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent pointer-events-none rounded-2xl"></div>
+          
+          <div class="absolute bottom-8 left-6 md:left-8 right-6 md:right-8 z-20 flex flex-col gap-2">
+            <!-- Mobile Dynamic Redesign -->
+            <div class="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 mb-2 md:hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary animate-pulse">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <p id="service-subtitle" class="text-primary font-bold text-[10px] md:text-xs tracking-[0.4em] uppercase mb-1 lang-text" data-key="srvSubtitle">Ingeniería & Arquitectura</p>
+            <h4 id="service-title" class="text-3xl md:text-4xl font-black text-white lang-text leading-tight" data-key="srvWeb">Desarrollo Web</h4>
+          </div>
+
+          <!-- Progress indicators -->
+          <div id="service-dots" class="absolute top-6 right-6 md:right-8 flex gap-2.5 z-20">
+            {[0,1,2,3,4].map(i => (
+              <div class="service-dot w-2 h-2 rounded-full bg-white/20 transition-all duration-500 border border-white/10" data-dot={i}></div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Info (Oculta en mobile y tablet, solo Desktop) -->
+        <div class="hidden lg:flex lg:col-span-4 space-y-4 xl:space-y-6 flex-col lg:h-[60vh] max-h-[550px] min-h-[400px]">
+          <div id="service-desc-box" class="p-6 xl:p-10 rounded-[2.5rem] glass-panel border border-white/5 bg-white/2 flex flex-col justify-between flex-1 hover:border-white/20 transition-all group overflow-hidden relative">
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 blur-3xl rounded-full group-hover:bg-primary/20 transition-colors"></div>
+            <p id="service-dynamic-desc" class="text-white/70 text-base xl:text-lg leading-relaxed lang-text relative z-10 line-clamp-4 lg:line-clamp-3 xl:line-clamp-none overflow-hidden" data-key="srvWebDesc">
+              Aplicaciones web modernas, rápidas y escalables utilizando las últimas tecnologías.
+            </p>
+            
+            <a href="#proyectos" class="flex items-center gap-3 border border-white/10 bg-white/5 hover:bg-white/10 px-6 py-2.5 rounded-2xl backdrop-blur-md transition-all duration-300 group w-fit mt-6 relative z-10">
+              <span class="text-white font-bold text-sm lang-text" data-key="verProyectos">Explorar</span>
+              <div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-secondary group-hover:text-black transition-colors">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </a>
+          </div>
+
+          <div id="service-stats-box" class="p-8 rounded-4xl bg-linear-to-br from-primary to-[#5a0bbd] border border-primary/30 shadow-[0_20px_40px_rgba(72,8,170,0.25)] flex flex-col justify-between flex-1 group cursor-pointer transition-all hover:-translate-y-1">
+            <p class="text-black font-black text-xl leading-tight lang-text uppercase tracking-tight" data-key="proyectoMente">¿Tienes un proyecto en mente?</p>
+            <div class="flex items-end justify-between mt-4">
+              <div class="flex flex-col">
+                <span class="text-black/60 text-[0.6rem] font-bold uppercase tracking-widest mb-1">Impacto</span>
+                <h4 id="service-dynamic-stat" class="text-3xl font-black text-black tracking-tighter">15+ Éxitos</h4>
+              </div>
+              <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center group-hover:bg-white transition-all duration-500 shadow-xl border border-white/5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:scale-110 transition-transform">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      </div>
+    </div>
+
+    <!-- Marquee Footer -->
+    <div class="overflow-hidden w-full mt-auto pb-6 opacity-60">
+      <div class="flex whitespace-nowrap animate-marquee items-center gap-12 text-5xl md:text-8xl lg:text-9xl font-black tracking-tighter text-white/30 uppercase select-none">
+        <span class="flex items-center gap-12">
+          <span class="lang-text" data-key="srvInnovate">Innovar</span> <span class="text-primary drop-shadow-[0_0_15px_rgba(72,8,170,0.6)]">+</span>
+          <span class="lang-text" data-key="srvInspire">Inspirar</span> <span class="text-primary drop-shadow-[0_0_15px_rgba(72,8,170,0.6)]">+</span>
+          <span class="lang-text" data-key="srvCreate">Crear</span> <span class="text-primary drop-shadow-[0_0_15px_rgba(72,8,170,0.6)]">+</span>
+        </span>
+        <span class="flex items-center gap-12">
+          <span class="lang-text" data-key="srvInnovate">Innovar</span> <span class="text-primary drop-shadow-[0_0_15px_rgba(72,8,170,0.6)]">+</span>
+          <span class="lang-text" data-key="srvInspire">Inspirar</span> <span class="text-primary drop-shadow-[0_0_15px_rgba(72,8,170,0.6)]">+</span>
+          <span class="lang-text" data-key="srvCreate">Crear</span> <span class="text-primary drop-shadow-[0_0_15px_rgba(72,8,170,0.6)]">+</span>
+        </span>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<style>
+  .neon-title {
+    color: #fff;
+    text-shadow: 0 0 20px rgba(72, 8, 170, 0.4);
+    letter-spacing: -0.04em;
+  }
+
+  .service-item.active-service {
+    transform: translateX(10px);
+    border-color: rgba(72, 8, 170, 0.6) !important;
+    background: rgba(72, 8, 170, 0.1) !important;
+    box-shadow: 0 0 30px rgba(72, 8, 170, 0.1);
+  }
+  .service-item.active-service h3 {
+    color: white !important;
+    font-size: 1.15rem;
+  }
+  .service-item.active-service .font-mono {
+    color: #4808aa !important;
+  }
+
+  .service-dot.active-dot {
+    background: #4808aa;
+    transform: scale(1.5);
+    width: 20px;
+    border-radius: 4px;
+  }
+
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+    width: fit-content;
+    font-family: 'CabinetGrotesk', sans-serif;
+  }
+
+
+</style>
+
+

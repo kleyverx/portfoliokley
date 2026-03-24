@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Projects from '../components/Projects.astro';
+import Videos from '../components/Videos.astro';
+import Skills from '../components/Skills.astro';
+import Services from '../components/Services.astro';
+import Contact from '../components/Contact.astro';
+import TechMarquee from '../components/TechMarquee.astro';
+import Footer from '../components/Footer.astro';
+
+---
+
+<Layout title="Kleyver Urbina - Desarrollador Full Stack">
+  <Header />
+  <main class="w-full flex flex-col items-center relative z-10">
+    <div class="absolute inset-0 pointer-events-auto" style="z-index: -1;"></div>
+    <Hero />
+    <TechMarquee />
+    <Projects />
+    <Videos />
+    <Skills />
+    <Services />
+    <Contact />
+  </main>
+  <Footer />
+</Layout>
