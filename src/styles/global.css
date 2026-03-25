@@ -20,15 +20,16 @@
   .glass-panel {
     background: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.04) 0%,
-      rgba(255, 255, 255, 0.01) 100%
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.03) 100%
     );
+    background-color: rgba(255, 255, 255, 0.05); /* Fallback leve */
 
-    backdrop-filter: blur(16px) saturate(160%);
-    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
 
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-top: 1.5px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1.5px solid rgba(255, 255, 255, 0.2);
     border-left: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
 
