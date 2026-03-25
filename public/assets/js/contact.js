@@ -38,17 +38,24 @@ function handleContactFormSubmit(event) {
 }
 
 function initDownloadCV() {
-  const downloadBtn = document.getElementById('download-cv');
-  if (!downloadBtn) return;
+  const downloadBtns = document.querySelectorAll('.cv-download-link');
+  if (!downloadBtns.length) return;
 
-  downloadBtn.addEventListener('click', function () {
-    const cvUrl = ((window.BASE_URL || '') + '/assets/images/public/cv.pdf').replace(/\/+/g, '/');
-    const link = document.createElement('a');
-    link.href = cvUrl;
-    link.download = 'KleyverUrbina-CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    console.log('📄 Descarga de CV iniciada');
+  downloadBtns.forEach(btn => {
+    btn.addEventListener('click', function () {
+      const cvUrl = ((window.BASE_URL || '') + '/assets/images/public/cv.pdf').replace(/\/+/g, '/');
+      const link = document.createElement('a');
+      link.href = cvUrl;
+      link.download = 'KleyverUrbina-CV.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      console.log('📄 Descarga de CV iniciada');
+      
+      // Si el botón está dentro del menú móvil, lo cerramos
+      if (window.closeMobileMenu) {
+        window.closeMobileMenu();
+      }
+    });
   });
 }
