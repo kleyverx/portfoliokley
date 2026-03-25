@@ -42,7 +42,7 @@ function initDownloadCV() {
   if (!downloadBtn) return;
 
   downloadBtn.addEventListener('click', function () {
-    const cvUrl = 'assets/images/public/cv.pdf';
+    const cvUrl = ((window.BASE_URL || '') + '/assets/images/public/cv.pdf').replace(/\/+/g, '/');
     const link = document.createElement('a');
     link.href = cvUrl;
     link.download = 'KleyverUrbina-CV.pdf';

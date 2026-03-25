@@ -20,7 +20,8 @@ async function loadAndRenderVideos(grid) {
 
 async function fetchVideosData() {
   try {
-    const res = await fetch('assets/data/videos.json', { cache: 'no-store' });
+    const fetchPath = ((window.BASE_URL || '') + '/assets/data/videos.json').replace(/\/+/g, '/');
+    const res = await fetch(fetchPath, { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const txt = await res.text();
     if (!txt || !txt.trim()) return [];

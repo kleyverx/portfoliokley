@@ -97,7 +97,8 @@ function initProjectsHorizontalScroll() {
 // ============================================================================
 async function fetchProjectsData() {
   try {
-    const res = await fetch('assets/data/projects.json', { cache: 'no-store' });
+    const fetchPath = ((window.BASE_URL || '') + '/assets/data/projects.json').replace(/\/+/g, '/');
+    const res = await fetch(fetchPath, { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const text = await res.text();
     if (!text || !text.trim()) return [];
@@ -117,11 +118,12 @@ function renderProjects(projects, grid) {
     const card = document.createElement('div');
     card.className = 'project-card w-[85vw] md:w-[60vw] lg:w-[450px] shrink-0 glass-panel glass-panel-hover rounded-xl shadow-lg hover:shadow-xl transition-all duration-300';
 
-    const imgSrc = p.image || 'assets/images/public/perfil.jpeg';
+    const fallbackImg = ((window.BASE_URL || '') + '/assets/images/public/perfil.jpeg').replace(/\/+/g, '/');
+    const imgSrc = p.image || fallbackImg;
 
     card.innerHTML = `
       <div class="aspect-video">
-        <img src="${imgSrc}" alt="Imagen del proyecto" class="object-cover w-full h-full" onerror="this.src='assets/images/public/perfil.jpeg';this.onerror=null;">
+        <img src="${imgSrc}" alt="Imagen del proyecto" class="object-cover w-full h-full" onerror="this.src='/assets/images/public/perfil.jpeg';this.onerror=null;">
       </div>
       <div class="p-6">
         <h3 class="text-xl font-semibold mb-2 text-foreground">${_escapeHtml(p.title || 'Proyecto')}</h3>

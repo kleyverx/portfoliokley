@@ -12,25 +12,28 @@ const { title } = Astro.props;
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <script is:inline define:vars={{ baseUrl: import.meta.env.BASE_URL }}>
+    window.BASE_URL = baseUrl;
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content="Portfolio profesional de Kleyver Urbina, Desarrollador Full Stack con experiencia en PHP, Laravel, JavaScript y más" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.ico`} />
   
   <!-- Fuentes locales: Satoshi (cuerpo) + Cabinet Grotesk (títulos) -->
-  <link rel="stylesheet" href="/assets/css/fonts.css" />
+  <link rel="stylesheet" href={`${import.meta.env.BASE_URL}/assets/css/fonts.css`} />
 
 
   
-  <link rel="stylesheet" href="/assets/css/styles.css" />
-  <link rel="stylesheet" href="/assets/css/cursor.css" />
-  <link rel="stylesheet" href="/assets/css/grid.css" />
-  <link rel="stylesheet" href="/assets/css/spline-3d.css" />
-  <link rel="stylesheet" href="/assets/css/dropdown-fix.css" />
-  <link rel="stylesheet" href="/assets/css/video-focus.css" />
-  <link rel="stylesheet" href="/assets/css/video-theater.css" />
-  <link rel="stylesheet" href="/assets/css/mobile-videos.css" />
-  <link rel="stylesheet" href="/assets/css/video-performance.css" />
+  <link rel="stylesheet" href={`${import.meta.env.BASE_URL}/assets/css/styles.css`} />
+  <link rel="stylesheet" href={`${import.meta.env.BASE_URL}/assets/css/cursor.css`} />
+  <link rel="stylesheet" href={`${import.meta.env.BASE_URL}/assets/css/grid.css`} />
+  <link rel="stylesheet" href={`${import.meta.env.BASE_URL}/assets/css/spline-3d.css`} />
+  <link rel="stylesheet" href={`${import.meta.env.BASE_URL}/assets/css/dropdown-fix.css`} />
+  <link rel="stylesheet" href={`${import.meta.env.BASE_URL}/assets/css/video-focus.css`} />
+  <link rel="stylesheet" href={`${import.meta.env.BASE_URL}/assets/css/video-theater.css`} />
+  <link rel="stylesheet" href={`${import.meta.env.BASE_URL}/assets/css/mobile-videos.css`} />
+  <link rel="stylesheet" href={`${import.meta.env.BASE_URL}/assets/css/video-performance.css`} />
 </head>
 <body class="text-foreground min-h-screen font-satoshi overflow-x-hidden">
   <!-- Fondo global de cuadrados -->
@@ -71,18 +74,18 @@ const { title } = Astro.props;
   <script is:inline src="https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/build/player/lottie.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <!-- Módulos JS independientes (orden importa por dependencias) -->
-  <script is:inline src="/assets/js/core.js"></script>
-  <script is:inline src="/assets/js/i18n.js"></script>
-  <script is:inline src="/assets/js/navigation.js"></script>
-  <script is:inline src="/assets/js/contact.js"></script>
-  <script is:inline src="/assets/js/skills.js"></script>
-  <script is:inline src="/assets/js/projects.js"></script>
-  <script is:inline src="/assets/js/videos.js"></script>
-  <script is:inline src="/assets/js/video-theater.js"></script>
-  <script is:inline src="/assets/js/services.js"></script>
-  <script is:inline src="/assets/js/cursor.js"></script>
-  <script is:inline src="/assets/js/squares-bg.js" defer></script>
-  <script is:inline src="/assets/js/preloader.js" defer></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}/assets/js/core.js`}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}/assets/js/i18n.js`}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}/assets/js/navigation.js`}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}/assets/js/contact.js`}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}/assets/js/skills.js`}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}/assets/js/projects.js`}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}/assets/js/videos.js`}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}/assets/js/video-theater.js`}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}/assets/js/services.js`}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}/assets/js/cursor.js`}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}/assets/js/squares-bg.js`} defer></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}/assets/js/preloader.js`} defer></script>
 
   <!-- Spline 3D Viewer Script -->
   <script is:inline type="module" src="https://unpkg.com/@splinetool/viewer@1.9.28/build/spline-viewer.js"></script>

@@ -2,7 +2,7 @@
   // Duración exacta del preloader: 3 segundos
   const DURATION_MS = 3000;
   const fileName = 'abstract-isometric-loader.json';
-  const jsonUrl = `assets/data/${fileName}`;
+  const jsonUrl = ((window.BASE_URL || '') + `/assets/data/${fileName}`).replace(/\/+/g, '/');
 
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const preloader = document.getElementById('preloader');

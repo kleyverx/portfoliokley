@@ -36,7 +36,8 @@ function log(message, type = 'info') {
 async function loadTranslations() {
   if (translations) return translations;
   try {
-    const res = await fetch('assets/data/translations.json', { cache: 'no-store' });
+    const fetchPath = ((window.BASE_URL || '') + '/assets/data/translations.json').replace(/\/+/g, '/');
+    const res = await fetch(fetchPath, { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const text = await res.text();
     if (!text || !text.trim()) throw new Error('Empty translations.json');
