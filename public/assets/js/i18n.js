@@ -11,8 +11,22 @@ function initLanguageSelector() {
   const savedLanguage = localStorage.getItem('language');
   if (savedLanguage && translations && translations[savedLanguage]) {
     currentLanguage = savedLanguage;
-    languageSelector.value = currentLanguage;
+  } else {
+    // Detección automática del navegador
+    const browserLang = navigator.language || navigator.userLanguage;
+    const shortLang = browserLang.split('-')[0].toLowerCase();
+    
+    if (translations && translations[shortLang]) {
+      currentLanguage = shortLang;
+    } else if (shortLang === 'fr') {
+      currentLanguage = 'fr'; // El JSON ya tiene 'fr'
+    } else {
+      currentLanguage = 'en'; // Default a inglés si no se detecta español o francés
+    }
   }
+
+  languageSelector.value = currentLanguage;
+  localStorage.setItem('language', currentLanguage);
 
   applyTranslations(currentLanguage);
 

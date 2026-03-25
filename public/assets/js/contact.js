@@ -43,14 +43,21 @@ function initDownloadCV() {
 
   downloadBtns.forEach(btn => {
     btn.addEventListener('click', function () {
-      const cvUrl = ((window.BASE_URL || '') + '/assets/images/public/cv.pdf').replace(/\/+/g, '/');
+      const currentLang = localStorage.getItem('language') || 'es';
+      let cvFileName = 'cv-es.pdf';
+      
+      if (currentLang === 'en' || currentLang === 'fr') {
+        cvFileName = 'cv-en.pdf';
+      }
+
+      const cvUrl = ((window.BASE_URL || '') + '/assets/images/public/' + cvFileName).replace(/\/+/g, '/');
       const link = document.createElement('a');
       link.href = cvUrl;
-      link.download = 'KleyverUrbina-CV.pdf';
+      link.download = currentLang === 'es' ? 'KleyverUrbina-CV-ES.pdf' : 'KleyverUrbina-CV-EN.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      console.log('📄 Descarga de CV iniciada');
+      console.log(`📄 Descarga de CV (${currentLang}) iniciada`);
       
       // Si el botón está dentro del menú móvil, lo cerramos
       if (window.closeMobileMenu) {
