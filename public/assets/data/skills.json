@@ -3,57 +3,67 @@
     "category": "Frontend",
     "key": "frontend",
     "items": [
-      { "name": "HTML", "level": 95 },
-      { "name": "CSS", "level": 90 },
-      { "name": "JavaScript", "level": 70 },
-      { "name": "Tailwind CSS", "level": 85 }
+      { "name": "React 19", "level": 95 },
+      { "name": "TypeScript 5.7", "level": 95 },
+      { "name": "Astro 6", "level": 90 },
+      { "name": "Tailwind CSS 4", "level": 95 },
+      { "name": "Angular 19", "level": 75 },
+      { "name": "shadcn/ui & Radix", "level": 90 }
     ]
   },
   {
     "category": "Backend",
     "key": "backend",
     "items": [
-      { "name": "PHP", "level": 75 },
-      { "name": "Node.js", "level": 50 },
-      { "name": "Laravel", "level": 80 },
-      { "name": "Python", "level": 45 }
+      { "name": "NestJS 11", "level": 90 },
+      { "name": "Next.js 16", "level": 95 },
+      { "name": "Node.js & Express", "level": 90 },
+      { "name": "Socket.IO (Real-Time)", "level": 90 },
+      { "name": "Payload CMS 3", "level": 85 },
+      { "name": "Laravel 11", "level": 85 }
     ]
   },
   {
     "category": "Bases de Datos",
     "key": "basesDatos",
     "items": [
-      { "name": "MySQL", "level": 75 },
-      { "name": "MongoDB", "level": 50 },
-      { "name": "PostgreSQL", "level": 60 }
+      { "name": "PostgreSQL 16", "level": 90 },
+      { "name": "Redis (Caché/PubSub)", "level": 85 },
+      { "name": "Prisma 7 & Drizzle", "level": 90 },
+      { "name": "MySQL", "level": 85 },
+      { "name": "MongoDB", "level": 75 }
     ]
   },
   {
-    "category": "Frameworks",
-    "key": "frameworks",
+    "category": "E-Commerce",
+    "key": "ecommerce",
     "items": [
-      { "name": "Angular", "level": 50 },
-      { "name": "Laravel", "level": 80 },
-      { "name": "React", "level": 65 }
+      { "name": "Shopify (Liquid)", "level": 90 },
+      { "name": "Next.js + Payload Commerce", "level": 95 },
+      { "name": "Laravel Storefronts", "level": 85 },
+      { "name": "Pagos & HMAC Webhooks", "level": 90 }
     ]
   },
   {
     "category": "Lenguajes",
     "key": "lenguajes",
     "items": [
-      { "name": "JavaScript", "level": 70 },
-      { "name": "TypeScript", "level": 50 },
-      { "name": "PHP", "level": 75 },
-      { "name": "Python", "level": 45 }
+      { "name": "TypeScript", "level": 95 },
+      { "name": "JavaScript", "level": 95 },
+      { "name": "PHP 8.2", "level": 85 },
+      { "name": "Python", "level": 75 },
+      { "name": "SQL", "level": 90 }
     ]
   },
   {
-    "category": "Herramientas",
+    "category": "DevOps & IA",
     "key": "herramientas",
     "items": [
-      { "name": "Git", "level": 70 },
-      { "name": "Figma", "level": 60 },
-      { "name": "VS Code", "level": 85 }
+      { "name": "Docker & Compose", "level": 85 },
+      { "name": "Coolify & Vercel", "level": 90 },
+      { "name": "Google Gemini API", "level": 85 },
+      { "name": "n8n Automation", "level": 85 },
+      { "name": "Vitest & Playwright", "level": 80 }
     ]
   }
 ]
