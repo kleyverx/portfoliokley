@@ -24,11 +24,11 @@
         <!-- Columna Izquierda: Lista (Oculta en mobile puro, visible en md y lg) -->
         <div class="hidden md:flex flex-col md:col-span-5 lg:col-span-4 space-y-2 xl:space-y-3 pr-4">
           {[
-            { key: 'srvWeb',     num: '01', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072', stat: '15+ Proyectos' },
-            { key: 'srvApi',     num: '02', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072', stat: '10+ APIs' },
-            { key: 'srvEcom',    num: '03', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072', stat: '8+ Tiendas' },
-            { key: 'srvAuto',    num: '04', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072', stat: '25+ Bots' },
-            { key: 'srvConsult', num: '05', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072', stat: '60+ Clientes' }
+            { key: 'srvWeb',     num: '01', img: `${import.meta.env.BASE_URL}/assets/images/services/service_web.jpg`, stat: '15+ Proyectos' },
+            { key: 'srvApi',     num: '02', img: `${import.meta.env.BASE_URL}/assets/images/services/service_api.jpg`, stat: '10+ APIs' },
+            { key: 'srvEcom',    num: '03', img: `${import.meta.env.BASE_URL}/assets/images/services/service_ecom.jpg`, stat: '8+ Tiendas' },
+            { key: 'srvAuto',    num: '04', img: `${import.meta.env.BASE_URL}/assets/images/services/service_auto.jpg`, stat: '25+ Bots' },
+            { key: 'srvConsult', num: '05', img: `${import.meta.env.BASE_URL}/assets/images/services/service_consult.jpg`, stat: '60+ Clientes' }
           ].map((item, index) => (
             <div
               class="service-item group p-3 lg:p-4 xl:p-5 rounded-2xl glass-panel border border-white/5 flex items-center justify-between cursor-pointer transition-all duration-500 hover:scale-[1.02]"
@@ -57,27 +57,27 @@
         </div>
 
         <!-- Columna Central: Imagen (Visible en todos) -->
-        <div id="service-visual-box" class="col-span-1 md:col-span-7 lg:col-span-4 relative rounded-[2.5rem] overflow-hidden glass-panel border border-white/10 shadow-2xl shadow-primary/10 h-[60vh] md:h-[50vh] lg:h-[60vh] max-h-[550px] min-h-[400px]">
+        <div id="service-visual-box" class="col-span-1 md:col-span-7 lg:col-span-4 relative rounded-[2.5rem] overflow-hidden glass-panel border border-white/10 shadow-2xl shadow-primary/10 aspect-3/4 w-full max-h-[560px]">
           <img
             id="service-main-img"
-            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop"
+            src={`${import.meta.env.BASE_URL}/assets/images/services/service_web.jpg`}
             alt="Servicio"
             class="w-full h-full object-cover"
           />
-          <!-- Capa de difuminado negra sobre la imagen -->
-          <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent pointer-events-none rounded-2xl"></div>
+          <!-- Capa de difuminado negra sutil sobre la imagen -->
+          <div class="absolute inset-0 bg-linear-to-t from-black/90 via-black/35 to-transparent pointer-events-none rounded-2xl"></div>
           
-          <div class="absolute bottom-8 left-6 md:left-8 right-6 md:right-8 z-20 flex flex-col gap-2">
+          <div class="absolute bottom-6 left-6 md:left-8 right-6 md:right-8 z-20 flex flex-col gap-2">
             <!-- Mobile Dynamic Redesign -->
-            <div class="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 mb-2 md:hidden">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary animate-pulse">
+            <div class="w-10 h-10 rounded-xl bg-primary/20 backdrop-blur-md flex items-center justify-center border border-primary/30 mb-1 md:hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary animate-pulse">
                 <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
                 <path d="M2 17l10 5 10-5"></path>
                 <path d="M2 12l10 5 10-5"></path>
               </svg>
             </div>
-            <p id="service-subtitle" class="text-primary font-bold text-[10px] md:text-xs tracking-[0.4em] uppercase mb-1 lang-text" data-key="srvSubtitle">Ingeniería & Arquitectura</p>
-            <h4 id="service-title" class="text-3xl md:text-4xl font-black text-white lang-text leading-tight" data-key="srvWeb">Desarrollo Web</h4>
+            <span id="service-subtitle" class="text-secondary font-extrabold text-[11px] md:text-xs tracking-[0.25em] uppercase w-fit px-3 py-1 rounded-full bg-primary/30 border border-primary/40 backdrop-blur-md lang-text shadow-lg" data-key="srvSubtitle">Ingeniería & Arquitectura</span>
+            <h4 id="service-title" class="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-black text-white lang-text leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] tracking-tight" data-key="srvWeb">Desarrollo Web</h4>
           </div>
 
           <!-- Progress indicators -->
@@ -96,7 +96,7 @@
               Aplicaciones web modernas, rápidas y escalables utilizando las últimas tecnologías.
             </p>
             
-            <a href="#proyectos" class="flex items-center gap-3 border border-white/10 bg-white/5 hover:bg-white/10 px-6 py-2.5 rounded-2xl backdrop-blur-md transition-all duration-300 group w-fit mt-6 relative z-10">
+            <a href="#proyectos" data-section="proyectos" class="nav-link flex items-center gap-3 border border-white/10 bg-white/5 hover:bg-white/10 px-6 py-2.5 rounded-2xl backdrop-blur-md transition-all duration-300 group w-fit mt-6 relative z-10 cursor-pointer">
               <span class="text-white font-bold text-sm lang-text" data-key="verProyectos">Explorar</span>
               <div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-secondary group-hover:text-black transition-colors">
@@ -107,7 +107,7 @@
             </a>
           </div>
 
-          <div id="service-stats-box" class="p-8 rounded-4xl bg-linear-to-br from-primary to-[#5a0bbd] border border-primary/30 shadow-[0_20px_40px_rgba(72,8,170,0.25)] flex flex-col justify-between flex-1 group cursor-pointer transition-all hover:-translate-y-1">
+          <a id="service-stats-box" href="#contacto" data-section="contacto" class="nav-link p-8 rounded-4xl bg-linear-to-br from-primary to-[#5a0bbd] border border-primary/30 shadow-[0_20px_40px_rgba(72,8,170,0.25)] flex flex-col justify-between flex-1 group cursor-pointer transition-all hover:-translate-y-1">
             <p class="text-black font-black text-xl leading-tight lang-text uppercase tracking-tight" data-key="proyectoMente">¿Tienes un proyecto en mente?</p>
             <div class="flex items-end justify-between mt-4">
               <div class="flex flex-col">
@@ -120,12 +120,11 @@
                 </svg>
               </div>
             </div>
-          </div>
+          </a>
         </div>
       </div>
 
 
-      </div>
     </div>
 
     <!-- Marquee Footer -->
