@@ -1,68 +1,107 @@
 [
   {
     "id": "proj-1",
-    "title": "BMV Shop — E-commerce de Perfumería (Actualmente en Renovacion)",
-    "description": "Tienda online completa desarrollada con Laravel y Livewire. Incluye carrito de compras, gestión de usuarios, control de stock y sistema de pagos integrados con PagoFlash.",
-    "technologies": ["Laravel", "Livewire", "MySQL", "TailwindCSS"],
-    "image": "assets/images/public/proyectos/2.png",
-    "codeUrl": "https://github.com",
-    "demoUrl": "https://bmv-store.com/",
-    "date": "2024-08-01",
+    "title": "MARG Flow — Gestor de Tareas y Chat en Tiempo Real",
+    "description": "Plataforma de colaboración en producción con tablero Kanban (estados y urgencias configurables), canales privados con envío de archivos, menciones, roles por marca, KPIs y exportación CSV. Backend en NestJS 11, Prisma 7, PostgreSQL 16, Redis y Socket.IO; frontend en React 19, Vite, Tailwind 4 y shadcn/ui. Desplegado en Coolify con Docker.",
+    "technologies": [
+      "NestJS 11",
+      "React 19",
+      "Socket.IO",
+      "PostgreSQL",
+      "Redis",
+      "Prisma 7",
+      "Docker",
+      "TailwindCSS 4"
+    ],
+    "image": "margflow.png",
+    "codeUrl": "",
+    "demoUrl": "",
+    "date": "2025-06-01",
     "featured": true
   },
   {
     "id": "proj-2",
-    "title": "Levni Care — Tienda de Cuidado Personal",
-    "description": "Tienda Shopify enfocada en afeitadoras y dispositivos de cuidado personal (productos como RUNA y NEXO). Contenido en español, secciones de productos, envíos y testimonios visibles en el sitio.",
-    "technologies": ["Shopify Ella - Multipurpose (Modificado)", "Liquid", "JavaScript", "CSS"],
-    "image": "assets/images/public/proyectos/levnicare.png",
-    "codeUrl": "https://github.com",
-    "demoUrl": "https://www.levnicare.com/",
-    "date": "2024-09-10",
+    "title": "Plataforma E-Commerce Next.js + Payload CMS",
+    "description": "Plataforma e-commerce a medida en producción: catálogo, carrito, checkout, gestión de pedidos, notificaciones por email/WhatsApp y CMS auto-gestionable. Next.js 16 con Payload CMS 3.83, PostgreSQL 16 y Drizzle; sitio público en Astro 6 SSR con islas React 19. Seguridad con recálculo de precios server-side, idempotencia, rate limiting, Turnstile y webhooks HMAC.",
+    "technologies": [
+      "Next.js 16",
+      "Payload CMS",
+      "Astro 6",
+      "React 19",
+      "PostgreSQL",
+      "Drizzle",
+      "TypeScript"
+    ],
+    "image": "oxford.png",
+    "codeUrl": "",
+    "demoUrl": "",
+    "date": "2025-09-01",
     "featured": true
   },
   {
     "id": "proj-3",
-    "title": "Casa Pictory — Cuadros y Pictorys Personalizados",
-    "description": "Tienda de cuadros/pictorys personalizados: catálogo de productos (fotos imantadas, cuadros), contacto visible (teléfono y email), y envío nacional. Web orientada a la venta de productos personalizados y recuerdos.",
-    "technologies": ["Shopify Tema Personalizado", "Liquid", "CSS", "JavaScript"],
-    "image": "assets/images/public/proyectos/pictory.png",
-    "codeUrl": "https://github.com",
-    "demoUrl": "https://www.casapictory.com/",
-    "date": "2024-09-05",
-    "featured": false
+    "title": "EduTrack Insight v2.0 — Gestión Académica e IA",
+    "description": "Plataforma de gestión académica y orientación vocacional con IA para educación secundaria venezolana (currículo MPPE). Incluye 4 paneles protegidos (estudiante, docente, representante, superadmin), boletines PDF, control de asistencia, evaluación vocacional asistida por IA y notificaciones en Telegram.",
+    "technologies": [
+      "React 19",
+      "Node.js",
+      "Gemini API",
+      "Telegram API",
+      "PDF Generation",
+      "TailwindCSS"
+    ],
+    "image": "eductrack.png",
+    "codeUrl": "https://github.com/kleyverx/Eductrack2.0",
+    "demoUrl": "https://eductrack2-0.vercel.app",
+    "date": "2026-01-15",
+    "featured": true
   },
   {
     "id": "proj-4",
-    "title": "Grupo Oxford — Portal Corporativo y Catálogo de Marcas",
-    "description": "Portal corporativo de Grupo Oxford (importación, distribución y comercialización). Contenido institucional, catálogo de marcas y secciones para inversores y noticias; no aparece como tienda tipo catálogo simple sino como web corporativa con catálogo y marcas.",
-    "technologies": ["Shopify Tema Personalizado", "HTML", "CSS", "JavaScript"],
-    "image": "assets/images/public/proyectos/oxford.png",
-    "codeUrl": "https://github.com",
-    "demoUrl": "https://oxfordve.com/",
-    "date": "2024-10-01",
-    "featured": false
+    "title": "AETHER / Q-Core v4.0 — Interfaz de IA Conversacional",
+    "description": "Interfaz web conversacional estilo HUD que integra la API de Google Gemini 1.5/2.0 Flash para interacciones inteligentes en tiempo real, desarrollada con Vite, TypeScript y Tailwind CSS.",
+    "technologies": [
+      "Google Gemini API",
+      "Vite",
+      "TypeScript",
+      "TailwindCSS"
+    ],
+    "image": "aether.png",
+    "codeUrl": "https://github.com/kleyverx/aether-proyect",
+    "demoUrl": "https://aether-proyect.vercel.app",
+    "date": "2026-02-01",
+    "featured": true
   },
   {
     "id": "proj-5",
-    "title": "NQLN Store — Multi-categoría (Hogar, Gadgets y Más)",
-    "description": "Tienda Shopify multi-categoría con amplio catálogo (hogar, cocina, gadgets, decoración, cuidado personal). Estructura de categorías, fichas de producto y mensajes de envío (MRW/ZOOM) visibles en el sitio.",
-    "technologies": ["Shopify Ella - Multipurpose (Modificado)", "Liquid", "JavaScript", "CSS"],
-    "image": "assets/images/public/proyectos/nq.png",
-    "codeUrl": "https://github.com",
-    "demoUrl": "https://www.nqlnstore.com/",
-    "date": "2024-09-20",
+    "title": "BMV Shop — E-Commerce de Perfumería",
+    "description": "Tienda online completa construida desde cero con Laravel 11 y Livewire. Incluye carrito de compras, gestión de productos y stock, autenticación de dos factores, roles/permisos y pasarela PagoFlash.",
+    "technologies": [
+      "Laravel 11",
+      "Livewire",
+      "MySQL",
+      "TailwindCSS"
+    ],
+    "image": "2.png",
+    "codeUrl": "",
+    "demoUrl": "https://bmv-store.com/",
+    "date": "2024-08-01",
     "featured": false
   },
   {
     "id": "proj-6",
-    "title": "Vauli — Productos Esenciales para el Hogar",
-    "description": "Marca y tienda (Vauli) con catálogo de productos para el hogar: categorías (limpieza, organización, durabilidad), información de contacto y enfoque en diseño práctico y materiales eco-friendly. El sitio muestra disponibilidad en tiendas NQLN y datos de contacto.",
-    "technologies": ["Shopify / Kalles Theme (sitio tipo catálogo)","Liquid","CSS","JavaScript"],
-    "image": "assets/images/public/proyectos/vauli.png",
-    "codeUrl": "https://github.com",
-    "demoUrl": "https://www.casavauli.com/",
-    "date": "2024-09-25",
+    "title": "Levni Care & Shopify Themes a Medida",
+    "description": "Desarrollo de tiendas y temas personalizados en Liquid para Shopify con diseño UI/UX optimizado para conversión, scripts dinámicos en JavaScript y estructuras responsive de alto impacto.",
+    "technologies": [
+      "Shopify",
+      "Liquid",
+      "JavaScript",
+      "CSS"
+    ],
+    "image": "levnicare.png",
+    "codeUrl": "https://github.com/kleyverx/levnicare-theme",
+    "demoUrl": "https://www.levnicare.com/",
+    "date": "2024-09-10",
     "featured": false
   }
 ]
