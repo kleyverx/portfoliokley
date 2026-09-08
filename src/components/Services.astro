@@ -1,19 +1,19 @@
 ---
 ---
 <!-- Outer tall scroll container: height reduced further on mobile for instant snapping -->
-<div id="services-scroll-spacer" class="relative h-[calc(100svh*2.5)] md:h-[calc(100svh*7)]">
+<div id="services-scroll-spacer" class="relative w-full max-w-full overflow-x-clip h-[calc(100svh*2.5)] md:h-[calc(100svh*7)]">
 
   <!-- Sticky inner: stays pinned while spacer scrolls -->
   <section id="servicios" class="sticky top-0 h-svh w-full flex flex-col overflow-hidden animate-section opacity-0">
     
-    <div class="container mx-auto px-4 sm:px-8 md:px-12 lg:px-16 relative z-10 h-svh flex flex-col justify-center py-8 md:py-12 lg:py-16">
+    <div class="container mx-auto px-4 sm:px-8 md:px-12 lg:px-16 relative z-10 flex-1 min-h-0 flex flex-col justify-center py-6 md:py-8 lg:py-10">
       
       <!-- Header -->
-      <div class="flex flex-col items-center justify-center space-y-4 text-center mb-6 md:mb-10 lg:mb-12">
+      <div class="flex flex-col items-center justify-center space-y-2 md:space-y-3 text-center mb-4 md:mb-6 lg:mb-8 shrink-0">
         <span class="inline-flex bg-primary/20 text-secondary text-xs sm:text-sm px-6 py-2 rounded-full border border-primary/30 w-fit font-semibold tracking-widest uppercase">
           <span class="lang-text" data-key="serviciosTitulo">Servicios</span>
         </span>
-        <h2 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter neon-title lang-text leading-[0.9]" data-key="misServicios">
+        <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black tracking-tighter neon-title lang-text leading-[0.9]" data-key="misServicios">
           Mis Servicios
         </h2>
       </div>
@@ -57,7 +57,7 @@
         </div>
 
         <!-- Columna Central: Imagen (Visible en todos) -->
-        <div id="service-visual-box" class="col-span-1 md:col-span-7 lg:col-span-4 relative rounded-[2.5rem] overflow-hidden glass-panel border border-white/10 shadow-2xl shadow-primary/10 aspect-3/4 w-full max-h-[560px]">
+        <div id="service-visual-box" class="col-span-1 md:col-span-7 lg:col-span-4 relative rounded-[2.5rem] overflow-hidden glass-panel border border-white/10 shadow-2xl shadow-primary/10 aspect-3/4 w-full max-h-[560px] lg:max-h-full lg:h-full">
           <img
             id="service-main-img"
             src={`${import.meta.env.BASE_URL}/assets/images/services/service_web.jpg`}
@@ -89,10 +89,10 @@
         </div>
 
         <!-- Columna Derecha: Info (Oculta en mobile y tablet, solo Desktop) -->
-        <div class="hidden lg:flex lg:col-span-4 space-y-4 xl:space-y-6 flex-col lg:h-[60vh] max-h-[550px] min-h-[400px]">
-          <div id="service-desc-box" class="p-6 xl:p-10 rounded-[2.5rem] glass-panel border border-white/5 bg-white/2 flex flex-col justify-between flex-1 hover:border-white/20 transition-all group overflow-hidden relative">
+        <div class="hidden lg:flex lg:col-span-4 space-y-4 xl:space-y-6 flex-col lg:h-full max-h-[550px] min-h-0">
+          <div id="service-desc-box" class="p-5 xl:p-8 rounded-[2.5rem] glass-panel border border-white/5 bg-white/2 flex flex-col justify-between flex-1 min-h-0 hover:border-white/20 transition-all group overflow-hidden relative">
             <div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 blur-3xl rounded-full group-hover:bg-primary/20 transition-colors"></div>
-            <p id="service-dynamic-desc" class="text-white/70 text-base xl:text-lg leading-relaxed lang-text relative z-10 line-clamp-4 lg:line-clamp-3 xl:line-clamp-none overflow-hidden" data-key="srvWebDesc">
+            <p id="service-dynamic-desc" class="text-white/70 text-base xl:text-lg leading-relaxed lang-text relative z-10 line-clamp-4 lg:line-clamp-5 xl:line-clamp-none overflow-hidden" data-key="srvWebDesc">
               Aplicaciones web modernas, rápidas y escalables utilizando las últimas tecnologías.
             </p>
             
@@ -107,7 +107,7 @@
             </a>
           </div>
 
-          <a id="service-stats-box" href="#contacto" data-section="contacto" class="nav-link p-8 rounded-4xl bg-linear-to-br from-primary to-[#5a0bbd] border border-primary/30 shadow-[0_20px_40px_rgba(72,8,170,0.25)] flex flex-col justify-between flex-1 group cursor-pointer transition-all hover:-translate-y-1">
+          <a id="service-stats-box" href="#contacto" data-section="contacto" class="nav-link p-5 xl:p-8 rounded-4xl bg-linear-to-br from-primary to-[#5a0bbd] border border-primary/30 shadow-[0_20px_40px_rgba(72,8,170,0.25)] flex flex-col justify-between flex-1 min-h-0 overflow-hidden group cursor-pointer transition-all hover:-translate-y-1">
             <p class="text-black font-black text-xl leading-tight lang-text uppercase tracking-tight" data-key="proyectoMente">¿Tienes un proyecto en mente?</p>
             <div class="flex items-end justify-between mt-4">
               <div class="flex flex-col">
