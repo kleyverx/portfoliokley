@@ -2,16 +2,16 @@
   {
     "id": "proj-1",
     "title": "MARG Flow — Gestor de Tareas y Chat en Tiempo Real",
-    "description": "Plataforma de colaboración en producción con tablero Kanban (estados y urgencias configurables), canales privados con envío de archivos, menciones, roles por marca, KPIs y exportación CSV. Backend en NestJS 11, Prisma 7, PostgreSQL 16, Redis y Socket.IO; frontend en React 19, Vite, Tailwind 4 y shadcn/ui. Desplegado en Coolify con Docker.",
+    "description": "Plataforma de colaboración en producción para una agencia de 16 personas y 4 negocios. Tablero Kanban con estados y urgencias configurables, chat en tiempo real con canales privados, archivos y menciones, 4 roles incluido un portal externo de solo-lectura para clientes, gamificación por puntos, carga masiva de tareas y dashboard de KPIs con exportación a Excel. Backend NestJS 11 + Prisma 7 sobre PostgreSQL 16 y Redis, tiempo real con Socket.IO; frontend React 19, Vite, Tailwind 4 y shadcn/ui. 124 tests. Desplegado en Coolify con Docker.",
     "technologies": [
       "NestJS 11",
       "React 19",
       "Socket.IO",
-      "PostgreSQL",
+      "PostgreSQL 16",
       "Redis",
       "Prisma 7",
       "Docker",
-      "TailwindCSS 4"
+      "TypeScript"
     ],
     "image": "margflow.png",
     "codeUrl": "",
