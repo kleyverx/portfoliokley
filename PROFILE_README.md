@@ -1,20 +1,37 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0%3A0a0b10%2C45%3A4808AA%2C100%3A7C3AED&height=230&section=header&text=Kleyver%20Urbina&fontSize=54&fontColor=ffffff&fontAlignY=34&desc=%E3%82%AF%E3%83%AC%E3%82%A4%E3%83%90%E3%83%BC%20%20%E2%80%A2%20%20Full-Stack%20Developer&descAlignY=54&descSize=18&animation=fadeIn" width="100%" alt="Kleyver Urbina"/>
+<img src="https://raw.githubusercontent.com/kleyverx/kleyverx/main/banner.svg" width="100%" alt="Kleyver Urbina — Full-Stack Developer"/>
 
 <img src="https://readme-typing-svg.demolab.com?font=JetBrains%20Mono&weight=700&size=22&duration=3800&pause=900&color=C4B5FD&center=true&vCenter=true&width=820&height=60&lines=Plataformas%20en%20tiempo%20real%2C%20en%20produccion%3BNestJS%2011%20%2B%20PostgreSQL%20%2B%20Redis%20%2B%20Socket.IO%3BE-commerce%20a%20medida%20con%20Next.js%20y%20Payload%20CMS%3BIngenieria%20en%20Computacion%20-%20UNETI%2C%20Caracas" alt="Full-Stack Developer"/>
 
 <p>
-  <a href="https://kleyverx.github.io/portfoliokley/"><img src="https://img.shields.io/badge/Portafolio-7C3AED?style=for-the-badge&logo=astro&logoColor=white" alt="Portafolio"/></a>
-  <a href="https://www.linkedin.com/in/kleyver-urbina-c-655578327/"><img src="https://img.shields.io/badge/LinkedIn-4808AA?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
-  <a href="https://www.instagram.com/kleyver.x/"><img src="https://img.shields.io/badge/Instagram-1f2130?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"/></a>
-  <a href="https://www.tiktok.com/@kleyver.x"><img src="https://img.shields.io/badge/TikTok-1f2130?style=for-the-badge&logo=tiktok&logoColor=white" alt="TikTok"/></a>
+  <a href="https://kleyverx.github.io/portfoliokley/"><img src="https://img.shields.io/badge/Portafolio-7C3AED?style=for-the-badge&labelColor=0a0b10&logo=astro&logoColor=white" alt="Portafolio"/></a>
+  <a href="https://www.linkedin.com/in/kleyver-urbina-c-655578327/"><img src="https://img.shields.io/badge/LinkedIn-4808AA?style=for-the-badge&labelColor=0a0b10&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
+  <a href="https://www.instagram.com/kleyver.x/"><img src="https://img.shields.io/badge/Instagram-1f2130?style=for-the-badge&labelColor=0a0b10&logo=instagram&logoColor=white" alt="Instagram"/></a>
+  <a href="https://www.tiktok.com/@kleyver.x"><img src="https://img.shields.io/badge/TikTok-1f2130?style=for-the-badge&labelColor=0a0b10&logo=tiktok&logoColor=white" alt="TikTok"/></a>
 </p>
 
 </div>
 
 <h2 align="center">
-  <samp>スキル • 概要</samp><br/>
+  <samp>スネーク • Contribuciones</samp><br/>
+  <img src="https://img.shields.io/badge/La%20culebrita-4808AA?style=for-the-badge&labelColor=0a0b10" alt="La culebrita"/>
+</h2>
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)"  srcset="https://raw.githubusercontent.com/kleyverx/kleyverx/output/snake-oscuro.svg"/>
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/kleyverx/kleyverx/output/snake-claro.svg"/>
+  <img src="https://raw.githubusercontent.com/kleyverx/kleyverx/output/snake-oscuro.svg" width="100%" alt="La culebrita se come mis contribuciones"/>
+</picture>
+
+<sub>Se regenera sola cada 12 horas. Cambia de color con el tema de GitHub.</sub>
+
+</div>
+
+<h2 align="center">
+  <samp>概要 • Sobre mi</samp><br/>
   <img src="https://img.shields.io/badge/Sobre%20mi-4808AA?style=for-the-badge&labelColor=0a0b10" alt="Sobre mi"/>
 </h2>
 
@@ -26,20 +43,12 @@ en la UNETI (Caracas, Venezuela).
 Autor unico de **dos plataformas activas en produccion**: un gestor de tareas colaborativo con chat
 en tiempo real y un motor de e-commerce a medida con seguridad avanzada.
 
-</div>
-
 <br/>
 
-<div align="center">
-
-| | |
-|---|---|
-| **Construyendo** | Plataformas en tiempo real y e-commerce en produccion |
-| **Especialidad** | NestJS · Next.js · React 19 · Astro · PostgreSQL · Redis |
-| **IA y DevOps** | Google Gemini API · n8n · Docker · Coolify · Cloudflare |
-| **Educacion** | Ingenieria en Computacion — UNETI (ultimo ano) |
-| **Ubicacion** | Caracas, Venezuela (UTC-4) — remoto |
-| **Contacto** | [Formulario del portafolio](https://kleyverx.github.io/portfoliokley/#contacto) |
+<img src="https://img.shields.io/badge/Repositorios-31-4808AA?style=for-the-badge&labelColor=0a0b10" alt="Repositorios-31"/>
+<img src="https://img.shields.io/badge/Publicos-20-7C3AED?style=for-the-badge&labelColor=0a0b10" alt="Publicos-20"/>
+<img src="https://img.shields.io/badge/Desde-2023-4808AA?style=for-the-badge&labelColor=0a0b10" alt="Desde-2023"/>
+<img src="https://img.shields.io/badge/En%20produccion-2%20plataformas-7C3AED?style=for-the-badge&labelColor=0a0b10" alt="En produccion-2 plataformas"/>
 
 </div>
 
@@ -50,21 +59,29 @@ en tiempo real y un motor de e-commerce a medida con seguridad avanzada.
 
 <div align="center">
 
-**Frontend**
-
+<details open>
+<summary><b>Frontend</b></summary>
+<br/>
 <img src="https://skillicons.dev/icons?i=react,nextjs,astro,ts,tailwind,angular&theme=dark" alt="Frontend"/>
+</details>
 
-**Backend**
-
+<details>
+<summary><b>Backend</b> — pulsa para desplegar</summary>
+<br/>
 <img src="https://skillicons.dev/icons?i=nestjs,nodejs,express,laravel,php,prisma&theme=dark" alt="Backend"/>
+</details>
 
-**Bases de datos**
-
+<details>
+<summary><b>Bases de datos</b> — pulsa para desplegar</summary>
+<br/>
 <img src="https://skillicons.dev/icons?i=postgres,redis,mysql,mongodb&theme=dark" alt="Bases de datos"/>
+</details>
 
-**DevOps y herramientas**
-
+<details>
+<summary><b>DevOps y herramientas</b> — pulsa para desplegar</summary>
+<br/>
 <img src="https://skillicons.dev/icons?i=docker,git,cloudflare,vercel,figma,vscode&theme=dark" alt="DevOps"/>
+</details>
 
 </div>
 
@@ -75,39 +92,104 @@ en tiempo real y un motor de e-commerce a medida con seguridad avanzada.
 
 <div align="center">
 
-| Proyecto | Que es | Stack |
-|---|---|---|
-| **MARG Flow** | Gestor de tareas con chat en tiempo real para una agencia de 16 personas. Kanban, portal externo donde el cliente aprueba, KPIs con exportacion a Excel. **En produccion.** | `NestJS 11` `React 19` `Socket.IO` `PostgreSQL` `Redis` `Prisma` |
-| **Plataforma E-Commerce** | Motor de e-commerce a medida con CMS por bloques, checkout, anti-fraude y notificaciones email/WhatsApp. **En produccion.** | `Next.js 16` `Payload CMS 3` `Astro 6` `Drizzle` `PostgreSQL` |
-| **EduTrack Insight** | Gestion academica con orientacion vocacional por IA para secundaria venezolana (curriculo MPPE). 4 paneles y constancias con QR. | `React 19` `Express` `MongoDB` `OpenRouter` |
-| **Forge Works Welding** | Sitio corporativo bilingue (es/en) para EE. UU., 35 paginas, captacion de leads serverless y SEO local para dos sedes. | `Astro 7` `TypeScript` `Cloudflare` `Resend` `Turnstile` |
-| **BMV Shop** | Tienda construida desde cero: inventario, roles, 2FA y pasarela de pago. | `Laravel 11` `Livewire` `MySQL` |
-| **AETHER / Q-Core** | Interfaz conversacional tipo HUD con la API de Google Gemini. | `Gemini API` `Vite` `Tailwind` |
+Seis proyectos, todos de codigo propio. Pulsa cualquiera para ver el detalle.
 
 </div>
 
+<details>
+<summary><b>MARG Flow</b> — gestor de tareas con chat en tiempo real · <b>en produccion</b></summary>
+
+<br/>
+
+Plataforma interna para una agencia de **16 personas y 4 negocios**. Tablero Kanban con estados y
+urgencias configurables, chat en tiempo real con canales privados, archivos y menciones, y un
+**portal externo donde el cliente responde y aprueba**, lo que mueve la tarea a una fase «Aprobado».
+Portadas automaticas, archivo paginado, calendario con cumpleanos y KPIs con exportacion a Excel.
+
+`NestJS 11` `Prisma 7` `PostgreSQL 16` `Redis` `Socket.IO` `React 19` `Vite` `Docker` `Coolify`
+
+</details>
+
+<details>
+<summary><b>Plataforma E-Commerce</b> — motor a medida con CMS por bloques · <b>en produccion</b></summary>
+
+<br/>
+
+Catalogo por marcas, carrito, checkout, gestion de pedidos con entrega por Delivery o Envio,
+formularios dinamicos con exportacion a Excel y notificaciones por email y WhatsApp, todo sobre un
+CMS auto-gestionable. Seguridad: recalculo de precios en servidor, idempotencia, rate limiting,
+Turnstile, webhooks firmados con HMAC y neutralizacion de formulas en las exportaciones.
+
+`Next.js 16` `Payload CMS 3` `Astro 6 SSR` `React 19` `PostgreSQL` `Drizzle`
+
+</details>
+
+<details>
+<summary><b>EduTrack Insight v2.0</b> — gestion academica con IA</summary>
+
+<br/>
+
+Plataforma para escuelas y liceos venezolanos bajo curriculo MPPE: notas, asistencia, boletines,
+constancias con QR verificable y orientacion vocacional asistida por IA. Cuatro paneles (estudiante,
+docente, representante y administracion) y bot de Telegram bidireccional.
+
+`React 19` `Express` `MongoDB` `OpenRouter` `Telegram API`
+&nbsp;·&nbsp; [Demo](https://eductrack2-0.vercel.app) · [Codigo](https://github.com/kleyverx/Eductrack2.0)
+
+</details>
+
+<details>
+<summary><b>Forge Works Welding</b> — sitio corporativo bilingue para EE. UU.</summary>
+
+<br/>
+
+35 paginas en Astro estatico con i18n nativo (es/en) para una empresa de soldadura e ingenieria
+estructural con sedes en **Houston y Chicago**. Captacion de leads por funcion serverless con Resend
+y Turnstile, SEO local con JSON-LD por sede, y cabeceras CSP y HSTS estrictas.
+
+`Astro 7` `TypeScript` `TailwindCSS` `GSAP` `Cloudflare Pages` `Resend`
+&nbsp;·&nbsp; [Ver sitio](https://forgeworksw.com)
+
+</details>
+
+<details>
+<summary><b>BMV Shop</b> — e-commerce construido desde cero</summary>
+
+<br/>
+
+Tienda completa sin plantillas: carrito, gestion de productos y stock, autenticacion de dos factores,
+roles y permisos, y pasarela de pago.
+
+`Laravel 11` `Livewire` `MySQL` `TailwindCSS`
+
+</details>
+
+<details>
+<summary><b>AETHER / Q-Core v4.0</b> — interfaz conversacional tipo HUD</summary>
+
+<br/>
+
+Landing de producto con estetica HUD y asistente conversacional integrado con la API de Google
+Gemini.
+
+`Google Gemini API` `Vite` `TailwindCSS`
+&nbsp;·&nbsp; [Demo](https://aether-proyect.vercel.app) · [Codigo](https://github.com/kleyverx/aether-proyect)
+
+</details>
+
 <h2 align="center">
-  <samp>統計 • Actividad</samp><br/>
-  <img src="https://img.shields.io/badge/Numeros-4808AA?style=for-the-badge&labelColor=0a0b10" alt="Numeros"/>
+  <samp>コンタクト • Contacto</samp><br/>
+  <img src="https://img.shields.io/badge/Hablemos-4808AA?style=for-the-badge&labelColor=0a0b10" alt="Hablemos"/>
 </h2>
 
 <div align="center">
 
-<img src="https://img.shields.io/badge/Repositorios-31-4808AA?style=for-the-badge&labelColor=0a0b10" alt="31 repositorios"/>
-<img src="https://img.shields.io/badge/Publicos-20-7C3AED?style=for-the-badge&labelColor=0a0b10" alt="20 publicos"/>
-<img src="https://img.shields.io/badge/Desde-2023-4808AA?style=for-the-badge&labelColor=0a0b10" alt="Desde 2023"/>
-<img src="https://img.shields.io/badge/En%20produccion-2%20plataformas-7C3AED?style=for-the-badge&labelColor=0a0b10" alt="2 plataformas en produccion"/>
+<a href="https://kleyverx.github.io/portfoliokley/#contacto"><img src="https://img.shields.io/badge/Escribeme%20por%20el%20portafolio-7C3AED?style=for-the-badge&labelColor=0a0b10&logo=minutemailer&logoColor=white" alt="Escribeme por el portafolio"/></a>
 
 <br/><br/>
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=kleyverx&theme=tokyonight&hide_border=true&background=0a0b10&ring=4808AA&fire=7C3AED&currStreakLabel=C4B5FD" alt="Racha" height="160"/>
+<img src="https://raw.githubusercontent.com/kleyverx/kleyverx/main/banner.svg" width="100%" alt=""/>
 
-</div>
-
-<div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0%3A7C3AED%2C55%3A4808AA%2C100%3A0a0b10&height=140&section=footer" width="100%" alt=""/>
-
-<samp>© 2026 クレイバー • Kleyver Urbina</samp>
+<sub>© 2026 クレイバー • Kleyver Urbina</sub>
 
 </div>

@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="280" viewBox="0 0 1200 280" role="img" aria-label="Kleyver Urbina — Full-Stack Developer">
+  <title>Kleyver Urbina — Full-Stack Developer</title>
+
+  <defs>
+    <!-- Glow morado del portafolio (#4808AA -> #7c3aed) -->
+    <radialGradient id="glow" cx="50%" cy="55%" r="65%">
+      <stop offset="0%"   stop-color="#7c3aed" stop-opacity="0.42"/>
+      <stop offset="45%"  stop-color="#4808AA" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#0a0b10" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Degradado del titulo -->
+    <linearGradient id="titulo" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="55%"  stop-color="#e9d5ff"/>
+      <stop offset="100%" stop-color="#c4b5fd"/>
+    </linearGradient>
+
+    <!-- Desvanecido de los bordes, para que la rejilla no corte en seco -->
+    <linearGradient id="fadeX" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#fff" stop-opacity="0"/>
+      <stop offset="18%"  stop-color="#fff" stop-opacity="1"/>
+      <stop offset="82%"  stop-color="#fff" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="mascaraRejilla">
+      <rect width="1200" height="280" fill="url(#fadeX)"/>
+    </mask>
+
+    <!-- Una celda de 40px: el mismo tamano y color que squares-bg.js -->
+    <pattern id="cuadros" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none"
+            stroke="rgba(191,0,255,0.35)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="1200" height="280" fill="#0a0b10"/>
+
+  <!-- Rejilla en deriva diagonal: se desplaza justo una celda y reinicia, asi el bucle no salta -->
+  <g mask="url(#mascaraRejilla)">
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+                        from="-40 -40" to="0 0" dur="9s" repeatCount="indefinite"/>
+      <rect x="-40" y="-40" width="1280" height="360" fill="url(#cuadros)"/>
+    </g>
+  </g>
+
+  <!-- Cuadros acentuados que laten, como el hover del sitio -->
+  <g fill="#bf00ff" mask="url(#mascaraRejilla)">
+    <rect x="160" y="40"  width="40" height="40" opacity="0.10">
+      <animate attributeName="opacity" values="0.04;0.20;0.04" dur="4s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="280" y="200" width="40" height="40" opacity="0.10">
+      <animate attributeName="opacity" values="0.18;0.04;0.18" dur="5.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="920" y="80"  width="40" height="40" opacity="0.10">
+      <animate attributeName="opacity" values="0.06;0.22;0.06" dur="6.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="1000" y="180" width="40" height="40" opacity="0.10">
+      <animate attributeName="opacity" values="0.20;0.05;0.20" dur="4.8s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- Resplandor central -->
+  <rect width="1200" height="280" fill="url(#glow)"/>
+
+  <!-- Marco de esquinas, guino a la estetica HUD -->
+  <g stroke="#7c3aed" stroke-width="2" fill="none" opacity="0.65">
+    <path d="M 28 64 L 28 28 L 64 28"/>
+    <path d="M 1172 64 L 1172 28 L 1136 28"/>
+    <path d="M 28 216 L 28 252 L 64 252"/>
+    <path d="M 1172 216 L 1172 252 L 1136 252"/>
+  </g>
+
+  <!-- Kicker -->
+  <text x="600" y="92" text-anchor="middle"
+        font-family="'Courier New', monospace" font-size="15" letter-spacing="7"
+        fill="#c4b5fd" opacity="0.95">クレイバー • PORTFOLIO</text>
+
+  <!-- Nombre -->
+  <text x="600" y="168" text-anchor="middle"
+        font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+        font-size="66" font-weight="900" letter-spacing="-2"
+        fill="url(#titulo)">KLEYVER URBINA</text>
+
+  <!-- Subtitulo -->
+  <text x="600" y="208" text-anchor="middle"
+        font-family="'Courier New', monospace" font-size="16" letter-spacing="4"
+        fill="#a78bfa">FULL-STACK DEVELOPER</text>
+
+  <!-- Linea que barre, como el scan de un HUD -->
+  <rect x="0" y="232" width="200" height="2" fill="#bf00ff" opacity="0.55">
+    <animate attributeName="x" values="-200;1200" dur="7s" repeatCount="indefinite"/>
+  </rect>
+</svg>
