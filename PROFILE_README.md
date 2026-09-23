@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/kleyverx/kleyverx/main/banner.svg" width="100%" alt="Kleyver Urbina — Full-Stack Developer"/>
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains%20Mono&weight=700&size=22&duration=3800&pause=900&color=C4B5FD&center=true&vCenter=true&width=820&height=60&lines=Plataformas%20en%20tiempo%20real%2C%20en%20produccion%3BNestJS%2011%20%2B%20PostgreSQL%20%2B%20Redis%20%2B%20Socket.IO%3BE-commerce%20a%20medida%20con%20Next.js%20y%20Payload%20CMS%3BIngenieria%20en%20Computacion%20-%20UNETI%2C%20Caracas" alt="Full-Stack Developer"/>
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains%20Mono&weight=700&size=22&duration=3800&pause=900&color=C4B5FD&center=true&vCenter=true&width=820&height=60&lines=Plataformas%20en%20tiempo%20real%2C%20en%20produccion%3BNestJS%2011%20%2B%20PostgreSQL%20%2B%20Redis%20%2B%20Socket.IO%3BE-commerce%20a%20medida%20con%20Next.js%20y%20Payload%20CMS%3BIngenieria%20en%20Informatica%20-%20UNETI%2C%20Caracas" alt="Full-Stack Developer"/>
 
 <p>
   <a href="https://kleyverx.github.io/portfoliokley/"><img src="https://img.shields.io/badge/Portafolio-7C3AED?style=for-the-badge&labelColor=0a0b10&logo=astro&logoColor=white" alt="Portafolio"/></a>
@@ -37,7 +37,7 @@
 
 <div align="center">
 
-Desarrollador **Full-Stack TypeScript** y estudiante de ultimo ano de **Ingenieria en Computacion**
+Desarrollador **Full-Stack TypeScript** y estudiante de ultimo ano de **Ingenieria en Informatica**
 en la UNETI (Caracas, Venezuela).
 
 Autor unico de **dos plataformas activas en produccion**: un gestor de tareas colaborativo con chat
