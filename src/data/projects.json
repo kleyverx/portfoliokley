@@ -57,19 +57,22 @@
     "featured": true
   },
   {
-    "id": "proj-4",
-    "title": "AETHER / Q-Core v4.0 — Interfaz de IA Conversacional",
-    "description": "Interfaz web conversacional estilo HUD que integra la API de Google Gemini 1.5/2.0 Flash para interacciones inteligentes en tiempo real, desarrollada con Vite, TypeScript y Tailwind CSS.",
+    "id": "proj-7",
+    "title": "Forge Works Welding — Sitio Corporativo Bilingüe (EE. UU.)",
+    "description": "Sitio corporativo bilingüe (es/en) para una empresa de soldadura e ingeniería estructural con sedes en Houston y Chicago. 35 páginas en Astro 7 estático con i18n nativo, animaciones GSAP, captación de leads por función serverless (Resend + Turnstile anti-bot), SEO local con JSON-LD para las dos sedes y cabeceras CSP y HSTS estrictas. Desplegado en Cloudflare Pages.",
     "technologies": [
-      "Google Gemini API",
-      "Vite",
+      "Astro 7",
       "TypeScript",
-      "TailwindCSS"
+      "TailwindCSS 4",
+      "GSAP",
+      "Cloudflare Pages",
+      "Resend",
+      "Turnstile"
     ],
-    "image": "aether.png",
-    "codeUrl": "https://github.com/kleyverx/aether-proyect",
-    "demoUrl": "https://aether-proyect.vercel.app",
-    "date": "2026-02-01",
+    "image": "forgeworks.png",
+    "codeUrl": "",
+    "demoUrl": "https://forgeworksw.com",
+    "date": "2026-07-17",
     "featured": true
   },
   {
@@ -89,19 +92,19 @@
     "featured": false
   },
   {
-    "id": "proj-6",
-    "title": "Levni Care & Shopify Themes a Medida",
-    "description": "Desarrollo de tiendas y temas personalizados en Liquid para Shopify con diseño UI/UX optimizado para conversión, scripts dinámicos en JavaScript y estructuras responsive de alto impacto.",
+    "id": "proj-4",
+    "title": "AETHER / Q-Core v4.0 — Interfaz de IA Conversacional",
+    "description": "Interfaz web conversacional estilo HUD que integra la API de Google Gemini 1.5/2.0 Flash para interacciones inteligentes en tiempo real, desarrollada con Vite, TypeScript y Tailwind CSS.",
     "technologies": [
-      "Shopify",
-      "Liquid",
-      "JavaScript",
-      "CSS"
+      "Google Gemini API",
+      "Vite",
+      "TypeScript",
+      "TailwindCSS"
     ],
-    "image": "levnicare.png",
-    "codeUrl": "https://github.com/kleyverx/levnicare-theme",
-    "demoUrl": "https://www.levnicare.com/",
-    "date": "2024-09-10",
-    "featured": false
+    "image": "aether.png",
+    "codeUrl": "https://github.com/kleyverx/aether-proyect",
+    "demoUrl": "https://aether-proyect.vercel.app",
+    "date": "2026-02-01",
+    "featured": true
   }
 ]
