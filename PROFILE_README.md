@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/kleyverx/kleyverx/main/banner.svg" width="100%" alt="Kleyver Urbina — Full-Stack Developer"/>
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains%20Mono&weight=700&size=22&duration=3800&pause=900&color=C4B5FD&center=true&vCenter=true&width=820&height=60&lines=Plataformas%20en%20tiempo%20real%2C%20en%20produccion%3BNestJS%2011%20%2B%20PostgreSQL%20%2B%20Redis%20%2B%20Socket.IO%3BE-commerce%20a%20medida%20con%20Next.js%20y%20Payload%20CMS%3BIngenieria%20en%20Informatica%20-%20UNETI%2C%20Caracas" alt="Full-Stack Developer"/>
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains%20Mono&weight=700&size=22&duration=3800&pause=900&color=C4B5FD&center=true&vCenter=true&width=820&height=60&lines=Plataformas%20en%20tiempo%20real%2C%20en%20producci%C3%B3n%3BNestJS%2011%20%2B%20PostgreSQL%20%2B%20Redis%20%2B%20Socket.IO%3BE-commerce%20a%20medida%20con%20Next.js%20y%20Payload%20CMS%3BIngenier%C3%ADa%20en%20Inform%C3%A1tica%20%E2%80%94%20UNETI%2C%20Caracas" alt="Full-Stack Developer"/>
 
 <p>
   <a href="https://kleyverx.github.io/portfoliokley/"><img src="https://img.shields.io/badge/Portafolio-7C3AED?style=for-the-badge&labelColor=0a0b10&logo=astro&logoColor=white" alt="Portafolio"/></a>
@@ -26,29 +26,29 @@
   <img src="https://raw.githubusercontent.com/kleyverx/kleyverx/output/snake-oscuro.svg" width="100%" alt="La culebrita se come mis contribuciones"/>
 </picture>
 
-<sub>Se regenera sola cada 12 horas. Cambia de color con el tema de GitHub.</sub>
+<sub>Se regenera sola cada 12 horas y cambia de color con el tema de GitHub.</sub>
 
 </div>
 
 <h2 align="center">
-  <samp>概要 • Sobre mi</samp><br/>
-  <img src="https://img.shields.io/badge/Sobre%20mi-4808AA?style=for-the-badge&labelColor=0a0b10" alt="Sobre mi"/>
+  <samp>概要 • Sobre mí</samp><br/>
+  <img src="https://img.shields.io/badge/Sobre%20m%C3%AD-4808AA?style=for-the-badge&labelColor=0a0b10" alt="Sobre mí"/>
 </h2>
 
 <div align="center">
 
-Desarrollador **Full-Stack TypeScript** y estudiante de ultimo ano de **Ingenieria en Informatica**
+Desarrollador **Full-Stack TypeScript** y estudiante de último año de **Ingeniería en Informática**
 en la UNETI (Caracas, Venezuela).
 
-Autor unico de **dos plataformas activas en produccion**: un gestor de tareas colaborativo con chat
+Autor único de **dos plataformas activas en producción**: un gestor de tareas colaborativo con chat
 en tiempo real y un motor de e-commerce a medida con seguridad avanzada.
 
 <br/>
 
 <img src="https://img.shields.io/badge/Repositorios-31-4808AA?style=for-the-badge&labelColor=0a0b10" alt="Repositorios-31"/>
-<img src="https://img.shields.io/badge/Publicos-20-7C3AED?style=for-the-badge&labelColor=0a0b10" alt="Publicos-20"/>
+<img src="https://img.shields.io/badge/P%C3%BAblicos-20-7C3AED?style=for-the-badge&labelColor=0a0b10" alt="Públicos-20"/>
 <img src="https://img.shields.io/badge/Desde-2023-4808AA?style=for-the-badge&labelColor=0a0b10" alt="Desde-2023"/>
-<img src="https://img.shields.io/badge/En%20produccion-2%20plataformas-7C3AED?style=for-the-badge&labelColor=0a0b10" alt="En produccion-2 plataformas"/>
+<img src="https://img.shields.io/badge/En%20producci%C3%B3n-2%20plataformas-7C3AED?style=for-the-badge&labelColor=0a0b10" alt="En producción-2 plataformas"/>
 
 </div>
 
@@ -92,59 +92,59 @@ en tiempo real y un motor de e-commerce a medida con seguridad avanzada.
 
 <div align="center">
 
-Seis proyectos, todos de codigo propio. Pulsa cualquiera para ver el detalle.
+Seis proyectos, todos de código propio. Pulsa cualquiera para ver el detalle.
 
 </div>
 
 <details>
-<summary><b>MARG Flow</b> — gestor de tareas con chat en tiempo real · <b>en produccion</b></summary>
+<summary><b>MARG Flow</b> — gestor de tareas con chat en tiempo real · <b>en producción</b></summary>
 
 <br/>
 
 Plataforma interna para una agencia de **16 personas y 4 negocios**. Tablero Kanban con estados y
 urgencias configurables, chat en tiempo real con canales privados, archivos y menciones, y un
 **portal externo donde el cliente responde y aprueba**, lo que mueve la tarea a una fase «Aprobado».
-Portadas automaticas, archivo paginado, calendario con cumpleanos y KPIs con exportacion a Excel.
+Portadas automáticas, archivo paginado, calendario con cumpleaños y KPIs con exportación a Excel.
 
 `NestJS 11` `Prisma 7` `PostgreSQL 16` `Redis` `Socket.IO` `React 19` `Vite` `Docker` `Coolify`
 
 </details>
 
 <details>
-<summary><b>Plataforma E-Commerce</b> — motor a medida con CMS por bloques · <b>en produccion</b></summary>
+<summary><b>Plataforma E-Commerce</b> — motor a medida con CMS por bloques · <b>en producción</b></summary>
 
 <br/>
 
-Catalogo por marcas, carrito, checkout, gestion de pedidos con entrega por Delivery o Envio,
-formularios dinamicos con exportacion a Excel y notificaciones por email y WhatsApp, todo sobre un
-CMS auto-gestionable. Seguridad: recalculo de precios en servidor, idempotencia, rate limiting,
-Turnstile, webhooks firmados con HMAC y neutralizacion de formulas en las exportaciones.
+Catálogo por marcas, carrito, checkout, gestión de pedidos con entrega por Delivery o Envío,
+formularios dinámicos con exportación a Excel y notificaciones por email y WhatsApp, todo sobre un
+CMS auto-gestionable. Seguridad: recálculo de precios en servidor, idempotencia, rate limiting,
+Turnstile, webhooks firmados con HMAC y neutralización de fórmulas en las exportaciones.
 
 `Next.js 16` `Payload CMS 3` `Astro 6 SSR` `React 19` `PostgreSQL` `Drizzle`
 
 </details>
 
 <details>
-<summary><b>EduTrack Insight v2.0</b> — gestion academica con IA</summary>
+<summary><b>EduTrack Insight v2.0</b> — gestión académica con IA</summary>
 
 <br/>
 
-Plataforma para escuelas y liceos venezolanos bajo curriculo MPPE: notas, asistencia, boletines,
-constancias con QR verificable y orientacion vocacional asistida por IA. Cuatro paneles (estudiante,
-docente, representante y administracion) y bot de Telegram bidireccional.
+Plataforma para escuelas y liceos venezolanos bajo currículo MPPE: notas, asistencia, boletines,
+constancias con QR verificable y orientación vocacional asistida por IA. Cuatro paneles (estudiante,
+docente, representante y administración) y bot de Telegram bidireccional.
 
 `React 19` `Express` `MongoDB` `OpenRouter` `Telegram API`
-&nbsp;·&nbsp; [Demo](https://eductrack2-0.vercel.app) · [Codigo](https://github.com/kleyverx/Eductrack2.0)
+&nbsp;·&nbsp; [Demo](https://eductrack2-0.vercel.app) · [Código](https://github.com/kleyverx/Eductrack2.0)
 
 </details>
 
 <details>
-<summary><b>Forge Works Welding</b> — sitio corporativo bilingue para EE. UU.</summary>
+<summary><b>Forge Works Welding</b> — sitio corporativo bilingüe para EE. UU.</summary>
 
 <br/>
 
-35 paginas en Astro estatico con i18n nativo (es/en) para una empresa de soldadura e ingenieria
-estructural con sedes en **Houston y Chicago**. Captacion de leads por funcion serverless con Resend
+35 páginas en Astro estático con i18n nativo (es/en) para una empresa de soldadura e ingeniería
+estructural con sedes en **Houston y Chicago**. Captación de leads por función serverless con Resend
 y Turnstile, SEO local con JSON-LD por sede, y cabeceras CSP y HSTS estrictas.
 
 `Astro 7` `TypeScript` `TailwindCSS` `GSAP` `Cloudflare Pages` `Resend`
@@ -157,7 +157,7 @@ y Turnstile, SEO local con JSON-LD por sede, y cabeceras CSP y HSTS estrictas.
 
 <br/>
 
-Tienda completa sin plantillas: carrito, gestion de productos y stock, autenticacion de dos factores,
+Tienda completa sin plantillas: carrito, gestión de productos y stock, autenticación de dos factores,
 roles y permisos, y pasarela de pago.
 
 `Laravel 11` `Livewire` `MySQL` `TailwindCSS`
@@ -169,11 +169,11 @@ roles y permisos, y pasarela de pago.
 
 <br/>
 
-Landing de producto con estetica HUD y asistente conversacional integrado con la API de Google
+Landing de producto con estética HUD y asistente conversacional integrado con la API de Google
 Gemini.
 
 `Google Gemini API` `Vite` `TailwindCSS`
-&nbsp;·&nbsp; [Demo](https://aether-proyect.vercel.app) · [Codigo](https://github.com/kleyverx/aether-proyect)
+&nbsp;·&nbsp; [Demo](https://aether-proyect.vercel.app) · [Código](https://github.com/kleyverx/aether-proyect)
 
 </details>
 
@@ -184,7 +184,7 @@ Gemini.
 
 <div align="center">
 
-<a href="https://kleyverx.github.io/portfoliokley/#contacto"><img src="https://img.shields.io/badge/Escribeme%20por%20el%20portafolio-7C3AED?style=for-the-badge&labelColor=0a0b10&logo=minutemailer&logoColor=white" alt="Escribeme por el portafolio"/></a>
+<a href="https://kleyverx.github.io/portfoliokley/#contacto"><img src="https://img.shields.io/badge/Escr%C3%ADbeme%20por%20el%20portafolio-7C3AED?style=for-the-badge&labelColor=0a0b10&logo=minutemailer&logoColor=white" alt="Escríbeme por el portafolio"/></a>
 
 <br/><br/>
 
