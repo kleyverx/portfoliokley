@@ -2,7 +2,7 @@
   {
     "id": "proj-1",
     "title": "MARG Flow — Gestor de Tareas y Chat en Tiempo Real",
-    "description": "Plataforma de colaboración en producción para una agencia de 16 personas y 4 negocios. Tablero Kanban con estados y urgencias configurables, chat en tiempo real con canales privados, archivos y menciones, 4 roles incluido un portal externo de solo-lectura para clientes, gamificación por puntos, carga masiva de tareas y dashboard de KPIs con exportación a Excel. Backend NestJS 11 + Prisma 7 sobre PostgreSQL 16 y Redis, tiempo real con Socket.IO; frontend React 19, Vite, Tailwind 4 y shadcn/ui. 124 tests. Desplegado en Coolify con Docker.",
+    "description": "Plataforma de colaboración en producción para una agencia de 16 personas y 4 negocios. Tablero Kanban con estados y urgencias configurables, chat en tiempo real con canales privados, archivos y menciones, y un portal externo donde el cliente ve sus tareas, responde y aprueba, moviendo la tarea a una fase «Aprobado». Portadas automáticas, archivo paginado, calendario con cumpleaños y avisos, recorridos guiados y dashboard de KPIs con exportación a Excel. Backend NestJS 11 + Prisma 7 sobre PostgreSQL 16 y Redis, tiempo real con Socket.IO; frontend React 19, Vite, Tailwind 4 y shadcn/ui. Desplegado en Coolify con Docker.",
     "technologies": [
       "NestJS 11",
       "React 19",
@@ -22,7 +22,7 @@
   {
     "id": "proj-2",
     "title": "Plataforma E-Commerce Next.js + Payload CMS",
-    "description": "Plataforma e-commerce a medida en producción: catálogo, carrito, checkout, gestión de pedidos, notificaciones por email/WhatsApp y CMS auto-gestionable. Next.js 16 con Payload CMS 3.83, PostgreSQL 16 y Drizzle; sitio público en Astro 6 SSR con islas React 19. Seguridad con recálculo de precios server-side, idempotencia, rate limiting, Turnstile y webhooks HMAC.",
+    "description": "Plataforma e-commerce a medida en producción: catálogo por marcas, carrito, checkout, gestión de pedidos con entrega por Delivery o Envío, formularios dinámicos con exportación a Excel y notificaciones por email/WhatsApp, todo sobre un CMS auto-gestionable por bloques. Next.js 16 con Payload CMS 3.83, PostgreSQL 16 y Drizzle; sitio público en Astro 6 SSR con islas React 19. SEO con datos estructurados y sitemap. Seguridad con recálculo de precios server-side, idempotencia, rate limiting, Turnstile, webhooks HMAC y neutralización de fórmulas en las exportaciones.",
     "technologies": [
       "Next.js 16",
       "Payload CMS",
