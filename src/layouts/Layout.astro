@@ -91,6 +91,15 @@ const { title } = Astro.props;
   <script is:inline type="module" src="https://unpkg.com/@splinetool/viewer@1.9.28/build/spline-viewer.js"></script>
 
   <script is:inline type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script is:inline type="text/javascript">emailjs.init('dGuJ18LLlywexr6Wl');</script>
+  <!-- EmailJS: la clave pública es publicable por diseño (va en el cliente a propósito).
+       blockHeadless rechaza navegadores automatizados (devuelve 451) y limitRate limita a un
+       envío cada 10 s por visitante: son las dos protecciones anti-spam nativas del SDK. -->
+  <script is:inline type="text/javascript">
+    emailjs.init({
+      publicKey: 'dGuJ18LLlywexr6Wl',
+      blockHeadless: true,
+      limitRate: { id: 'contacto-portafolio', throttle: 10000 }
+    });
+  </script>
 </body>
 </html>

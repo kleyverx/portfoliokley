@@ -35,7 +35,16 @@
             </svg>
             <div>
               <h4 class="font-medium lang-text" data-key="email">Email</h4>
-              <p class="text-sm text-mutedForeground">kleyvercell2@gmail.com</p>
+              {/* Ofuscado: el correo NO viaja en el HTML. contact.js lo arma en el navegador
+                  desde estas partes, para que los rastreadores de spam no lo cosechen. */}
+              <p class="text-sm text-mutedForeground">
+                <a
+                  class="contacto-protegido hover:text-primary transition-colors"
+                  data-c="a2xleXZlcmNlbGwyQGdtYWlsLmNvbQ=="
+                  data-tipo="email"
+                  href="#contacto"
+                ><noscript>Escríbeme por el formulario</noscript></a>
+              </p>
             </div>
           </div>
           <div class="flex items-start gap-4">
@@ -44,7 +53,15 @@
             </svg>
             <div>
               <h4 class="font-medium lang-text" data-key="telefono">Teléfono</h4>
-              <p class="text-sm text-mutedForeground">+58 (424) 110-3017</p>
+              {/* Ofuscado igual que el correo: se arma en el navegador. */}
+              <p class="text-sm text-mutedForeground">
+                <a
+                  class="contacto-protegido hover:text-primary transition-colors"
+                  data-c="KzU4NDI0MTEwMzAxNw=="
+                  data-tipo="tel"
+                  href="#contacto"
+                ><noscript>Escríbeme por el formulario</noscript></a>
+              </p>
             </div>
           </div>
           <div class="flex items-start gap-4">
@@ -124,6 +141,30 @@
             </label>
             <textarea id="message" name="message" class="flex min-h-[120px] w-full rounded-md border border-primary/20 bg-card/50 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" placeholder="Escribe tu mensaje aquí..." required></textarea>
           </div>
+          {/* Honeypot anti-bot: invisible y fuera del foco para personas, pero los bots que
+              rellenan todos los campos por defecto caen aquí. Si llega con valor, contact.js
+              descarta el envío en silencio (sin gastar cuota de EmailJS). No lleva `hidden`
+              a propósito: muchos bots ignoran los campos con ese atributo. */}
+          <div class="absolute -left-[9999px] top-0 h-0 w-0 overflow-hidden" aria-hidden="true">
+            <label for="empresa-web">No rellenar este campo</label>
+            <input id="empresa-web" name="empresa-web" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          {/* reCAPTCHA v2 — inerte hasta que pongas tu clave de sitio.
+              Pasos: 1) crea una clave v2 "no soy un robot" en google.com/recaptcha/admin
+                     2) pégala aquí en data-sitekey
+                     3) en el panel de EmailJS, en ESTA plantilla, activa reCAPTCHA v2 y pega
+                        la clave SECRETA (EmailJS la verifica en su servidor; el sitio es
+                        estático y no puede validarla por su cuenta).
+              Mientras data-sitekey esté vacío, el formulario sigue funcionando con el
+              honeypot + blockHeadless + límite de envíos. */}
+          <div
+            id="recaptcha-contacto"
+            class="g-recaptcha mt-2 flex justify-center"
+            data-sitekey=""
+            data-theme="dark"
+          ></div>
+
           <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-primary/80 text-white px-4 py-2 rounded-md glow-effect mt-4">
             <span class="lang-text" data-key="enviarMensaje">Enviar mensaje</span>
           </button>

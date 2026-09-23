@@ -200,6 +200,13 @@ document.addEventListener('DOMContentLoaded', async function () {
       initDownloadCV();
       console.log('✅ Descarga CV inicializada');
     }
+    if (typeof initContactoProtegido === 'function') {
+      initContactoProtegido();
+      console.log('✅ Datos de contacto revelados (anti-scraping)');
+    }
+    if (typeof initCaptchaContacto === 'function') {
+      initCaptchaContacto();
+    }
 
     // 4. GSAP scroll effects
     initGSAPAnimations();
